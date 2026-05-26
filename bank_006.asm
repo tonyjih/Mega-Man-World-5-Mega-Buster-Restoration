@@ -3833,7 +3833,7 @@ InitChargedBusterShot:
     ld e, [hl]
     ld l, c
     push hl
-    call Call_000_02fa
+    call MaybeSpawnChargedBusterMuzzleFlash
     pop hl
     ld c, l
     ld de, ChargedBusterShotAnim
@@ -12341,6 +12341,19 @@ ApplyFullChargeMegaBusterRecoil:
     adc $ff
     ld [hl+], a
     ret
+
+MaybeSpawnChargedBusterMuzzleFlash:
+    ld a, [wPrimaryWeaponModeFlags]
+    bit PRIMARY_WEAPON_MEGA_BUSTER_F, a
+    jr z, .spawn
+
+    ld a, [wBusterChargeCounter]
+    ld hl, wBusterChargeFullThreshold
+    cp [hl]
+    ret c
+
+.spawn:
+    jp Call_000_02fa
 
 MegaBusterPartialShotOAMFrame0:
     db $f8, $07, $fd, $02
