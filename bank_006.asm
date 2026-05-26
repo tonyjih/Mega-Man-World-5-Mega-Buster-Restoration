@@ -23,7 +23,7 @@ SECTION "ROM Bank $006", ROMX[$4000], BANK[$6]
     jp Jump_006_45a0
 
 
-    jp Jump_006_51b2
+    jp UpdateBusterChargeEffects
 
 
     jp Jump_006_69bd
@@ -1101,7 +1101,7 @@ jr_006_44fe:
 
 Jump_006_4509:
     xor a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
 
 jr_006_450d:
     call Call_000_022e
@@ -1169,7 +1169,7 @@ jr_006_4546:
     ld a, [hl+]
     ld [$c2bb], a
     ld a, [hl+]
-    ld [$c2bc], a
+    ld [wPlayerShotAnimType], a
     ld a, [hl+]
     ld [$c2e9], a
     ld b, $04
@@ -1183,7 +1183,7 @@ jr_006_457f:
     dec b
     jr nz, jr_006_457f
 
-    call Call_006_5189
+    call LoadBusterChargeThresholds
     xor a
     ld [$d779], a
     ld a, [$de9b]
@@ -1220,7 +1220,7 @@ jr_006_45ac:
     cp $06
     jr nz, jr_006_45e0
 
-    ld a, [$d75c]
+    ld a, [wBusterChargeCounter]
     cp $1e
     ld a, [$d740]
     jp c, Jump_006_4681
@@ -1234,7 +1234,7 @@ jr_006_45ac:
     jr z, jr_006_45d8
 
     xor a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
     ret
 
 
@@ -1280,7 +1280,7 @@ jr_006_4609:
     bit 1, a
     jr nz, jr_006_4640
 
-    ld a, [$d75c]
+    ld a, [wBusterChargeCounter]
     cp $10
     ret c
 
@@ -1304,7 +1304,7 @@ jr_006_4633:
     ld a, [$d767]
     or $02
     ld [$d767], a
-    ld hl, $d75c
+    ld hl, wBusterChargeCounter
     dec [hl]
     ret
 
@@ -1320,9 +1320,9 @@ jr_006_4648:
     jr jr_006_467e
 
 Jump_006_464a:
-    ld a, [$c2ef]
+    ld a, [wBusterChargeMinThreshold]
     ld b, a
-    ld a, [$d75c]
+    ld a, [wBusterChargeCounter]
     cp b
     jr nc, jr_006_465e
 
@@ -1346,13 +1346,13 @@ jr_006_465e:
     cp $5a
     jr nc, jr_006_4679
 
-    ld a, [$d75c]
-    ld [$ccc6], a
+    ld a, [wBusterChargeCounter]
+    ld [wReleasedChargeCounter], a
     jr jr_006_4684
 
 jr_006_4679:
     xor a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
     ret
 
 
@@ -3489,9 +3489,9 @@ jr_006_504c:
 
 
 Jump_006_504d:
-    ld a, [$df0a]
-    cp $19
-    ret nz
+    ld a, [wPrimaryWeaponModeFlags]
+    bit PRIMARY_WEAPON_ROCK_BUSTER_F, a
+    ret z
 
     ld a, $be
     ld [$c233], a
@@ -3719,8 +3719,8 @@ jr_006_50db:
     inc b
     rrca
 
-Call_006_5189:
-    ld a, [$df33]
+LoadBusterChargeThresholds:
+    ld a, [wBusterUpgradeLevel]
     cp $01
     ld e, $02
     jr z, jr_006_51a2
@@ -3738,15 +3738,15 @@ Call_006_5189:
 
 jr_006_51a2:
     ld a, e
-    ld hl, $513f
+    ld hl, BusterChargeThresholdPointerTable
     call Call_000_016e
-    ld de, $c2ef
+    ld de, wBusterChargeMinThreshold
     ld bc, $0004
     jp Jump_000_0180
 
 
-Jump_006_51b2:
-    ld hl, $c2ef
+UpdateBusterChargeEffects:
+    ld hl, wBusterChargeMinThreshold
     ld e, [hl]
     inc hl
     ld d, [hl]
@@ -3759,21 +3759,21 @@ Jump_006_51b2:
     jr z, jr_006_51c6
 
     xor a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
 
 jr_006_51c6:
-    ld a, [$d75c]
+    ld a, [wBusterChargeCounter]
     cp e
     jr nc, jr_006_51d6
 
     xor a
-    ld [$d763], a
+    ld [wBusterChargePaletteSfxTimer], a
     ld b, $00
     ld d, $1c
     jr jr_006_51f9
 
 jr_006_51d6:
-    ld hl, $d75d
+    ld hl, wBusterChargeFlashTimer
     inc [hl]
     ld a, [hl]
     cp $03
@@ -3789,12 +3789,12 @@ jr_006_51e3:
     ld a, [hl]
     and $03
     ld e, a
-    ld a, [$d75c]
+    ld a, [wBusterChargeCounter]
     cp d
-    ld hl, $521e
+    ld hl, BusterChargePaletteCycleLow
     jr c, jr_006_51f5
 
-    ld hl, $5222
+    ld hl, BusterChargePaletteCycleHigh
     ld b, c
 
 jr_006_51f5:
@@ -3815,7 +3815,7 @@ jr_006_51f9:
     ldh [rOBP0], a
 
 jr_006_5209:
-    ld hl, $d763
+    ld hl, wBusterChargePaletteSfxTimer
     ld a, b
     or a
     jr z, jr_006_521b
@@ -3847,9 +3847,9 @@ jr_006_521b:
     or h
     ret z
 
-Jump_006_5226:
+InitChargedBusterShot:
     xor a
-    ld [$d704], a
+    ld [wPlayerIdleShotTimer], a
     ld a, $08
     add c
     ld l, a
@@ -3862,7 +3862,7 @@ Jump_006_5226:
     call Call_000_02fa
     pop hl
     ld c, l
-    ld de, $55cf
+    ld de, ChargedBusterShotAnim
     ld a, $0d
     add c
     ld l, a
@@ -3879,27 +3879,27 @@ Jump_006_5226:
     ld l, a
     ld [hl], $00
     ld a, $01
-    ld [$c2bc], a
+    ld [wPlayerShotAnimType], a
     ld l, c
     push hl
-    ld a, [$df33]
+    ld a, [wBusterUpgradeLevel]
     or a
-    ld hl, $5147
+    ld hl, BusterShotParams_Unupgraded
     jr z, jr_006_526c
 
     dec a
-    ld hl, $515d
+    ld hl, BusterShotParams_Upgrade1
     jr z, jr_006_526c
 
-    ld hl, $5173
+    ld hl, BusterShotParams_Upgrade2
 
 jr_006_526c:
-    ld a, [$c2f0]
+    ld a, [wBusterChargeFullThreshold]
     ld d, a
-    ld a, [$d75c]
+    ld a, [wBusterChargeCounter]
     ld b, a
     xor a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
     ld a, b
     cp d
     ld de, $0000
@@ -3966,20 +3966,20 @@ jr_006_5282:
     ld l, a
     ld [hl], $08
     call Call_006_4df7
-    call Call_006_52d7
+    call AnimateChargedBusterShot
     jp Jump_006_504d
 
 
-Call_006_52d7:
-    ld de, $55ae
+AnimateChargedBusterShot:
+    ld de, ChargedBusterBaseAnim
     jp Jump_006_4e5e
 
 
     ld a, [$d740]
     bit 1, a
-    jp z, Jump_006_5226
+    jp z, InitChargedBusterShot
 
-    ld a, [$df33]
+    ld a, [wBusterUpgradeLevel]
     or a
     ld a, $00
     jr z, jr_006_52f2
@@ -4018,7 +4018,7 @@ jr_006_52f5:
     pop hl
     ld c, l
     ld a, $01
-    ld [$c2bc], a
+    ld [wPlayerShotAnimType], a
     ret
 
 
@@ -4187,7 +4187,7 @@ jr_006_53db:
     jr jr_006_545f
 
 jr_006_53f0:
-    ld de, $55ae
+    ld de, ChargedBusterBaseAnim
     call Call_006_4e5e
     ld a, $04
     add c
@@ -4868,7 +4868,7 @@ Call_006_5791:
 
 Call_006_57a0:
     xor a
-    ld [$c2bc], a
+    ld [wPlayerShotAnimType], a
     ld a, $01
     ld [$c2cc], a
     ld a, $0c
@@ -8330,7 +8330,7 @@ Jump_006_69bd:
     or a
     jr nz, jr_006_69d9
 
-    ld a, [$d75c]
+    ld a, [wBusterChargeCounter]
     cp $1e
     jr nc, jr_006_69e7
 
@@ -8338,10 +8338,10 @@ Jump_006_69bd:
 
 jr_006_69d9:
     xor a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
 
 jr_006_69dd:
-    ld hl, $d75d
+    ld hl, wBusterChargeFlashTimer
     xor a
     ld [hl+], a
     ld [hl+], a
@@ -8349,7 +8349,7 @@ jr_006_69dd:
     jr jr_006_6a00
 
 jr_006_69e7:
-    ld hl, $d75d
+    ld hl, wBusterChargeFlashTimer
     inc [hl]
     ld a, [hl]
     cp $03
@@ -8386,7 +8386,7 @@ jr_006_6a09:
     ret nc
 
     xor a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
     ld a, $00
     add c
     ld l, a
@@ -8928,7 +8928,7 @@ Call_006_6cc1:
 
 Call_006_6ccb:
     xor a
-    ld [$c2bc], a
+    ld [wPlayerShotAnimType], a
     inc a
     ld [$c2cd], a
     ld a, $0c
@@ -11312,7 +11312,7 @@ jr_006_7993:
     ld a, $03
     ld [$d709], a
     xor a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
     rst $08
     ld a, [hl-]
     ld a, $3c
@@ -11424,7 +11424,7 @@ jr_006_7a53:
     jp z, Jump_006_79c6
 
     xor a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
     ld a, $01
     ld [$d77d], a
     ld a, $1f
@@ -11511,7 +11511,7 @@ Jump_006_7ac0:
     ldh [$ff8a], a
     ld b, $18
     ld c, $0a
-    ld hl, $d75d
+    ld hl, wBusterChargeFlashTimer
     inc [hl]
     ld a, [hl]
     cp $03
@@ -11553,7 +11553,7 @@ jr_006_7b03:
     ldh [rOBP0], a
 
 jr_006_7b0c:
-    ld hl, $d763
+    ld hl, wBusterChargePaletteSfxTimer
     ldh a, [$ff8a]
     or a
     jr z, jr_006_7b1f
@@ -11578,7 +11578,7 @@ jr_006_7b1f:
 
 jr_006_7b22:
     xor a
-    ld [$d763], a
+    ld [wBusterChargePaletteSfxTimer], a
     ld b, $00
     ld d, $1c
     jr jr_006_7b03
@@ -11598,7 +11598,7 @@ jr_006_7b22:
 
 Call_006_7b38:
     ld b, $00
-    ld a, [$d75c]
+    ld a, [wBusterChargeCounter]
     cp $10
     jr c, jr_006_7b4c
 
@@ -11868,7 +11868,7 @@ jr_006_7c73:
     ld a, $10
     ld [$c201], a
     ld a, $02
-    ld [$c2bc], a
+    ld [wPlayerShotAnimType], a
 
 jr_006_7ca7:
     ld a, $02

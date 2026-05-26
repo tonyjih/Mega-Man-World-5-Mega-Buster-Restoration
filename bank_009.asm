@@ -1726,7 +1726,7 @@ Jump_009_493a:
 jr_009_493a:
     call Call_009_7ab6
     xor a
-    ld [$ccc6], a
+    ld [wReleasedChargeCounter], a
     ld a, b
     or a
     ret nz
@@ -1776,15 +1776,15 @@ jr_009_496f:
     ld [hl], $24
     ld a, $01
     ld [$cc94], a
-    ld a, [$ccc6]
+    ld a, [wReleasedChargeCounter]
     ld b, a
     ld e, $03
-    ld a, [$c2f0]
+    ld a, [wBusterChargeFullThreshold]
     cp b
     jr c, jr_009_499c
 
     dec e
-    ld a, [$c2ef]
+    ld a, [wBusterChargeMinThreshold]
     cp b
     jr c, jr_009_499c
 
@@ -6974,7 +6974,7 @@ jr_009_673a:
     ld a, $ff
     ld [$d74a], a
     inc a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
     inc a
     ld [$de29], a
     ld [$d76e], a

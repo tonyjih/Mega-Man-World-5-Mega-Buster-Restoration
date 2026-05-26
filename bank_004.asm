@@ -4369,8 +4369,8 @@ jr_004_51ed:
     sbc $b7
     jr nz, jr_004_53ec
 
-    ld a, [$def6]
-    bit 7, a
+    ld a, [wPrimaryWeaponModeFlags]
+    bit PRIMARY_WEAPON_ROCK_BUSTER_F, a
     ld hl, $5423
     jr nz, jr_004_53f2
 
@@ -10032,7 +10032,7 @@ Jump_004_6b9e:
     ret nz
 
     xor a
-    ld [$df33], a
+    ld [wBusterUpgradeLevel], a
     xor a
     ld [$de9b], a
     ld a, $80

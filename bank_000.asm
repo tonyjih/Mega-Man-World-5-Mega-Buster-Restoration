@@ -2968,7 +2968,7 @@ jr_000_0c4d:
 
 
 Call_000_0c5e:
-    ld a, [$df33]
+    ld a, [wBusterUpgradeLevel]
     cp $02
     ret nc
 
@@ -3001,7 +3001,7 @@ jr_000_0c79:
 
 
 jr_000_0c8b:
-    ld hl, $df33
+    ld hl, wBusterUpgradeLevel
     inc [hl]
     ld a, [$dee1]
     ld [$df0a], a

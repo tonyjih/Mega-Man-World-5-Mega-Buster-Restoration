@@ -3582,7 +3582,7 @@ jr_001_51f2:
 jr_001_5206:
     call Call_000_19ae
     call Call_001_7873
-    ld a, [$de95]
+    call ToggleBusterModeOnPauseSelect
     and $09
     jr nz, jr_001_521f
 
@@ -6470,7 +6470,7 @@ jr_001_6072:
 
 jr_001_6082:
     xor a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
     ret
 
 
@@ -6502,10 +6502,10 @@ jr_001_6087:
     jr nz, jr_001_60b6
 
     xor a
-    ld [$d75c], a
+    ld [wBusterChargeCounter], a
 
 jr_001_60b6:
-    ld hl, $d75c
+    ld hl, wBusterChargeCounter
     ld a, [$d767]
     and $02
     jr z, jr_001_60c5
@@ -7306,7 +7306,7 @@ jr_001_6528:
     jr z, jr_001_6579
 
     xor a
-    ld [$d704], a
+    ld [wPlayerIdleShotTimer], a
     ld a, [$d705]
     cp $02
     jr nc, jr_001_6550
@@ -7337,7 +7337,7 @@ jr_001_6550:
     or a
     jr z, jr_001_6570
 
-    ld a, [$c2bc]
+    ld a, [wPlayerShotAnimType]
     or a
     jr z, jr_001_6570
 
@@ -7357,7 +7357,7 @@ jr_001_6579:
     ld b, $00
     jr nz, jr_001_659b
 
-    ld hl, $d704
+    ld hl, wPlayerIdleShotTimer
     inc [hl]
     ld a, [hl]
     cp $d7
@@ -7388,7 +7388,7 @@ jr_001_659b:
     or a
     ret z
 
-    ld a, [$c2bc]
+    ld a, [wPlayerShotAnimType]
     or a
     ret z
 
@@ -7411,7 +7411,7 @@ jr_001_65bd:
 
 Jump_001_65c2:
     xor a
-    ld [$d704], a
+    ld [wPlayerIdleShotTimer], a
     ld a, [$d706]
     or a
     jr z, jr_001_65d0
@@ -7424,7 +7424,7 @@ jr_001_65d0:
     or a
     jr z, jr_001_65e5
 
-    ld a, [$c2bc]
+    ld a, [wPlayerShotAnimType]
     or a
     jr z, jr_001_65e5
 
@@ -7457,13 +7457,13 @@ jr_001_65f9:
 
 Jump_001_6600:
     xor a
-    ld [$d704], a
+    ld [wPlayerIdleShotTimer], a
     ld b, $0c
     ld a, [$c201]
     or a
     jr z, jr_001_659b
 
-    ld a, [$c2bc]
+    ld a, [wPlayerShotAnimType]
     or a
     jr z, jr_001_65bd
 
@@ -8318,7 +8318,7 @@ jr_001_6ac6:
     or a
     jr z, jr_001_6ae1
 
-    ld a, [$c2bc]
+    ld a, [wPlayerShotAnimType]
     cp $02
     jr nz, jr_001_6ae1
 
@@ -11513,41 +11513,30 @@ jr_001_7ca0:
     ret
 
 
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
+ToggleBusterModeOnPauseSelect:
+    ld a, [wJoypadPressed]
+    bit 2, a
+    jr z, .done
+
+    ld hl, wPrimaryWeaponModeFlags
+    ld a, [hl]
+    xor $80
+    ld [hl], a
+    ld b, $0d
+    bit PRIMARY_WEAPON_ROCK_BUSTER_F, a
+    jr nz, .queueSfx
+
+    ld b, $0f
+
+.queueSfx:
+    ld hl, wPauseWeaponMenuForceReload
+    set 0, [hl]
+    ld a, b
+    call Call_000_0222
+
+.done:
+    ld a, [wMenuInputPressedRepeat]
+    ret
     rst $38
     rst $38
     rst $38
