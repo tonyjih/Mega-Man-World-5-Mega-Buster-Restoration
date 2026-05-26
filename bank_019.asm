@@ -772,7 +772,7 @@ Call_019_43ee:
     jr c, jr_019_4429
 
     call Call_000_0261
-    ld a, [$df37]
+    ld a, [wCrystalCollectedFlags]
     and b
     jr z, jr_019_4429
 
@@ -946,7 +946,7 @@ Call_019_44eb:
     jr jr_019_451a
 
 jr_019_44f9:
-    ld a, [$df36]
+    ld a, [wDarkMoonClearFlag]
     bit 0, a
     jr nz, jr_019_451a
 
@@ -955,12 +955,12 @@ jr_019_44f9:
 jr_019_4502:
     ld e, $00
     ld b, $00
-    ld a, [$df35]
+    ld a, [wStardroidClearFlags]
     and $0f
     cp $0f
     jr nz, jr_019_4529
 
-    ld a, [$df36]
+    ld a, [wDarkMoonClearFlag]
     bit 0, a
     jr nz, jr_019_4529
 
@@ -969,7 +969,7 @@ jr_019_4502:
 
 jr_019_451a:
     ld e, $01
-    ld a, [$df35]
+    ld a, [wStardroidClearFlags]
     and $f0
     cp $f0
     ld b, $02
@@ -1175,11 +1175,11 @@ jr_019_464b:
 Call_019_464e:
     ld a, [$cb00]
     cp $09
-    ld hl, $df35
+    ld hl, wStardroidClearFlags
     jr c, jr_019_465d
 
     sub $08
-    ld hl, $df36
+    ld hl, wDarkMoonClearFlag
 
 jr_019_465d:
     dec a
@@ -1195,7 +1195,7 @@ Call_019_4663:
 
     dec a
     call Call_000_0261
-    ld a, [$df35]
+    ld a, [wStardroidClearFlags]
     and b
     ret z
 

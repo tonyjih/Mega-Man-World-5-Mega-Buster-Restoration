@@ -2579,12 +2579,12 @@ Jump_003_4c6a:
     jp z, Jump_003_4bf2
 
 jr_003_4c70:
-    ld a, [$df3a]
+    ld a, [wWTankCount]
     or a
     jr z, jr_003_4c85
 
     dec a
-    ld [$df3a], a
+    ld [wWTankCount], a
     ld a, [$ca08]
     ld [$ca06], a
     ld a, $03
@@ -2596,12 +2596,12 @@ jr_003_4c85:
     jp z, Jump_003_4bf2
 
 jr_003_4c8b:
-    ld a, [$df38]
+    ld a, [wETankAndPieceCount]
     or a
     jr z, jr_003_4ca0
 
     dec a
-    ld [$df38], a
+    ld [wETankAndPieceCount], a
     ld a, [$ca07]
     ld [$ca06], a
     ld a, $01
@@ -2613,9 +2613,9 @@ jr_003_4ca0:
     jp z, Jump_003_4bf2
 
 jr_003_4ca6:
-    ld a, [$df3d]
+    ld a, [wPChipCountLow]
     ld e, a
-    ld a, [$df3e]
+    ld a, [wPChipCountHigh]
     ld d, a
     ld a, e
     sub $02
@@ -2626,9 +2626,9 @@ jr_003_4ca6:
     jr c, jr_003_4cc4
 
     ld a, e
-    ld [$df3d], a
+    ld [wPChipCountLow], a
     ld a, d
-    ld [$df3e], a
+    ld [wPChipCountHigh], a
     ld a, $04
     jr jr_003_4d2d
 
@@ -2637,12 +2637,12 @@ jr_003_4cc4:
     jp z, Jump_003_4bf2
 
 jr_003_4cca:
-    ld a, [$df3b]
+    ld a, [wSTankCount]
     or a
     jr z, jr_003_4cde
 
     dec a
-    ld [$df3b], a
+    ld [wSTankCount], a
     ld a, [$ca09]
     ld [$ca06], a
     ld a, $02

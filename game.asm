@@ -18,8 +18,21 @@ DEF wJoypadPressed EQU $de92
 DEF wMenuInputPressedRepeat EQU $de95
 DEF wPrimaryWeaponModeFlags EQU $def6
 DEF wBusterUpgradeLevel EQU $df33
+DEF wStardroidClearFlags EQU $df35 ; 8 bits
+DEF wDarkMoonClearFlag EQU $df36 ; 1 bit
+DEF wCrystalCollectedFlags EQU $df37 ; 4 bits
+DEF wETankAndPieceCount EQU $df38 ; 5 bits
+DEF wWTankCount EQU $df3a ; 3 bits
+DEF wSTankCount EQU $df3b ; 1 bit
+DEF wEnergyBalancerUnlocked EQU $df3c ; 1 bit
+DEF wPChipCountLow EQU $df3d
+DEF wPChipCountHigh EQU $df3e
+DEF wMegaArmUpgradeMHUnlocked EQU $df7a ; 1 bit
+DEF wMegaArmUpgradeCLUnlocked EQU $df7b ; 1 bit
+DEF wPowerGeneratorUnlocked EQU $df7c ; 1 bit
+DEF wMegaBusterMkIIUnlocked EQU $df7d ; originally unused item flag
 
-DEF PRIMARY_WEAPON_ROCK_BUSTER_F EQU 7
+DEF PRIMARY_WEAPON_MEGA_BUSTER_F EQU 7
 
 DEF BusterChargeThresholdPointerTable EQU $513f
 DEF BusterShotParams_Unupgraded EQU $5147

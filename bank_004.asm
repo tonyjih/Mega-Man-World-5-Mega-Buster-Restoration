@@ -4370,7 +4370,7 @@ jr_004_51ed:
     jr nz, jr_004_53ec
 
     ld a, [wPrimaryWeaponModeFlags]
-    bit PRIMARY_WEAPON_ROCK_BUSTER_F, a
+    bit PRIMARY_WEAPON_MEGA_BUSTER_F, a
     ld hl, $5423
     jr nz, jr_004_53f2
 
@@ -10036,7 +10036,7 @@ Jump_004_6b9e:
     xor a
     ld [$de9b], a
     ld a, $80
-    ld [$def6], a
+    ld [wPrimaryWeaponModeFlags], a
     jp $53d7
 
 

@@ -7660,7 +7660,7 @@ Call_016_63f6:
 
 
 Call_016_63f7:
-    ld a, [$df37]
+    ld a, [wCrystalCollectedFlags]
     cp $0f
     ld a, $0a
     jr z, jr_016_6401
@@ -9682,7 +9682,7 @@ jr_016_6f06:
 
 jr_016_6f5c:
     call Call_016_67a9
-    ld a, [$df38]
+    ld a, [wETankAndPieceCount]
     srl a
     srl a
     ld [$df39], a
@@ -9737,7 +9737,7 @@ jr_016_6fa8:
 
     ld a, $0e
     call Call_016_6a19
-    ld hl, $df3d
+    ld hl, wPChipCountLow
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -9761,7 +9761,7 @@ jr_016_6fd8:
     ld e, a
     ld a, [$dd2f]
     ld d, a
-    ld hl, $df3d
+    ld hl, wPChipCountLow
     ld a, [hl]
     sub e
     ld [hl+], a
@@ -9781,7 +9781,7 @@ jr_016_7002:
     cp $03
     jr nz, jr_016_701d
 
-    ld a, [$df38]
+    ld a, [wETankAndPieceCount]
     add $04
     cp $10
     jr c, jr_016_7011
@@ -9789,7 +9789,7 @@ jr_016_7002:
     ld a, $10
 
 jr_016_7011:
-    ld [$df38], a
+    ld [wETankAndPieceCount], a
     srl a
     srl a
     ld [$df39], a
@@ -9888,7 +9888,7 @@ Call_016_707b:
     ldh [$ff8a], a
     ld a, $9c
     ldh [$ff8b], a
-    ld hl, $df3d
+    ld hl, wPChipCountLow
     ld a, [hl+]
     ld h, [hl]
     ld l, a

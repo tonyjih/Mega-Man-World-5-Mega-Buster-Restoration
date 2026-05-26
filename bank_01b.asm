@@ -3649,7 +3649,7 @@ Call_01b_51d7:
     ld [$c0f0], a
     xor a
     ld [$de2c], a
-    ld [$def6], a
+    ld [wPrimaryWeaponModeFlags], a
     ret
 
 

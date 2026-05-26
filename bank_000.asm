@@ -2419,11 +2419,11 @@ Call_000_08f6:
 
 Jump_000_08f8:
     xor a
-    ld [$df7a], a
-    ld [$df7b], a
+    ld [wMegaArmUpgradeMHUnlocked], a
+    ld [wMegaArmUpgradeCLUnlocked], a
 
 Call_000_08ff:
-    ld [$df7c], a
+    ld [wPowerGeneratorUnlocked], a
     ld a, [$df46]
     cp $01
     jr z, jr_000_090e
@@ -2772,7 +2772,7 @@ Call_000_0b25:
     ld a, $01
     rst $20
     call Call_000_0c26
-    ld a, [$df36]
+    ld a, [wDarkMoonClearFlag]
     bit 0, a
     call z, Call_000_0b62
     xor a
@@ -3061,7 +3061,7 @@ Call_000_0cdc:
     bit 1, [hl]
     ret nz
 
-    ld a, [$df37]
+    ld a, [wCrystalCollectedFlags]
     and $0f
     ret z
 
@@ -3899,7 +3899,7 @@ Call_000_10c6:
 Jump_000_10c6:
     push hl
     push bc
-    ld hl, $df38
+    ld hl, wETankAndPieceCount
     ld [hl], a
     cp $11
     jr c, jr_000_10d2

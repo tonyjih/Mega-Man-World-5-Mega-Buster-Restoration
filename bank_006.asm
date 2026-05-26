@@ -1499,7 +1499,7 @@ Call_006_473e:
     ld a, $00
     adc d
     ld d, a
-    ld a, [$df7c]
+    ld a, [wPowerGeneratorUnlocked]
     or a
     jr z, jr_006_4752
 
@@ -3490,7 +3490,7 @@ jr_006_504c:
 
 Jump_006_504d:
     ld a, [wPrimaryWeaponModeFlags]
-    bit PRIMARY_WEAPON_ROCK_BUSTER_F, a
+    bit PRIMARY_WEAPON_MEGA_BUSTER_F, a
     ret z
 
     ld a, $be
@@ -3729,7 +3729,7 @@ LoadBusterChargeThresholds:
     ld e, $03
     jr nc, jr_006_51a2
 
-    ld a, [$df7a]
+    ld a, [wMegaArmUpgradeMHUnlocked]
     or a
     ld e, $01
     jr nz, jr_006_51a2
@@ -4145,7 +4145,7 @@ jr_006_53a8:
     xor a
     ld [hl], a
     ld [$c2ee], a
-    ld a, [$df7b]
+    ld a, [wMegaArmUpgradeCLUnlocked]
     or a
     jr z, jr_006_53db
 
@@ -4226,7 +4226,7 @@ jr_006_5412:
     ld a, $0b
     add c
     ld l, a
-    ld a, [$df7b]
+    ld a, [wMegaArmUpgradeCLUnlocked]
     and $01
     ld [hl], a
     jr jr_006_543a
@@ -4417,7 +4417,7 @@ Call_006_5519:
 
 
 Call_006_5535:
-    ld a, [$df7a]
+    ld a, [wMegaArmUpgradeMHUnlocked]
     or a
     ret z
 
@@ -11625,7 +11625,7 @@ jr_006_7b50:
     ld a, $79
     adc $00
     ld d, a
-    ld a, [$df7c]
+    ld a, [wPowerGeneratorUnlocked]
     or a
     ld a, [de]
     jr z, jr_006_7b63

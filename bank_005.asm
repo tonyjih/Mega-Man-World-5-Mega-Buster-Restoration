@@ -7315,7 +7315,7 @@ Call_005_6137:
     ld [$c0f0], a
     xor a
     ld [$de2c], a
-    ld [$def6], a
+    ld [wPrimaryWeaponModeFlags], a
     ret
 
 

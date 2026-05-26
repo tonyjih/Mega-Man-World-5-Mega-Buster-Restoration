@@ -2073,7 +2073,7 @@ Call_001_4a53:
     sub $0c
     and $03
     call Call_000_1e3d
-    ld de, $df37
+    ld de, wCrystalCollectedFlags
     ret
 
 
@@ -2082,7 +2082,7 @@ Call_001_4a53:
 jr_001_4a63:
     ld e, a
     ld d, $00
-    ld hl, $df3d
+    ld hl, wPChipCountLow
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -2096,9 +2096,9 @@ jr_001_4a63:
 
 jr_001_4a79:
     ld a, l
-    ld [$df3d], a
+    ld [wPChipCountLow], a
     ld a, h
-    ld [$df3e], a
+    ld [wPChipCountHigh], a
     ld a, l
     cp b
     ret z
@@ -2114,11 +2114,11 @@ jr_001_4a79:
     ld b, $01
 
 Jump_001_4a8d:
-    ld a, [$df38]
+    ld a, [wETankAndPieceCount]
     push af
     call Call_001_4aac
     pop de
-    ld a, [$df38]
+    ld a, [wETankAndPieceCount]
     cp d
     ret z
 
@@ -2143,7 +2143,7 @@ jr_001_4aa9:
 
 Call_001_4aac:
     ld a, b
-    ld hl, $df38
+    ld hl, wETankAndPieceCount
     add [hl]
     ld [hl], a
     cp $11
@@ -2293,7 +2293,7 @@ jr_001_4b51:
 
 
 jr_001_4b57:
-    ld a, [$df3c]
+    ld a, [wEnergyBalancerUnlocked]
     or a
     ret z
 
@@ -3582,7 +3582,7 @@ jr_001_51f2:
 jr_001_5206:
     call Call_000_19ae
     call Call_001_7873
-    call ToggleBusterModeOnPauseSelect
+    call ToggleMegaBusterModeOnPauseSelect
     and $09
     jr nz, jr_001_521f
 
@@ -5397,7 +5397,7 @@ Jump_001_5aad:
 
 
 Call_001_5ace:
-    ld a, [$df38]
+    ld a, [wETankAndPieceCount]
     call Call_000_10c6
     ld a, $01
     ld [$d902], a
@@ -5519,7 +5519,7 @@ jr_001_5b57:
     or a
     jr nz, jr_001_5b8b
 
-    ld a, [$df38]
+    ld a, [wETankAndPieceCount]
     sub $04
     call Call_000_10c6
     call Call_001_5cac
@@ -5592,7 +5592,7 @@ Call_001_5be6:
     or a
     ret nz
 
-    ld hl, $df3a
+    ld hl, wWTankCount
     dec [hl]
     ret
 
@@ -5609,7 +5609,7 @@ Call_001_5be6:
     or a
     jr nz, jr_001_5c0c
 
-    ld hl, $df3b
+    ld hl, wSTankCount
     dec [hl]
 
 jr_001_5c0c:
@@ -5765,7 +5765,7 @@ Call_001_5cac:
 
 
     ld b, $04
-    ld a, [$df38]
+    ld a, [wETankAndPieceCount]
     ld c, a
 
 jr_001_5cc7:
@@ -5809,7 +5809,7 @@ jr_001_5ceb:
 
 
     ld b, $04
-    ld a, [$df3a]
+    ld a, [wWTankCount]
     ld c, a
 
 jr_001_5cfa:
@@ -5834,7 +5834,7 @@ jr_001_5d07:
     ret
 
 
-    ld a, [$df3b]
+    ld a, [wSTankCount]
     or a
     jr z, jr_001_5d1b
 
@@ -5948,7 +5948,7 @@ Call_001_5d92:
 Call_001_5da1:
     call Call_001_5d4d
     call Call_000_04b8
-    ld a, [$df38]
+    ld a, [wETankAndPieceCount]
     call Call_000_10c6
     call Call_001_5dd9
     call Call_001_5dff
@@ -5980,7 +5980,7 @@ jr_001_5dca:
 Call_001_5dd9:
     ld hl, $5967
     ld b, $04
-    ld a, [$df37]
+    ld a, [wCrystalCollectedFlags]
     ld c, a
 
 jr_001_5de2:
@@ -6011,7 +6011,7 @@ jr_001_5df6:
 
 
 Call_001_5dff:
-    ld a, [$df3c]
+    ld a, [wEnergyBalancerUnlocked]
     or a
     ret nz
 
@@ -6021,7 +6021,7 @@ Call_001_5dff:
 
 
 Call_001_5e0d:
-    ld a, [$df7c]
+    ld a, [wPowerGeneratorUnlocked]
     or a
     ret nz
 
@@ -6031,7 +6031,7 @@ Call_001_5e0d:
 
 
 Call_001_5e1b:
-    ld a, [$df7a]
+    ld a, [wMegaArmUpgradeMHUnlocked]
     or a
     ret nz
 
@@ -6041,7 +6041,7 @@ Call_001_5e1b:
 
 
 Call_001_5e29:
-    ld a, [$df7b]
+    ld a, [wMegaArmUpgradeCLUnlocked]
     or a
     ret nz
 
@@ -6055,7 +6055,7 @@ Call_001_5e37:
     ldh [$ff8a], a
     ld a, $9d
     ldh [$ff8b], a
-    ld hl, $df3d
+    ld hl, wPChipCountLow
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -9401,7 +9401,7 @@ Jump_001_7084:
     ld hl, $0060
     call Call_000_1cf7
     ld b, [hl]
-    ld a, [$df35]
+    ld a, [wStardroidClearFlags]
     and b
     ret z
 
@@ -11513,7 +11513,7 @@ jr_001_7ca0:
     ret
 
 
-ToggleBusterModeOnPauseSelect:
+ToggleMegaBusterModeOnPauseSelect:
     ld a, [wJoypadPressed]
     bit 2, a
     jr z, .done
@@ -11523,7 +11523,7 @@ ToggleBusterModeOnPauseSelect:
     xor $80
     ld [hl], a
     ld b, $0d
-    bit PRIMARY_WEAPON_ROCK_BUSTER_F, a
+    bit PRIMARY_WEAPON_MEGA_BUSTER_F, a
     jr nz, .queueSfx
 
     ld b, $0f

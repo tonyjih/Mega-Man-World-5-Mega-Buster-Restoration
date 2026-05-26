@@ -397,7 +397,7 @@ Jump_010_4192:
     inc de
     or [hl]
     ld [hl+], a
-    ld hl, $df35
+    ld hl, wStardroidClearFlags
     ld a, [de]
     inc de
     or [hl]
@@ -421,23 +421,23 @@ Jump_010_4192:
 
     dec [hl]
     rst $18
-    ld [$df36], sp
-    ld bc, $df37
+    ld [wDarkMoonClearFlag], sp
+    ld bc, wCrystalCollectedFlags
     inc b
     ld a, d
     rst $18
     ld bc, $df7b
     ld bc, $df7c
     ld bc, $df7d
-    ld bc, $df38
+    ld bc, wETankAndPieceCount
     dec b
     ld a, [hl-]
     rst $18
     inc bc
     dec sp
     rst $18
-    ld bc, $df3c
-    ld bc, $df3d
+    ld bc, wEnergyBalancerUnlocked
+    ld bc, wPChipCountLow
     ld a, [bc]
     nop
     jp z, $0003
@@ -445,7 +445,7 @@ Jump_010_4192:
     nop
 
 Jump_010_41f9:
-    ld a, [$df37]
+    ld a, [wCrystalCollectedFlags]
     and $0f
     jr z, jr_010_4205
 
@@ -463,12 +463,12 @@ jr_010_420a:
     inc hl
     ld d, [hl]
     inc hl
-    ld a, [$df35]
+    ld a, [wStardroidClearFlags]
     and [hl]
     jr nz, jr_010_421c
 
     inc hl
-    ld a, [$df36]
+    ld a, [wDarkMoonClearFlag]
     and [hl]
     jr z, jr_010_4225
 
@@ -514,43 +514,43 @@ Jump_010_423f:
 
 
 Call_010_424d:
-    ld a, [$df3d]
+    ld a, [wPChipCountLow]
     ld e, a
-    ld a, [$df3e]
+    ld a, [wPChipCountHigh]
     ld d, a
     ld hl, $03e7
     call Call_010_6dd9
     jr c, jr_010_4294
 
-    ld a, [$df38]
+    ld a, [wETankAndPieceCount]
     cp $11
     jr nc, jr_010_4294
 
-    ld a, [$df3a]
+    ld a, [wWTankCount]
     cp $05
     jr nc, jr_010_4294
 
-    ld a, [$df35]
+    ld a, [wStardroidClearFlags]
     and $0f
     cp $0f
     jr z, jr_010_4284
 
-    ld a, [$df36]
+    ld a, [wDarkMoonClearFlag]
     bit 0, a
     jr nz, jr_010_4294
 
-    ld a, [$df35]
+    ld a, [wStardroidClearFlags]
     and $f0
     jr nz, jr_010_4294
 
     jr jr_010_4292
 
 jr_010_4284:
-    ld a, [$df36]
+    ld a, [wDarkMoonClearFlag]
     bit 0, a
     jr nz, jr_010_4292
 
-    ld a, [$df35]
+    ld a, [wStardroidClearFlags]
     and $f0
     jr nz, jr_010_4294
 
@@ -627,9 +627,9 @@ jr_010_42eb:
     jr nz, jr_010_42eb
 
     ld a, c
-    ld [$df35], a
+    ld [wStardroidClearFlags], a
     ld a, [hl+]
-    ld [$df36], a
+    ld [wDarkMoonClearFlag], a
     ld b, $04
 
 jr_010_42fc:
@@ -642,27 +642,27 @@ jr_010_42fc:
     ld a, c
     swap a
     and $0f
-    ld [$df37], a
+    ld [wCrystalCollectedFlags], a
     ld a, [hl+]
-    ld [$df7a], a
+    ld [wMegaArmUpgradeMHUnlocked], a
     ld a, [hl+]
-    ld [$df7b], a
+    ld [wMegaArmUpgradeCLUnlocked], a
     ld a, [hl+]
-    ld [$df7c], a
+    ld [wPowerGeneratorUnlocked], a
     ld a, [hl+]
-    ld [$df7d], a
+    ld [wMegaBusterMkIIUnlocked], a
     ld a, [hl+]
-    ld [$df38], a
+    ld [wETankAndPieceCount], a
     ld a, [hl+]
-    ld [$df3a], a
+    ld [wWTankCount], a
     ld a, [hl+]
-    ld [$df3b], a
+    ld [wSTankCount], a
     ld a, [hl+]
-    ld [$df3c], a
+    ld [wEnergyBalancerUnlocked], a
     ld a, [hl+]
-    ld [$df3d], a
+    ld [wPChipCountLow], a
     ld a, [hl+]
-    ld [$df3e], a
+    ld [wPChipCountHigh], a
     ld a, [hl+]
     add $01
     ld [$df34], a
@@ -4910,12 +4910,12 @@ Call_010_555e:
 
 
     xor a
-    ld de, $df36
+    ld de, wDarkMoonClearFlag
     jp Jump_010_5720
 
 
     xor a
-    ld de, $df36
+    ld de, wDarkMoonClearFlag
     jp Jump_010_572b
 
 
@@ -4927,13 +4927,13 @@ Call_010_555e:
 
     ld a, [$df49]
     sub $00
-    ld de, $df35
+    ld de, wStardroidClearFlags
     jp Jump_010_5720
 
 
     ld a, [$df49]
     sub $00
-    ld de, $df35
+    ld de, wStardroidClearFlags
     jp Jump_010_572b
 
 
@@ -4973,7 +4973,7 @@ Call_010_555e:
     ld d, h
     nop
     ld a, $01
-    ld de, $df36
+    ld de, wDarkMoonClearFlag
     jp Jump_010_572b
 
 
@@ -4981,7 +4981,7 @@ Call_010_555e:
 
 
     ld a, $01
-    ld de, $df36
+    ld de, wDarkMoonClearFlag
     jp Jump_010_5720
 
 
@@ -5385,13 +5385,13 @@ jr_010_58aa:
 
     ld a, [$df49]
     sub $0c
-    ld de, $df37
+    ld de, wCrystalCollectedFlags
     jp Jump_010_5720
 
 
     ld a, [$df49]
     sub $0c
-    ld de, $df37
+    ld de, wCrystalCollectedFlags
     jp Jump_010_572b
 
 
@@ -5830,7 +5830,7 @@ jr_010_5a52:
     nop
     ld sp, hl
     rst $38
-    ld hl, $df3d
+    ld hl, wPChipCountLow
     ld a, [hl+]
     ld h, [hl]
     ld l, a
@@ -6381,9 +6381,9 @@ Call_010_5d24:
     add hl, hl
     add hl, hl
     ld a, l
-    ld [$df3d], a
+    ld [wPChipCountLow], a
     ld a, h
-    ld [$df3e], a
+    ld [wPChipCountHigh], a
     call Call_010_4205
     ret
 
