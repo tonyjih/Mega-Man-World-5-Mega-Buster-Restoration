@@ -3503,18 +3503,19 @@ Jump_006_504d:
     ld a, [hl]
     and $3f
     ld [hl], a
-    ld de, $50ff
-    ld a, $0d
-    add c
-    ld l, a
-    ld [hl], e
-    inc hl
-    ld [hl], d
+    call AnimateMegaBusterShotOAM
     ld a, $0a
     add c
     ld l, a
     ld a, $06
     call Call_000_01b9
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
     ld l, c
     push hl
     ld hl, $50eb
@@ -3590,8 +3591,10 @@ jr_006_50db:
     ret z
 
     call Call_006_4f32
-    ld de, $50f1
-    call Call_006_4e5e
+    call AnimateMegaBusterShotOAM
+    nop
+    nop
+    nop
     xor a
     inc a
     ret
@@ -12312,192 +12315,42 @@ jr_006_7f17:
     jp Jump_000_0210
 
 
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
+AnimateMegaBusterShotOAM:
+    ld de, $50f1
+    ld h, $c2
+    ld a, $09
+    add c
+    ld l, a
+    ld a, [hl]
+    cp $11
+    jr nz, .animate
+
+    ld de, MegaBusterPartialShotAnim
+
+.animate:
+    jp Call_006_4e5e
+
+MegaBusterPartialShotOAMFrame0:
+    db $f8, $07, $fd, $02
+    db $f8, $fc, $31
+    db $0f, $10, $11
+    db $80
+
+MegaBusterPartialShotOAMFrame1:
+    db $f8, $07, $f8, $07
+    db $f8, $f8, $22
+    db $0b, $0c
+    db $4b, $0e
+    db $80
+
+MegaBusterPartialShotAnim:
+    dw MegaBusterPartialShotOAMPtrs
+    db $06, $00, $01, $ff
+
+MegaBusterPartialShotOAMPtrs:
+    dw MegaBusterPartialShotOAMFrame0
+    dw MegaBusterPartialShotOAMFrame1
+
+    REPT $8000 - @
+        rst $38
+    ENDR
