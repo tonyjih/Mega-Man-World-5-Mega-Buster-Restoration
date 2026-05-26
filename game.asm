@@ -14,6 +14,7 @@ DEF wBusterChargeCounter EQU $d75c
 DEF wBusterChargeFlashTimer EQU $d75d
 DEF wBusterChargePaletteSfxTimer EQU $d763
 DEF wPauseWeaponMenuForceReload EQU $d1f2
+DEF wPauseMenuDefaultWeaponOnly EQU $d1f4
 DEF wJoypadPressed EQU $de92
 DEF wMenuInputPressedRepeat EQU $de95
 DEF wPrimaryWeaponModeFlags EQU $def6
