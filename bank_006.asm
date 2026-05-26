@@ -3509,9 +3509,7 @@ Jump_006_504d:
     ld l, a
     ld a, $06
     call Call_000_01b9
-    nop
-    nop
-    nop
+    call ApplyFullChargeMegaBusterRecoil
     nop
     nop
     nop
@@ -3522,36 +3520,9 @@ Jump_006_504d:
     ld de, $c217
     ld bc, $0006
     call Call_000_0180
-    ld hl, $d72b
-    ld a, [$d703]
-    or a
-    ld de, $0080
-    ld b, $04
-    jr z, jr_006_5099
-
-    ld de, $ff80
-    ld b, $fc
-
-jr_006_5099:
-    ld a, [hl]
-    add e
-    ld [hl+], a
-    ld a, [hl]
-    adc d
-    ld [hl+], a
-    ld hl, $d732
-    ld a, [hl]
-    add b
-    ld [hl], a
-    xor a
-    ld [$d74b], a
-    ld hl, $d729
-    ld a, [hl]
-    add $00
-    ld [hl+], a
-    ld a, [hl]
-    adc $ff
-    ld [hl+], a
+    REPT 46
+        nop
+    ENDR
     pop hl
     ld c, l
     ld a, $0b
@@ -12329,6 +12300,47 @@ AnimateMegaBusterShotOAM:
 
 .animate:
     jp Call_006_4e5e
+
+ApplyFullChargeMegaBusterRecoil:
+    ld h, $c2
+    ld a, $09
+    add c
+    ld l, a
+    ld a, [hl]
+    cp $22
+    ret nz
+
+    ld hl, $d72b
+    ld a, [$d703]
+    or a
+    ld de, $0080
+    ld b, $04
+    jr z, .apply
+
+    ld de, $ff80
+    ld b, $fc
+
+.apply:
+    ld a, [hl]
+    add e
+    ld [hl+], a
+    ld a, [hl]
+    adc d
+    ld [hl+], a
+    ld hl, $d732
+    ld a, [hl]
+    add b
+    ld [hl], a
+    xor a
+    ld [$d74b], a
+    ld hl, $d729
+    ld a, [hl]
+    add $00
+    ld [hl+], a
+    ld a, [hl]
+    adc $ff
+    ld [hl+], a
+    ret
 
 MegaBusterPartialShotOAMFrame0:
     db $f8, $07, $fd, $02
