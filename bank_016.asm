@@ -3231,7 +3231,7 @@ jr_016_5d88:
 
 Call_016_5ea8:
 Jump_016_5ea8:
-    ld hl, Bank16TextPointers
+    ld hl, Bank16TextPointersExpanded
     ld a, [$cf7b]
     call Call_000_016e
     call Call_016_5ec4
@@ -7906,8 +7906,59 @@ ShopItemMegaBusterMkII:
     dw wMegaBusterMkIIUnlocked
     db $01
     dw $0078
-    db $1f, $22
+    db $3d, $22
     dw $6937
+
+Bank16TextPointersExpanded:
+    dw $c937, Bank16Text_01, Bank16Text_02, Bank16Text_03, Bank16Text_04, Bank16Text_05, Bank16Text_06, Bank16Text_07
+    dw Bank16Text_08, Bank16Text_09, Bank16Text_0a, Bank16Text_0b, Bank16Text_0c, Bank16Text_0d, Bank16Text_0e, Bank16Text_0f
+    dw Bank16Text_10, Bank16Text_11, Bank16Text_12, Bank16Text_13, Bank16Text_14, Bank16Text_15, Bank16Text_16, Bank16Text_17
+    dw Bank16Text_18, Bank16Text_19, Bank16Text_1a, Bank16Text_1b, Bank16Text_1c, Bank16Text_1d, Bank16Text_1e, Bank16Text_1f
+    dw Bank16Text_20, Bank16Text_21, Bank16Text_22, Bank16Text_23, Bank16Text_24, Bank16Text_25, Bank16Text_26, Bank16Text_27
+    dw Bank16Text_28, Bank16Text_29, Bank16Text_2a, Bank16Text_2b, Bank16Text_2c, Bank16Text_2d, Bank16Text_2e, Bank16Text_2f
+    dw Bank16Text_30, Bank16Text_31, Bank16Text_32, Bank16Text_33, Bank16Text_34, Bank16Text_35, Bank16Text_36, Bank16Text_37
+    dw Bank16Text_38, Bank16Text_39, Bank16Text_3a, Bank16Text_3b, Bank16Text_3c, Bank16Text_3d
+
+Bank16Text_3d:
+    ; Message(s): $3d
+    ; THIS UPGRADE
+    ; TURNS THE<WAIT>
+    ;
+    ; MEGA BUSTER
+    ; INTO THE<WAIT>
+    ;
+    ; MEGA BUSTER
+    ; MK-II.<WAIT>
+    ;
+    ; IT CAN NOW
+    ; DAMAGE THE<WAIT>
+    ;
+    ; STARDROIDS.
+    ; ONCE INSTALLED,<WAIT>
+    ;
+    ; PRESS SELECT
+    ; ON THE PAUSE<WAIT>
+    ;
+    ; MENU TO SWITCH
+    ; BETWEEN THE<WAIT>
+    ;
+    ; MK-II AND
+    ; MEGA ARM.<WAIT>
+    db $1f, $13, $14, $1e, $01, $20, $1b, $12, $1d, $0c, $0f, $10, $fe, $1f, $20, $1d
+    db $19, $1e, $01, $1f, $13, $10, $f7, $fd, $18, $10, $12, $0c, $01, $0d, $20, $1e
+    db $1f, $10, $1d, $fe, $14, $19, $1f, $1a, $01, $1f, $13, $10, $f7, $fd, $18, $10
+    db $12, $0c, $01, $0d, $20, $1e, $1f, $10, $1d, $fe, $18, $16, $2f, $14, $14, $26
+    db $f7, $fd, $14, $1f, $01, $0e, $0c, $19, $01, $19, $1a, $22, $fe, $0f, $0c, $18
+    db $0c, $12, $10, $01, $1f, $13, $10, $f7, $fd, $1e, $1f, $0c, $1d, $0f, $1d, $1a
+    db $14, $0f, $1e, $26, $fe, $1a, $19, $0e, $10, $01, $14, $19, $1e, $1f, $0c, $17
+    db $17, $10, $0f, $27, $f7, $fd, $1b, $1d, $10, $1e, $1e, $01, $1e, $10, $17, $10
+    db $0e, $1f, $fe, $1a, $19, $01, $1f, $13, $10, $01, $1b, $0c, $20, $1e, $10, $f7
+    db $fd, $18, $10, $19, $20, $01, $1f, $1a, $01, $1e, $22, $14, $1f, $0e, $13, $fe
+    db $0d, $10, $1f, $22, $10, $10, $19, $01, $1f, $13, $10, $f7, $fd, $18, $16, $2f
+    db $14, $14, $01, $0c, $19, $0f, $fe, $18, $10, $12, $0c, $01, $0c, $1d, $18, $26
+    db $f7, $00
+    ds $8000 - @, $ff
+IF 0 ; Padding consumed by expanded shop item/text data.
     rst $38
     rst $38
     rst $38
@@ -9950,3 +10001,5 @@ ShopItemMegaBusterMkII:
     rst $38
     rst $38
     rst $38
+
+ENDC
