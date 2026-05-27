@@ -1093,4407 +1093,1101 @@ Call_016_449d:
     ld l, a
     ldh a, [$ff8e]
     ld [hl], a
-    scf
-    ret
-
-
-    cpl
-    ld b, l
-    ld [$7c46], sp
-    ld b, [hl]
-    xor l
-    ld b, [hl]
-    rst $00
-    ld b, [hl]
-    ld hl, sp+$46
-    scf
-    ld b, a
-    ld [hl], h
-    ld b, a
-    jp z, $d747
-
-    ld b, a
-    ld e, d
-    ld c, b
-    adc [hl]
-    ld c, b
-    or a
-    ld c, b
-    rst $18
-    ld c, b
-    inc bc
-    ld c, c
-    ld [hl], $49
-    ld d, [hl]
-    ld c, c
-    ld [hl], b
-    ld c, c
-    sbc l
-    ld c, c
-    or d
-    ld c, c
-    dec d
-    ld c, d
-    ld e, l
-    ld c, d
-    ld a, [de]
-    ld c, e
-    ld e, l
-    ld c, e
-    inc bc
-    ld c, h
-    ld d, [hl]
-    ld c, h
-    adc h
-    ld c, h
-    reti
-
-
-    ld c, h
-    ld [$584c], a
-    ld c, l
-    add c
-    ld c, l
-    push hl
-    ld c, l
-    ld d, [hl]
-    ld c, [hl]
-    dec [hl]
-    ld c, a
-    ld e, l
-    ld c, a
-    ld e, $51
-    ld c, h
-    ld d, c
-    dec h
-    ld d, d
-    ld a, $53
-    add $53
-    ld l, b
-    ld d, h
-    sub [hl]
-    ld d, h
-    or l
-    ld d, h
-    db $e4
-    ld d, h
-    inc bc
-    ld d, l
-    dec e
-    ld d, l
-    ld b, c
-    ld d, l
-    inc d
-    ld d, [hl]
-    ld h, h
-    ld d, a
-    xor [hl]
-    ld d, a
-    inc c
-    ld e, b
-    call $ee53
-    ld d, h
-    ld b, e
-    ld e, b
-    ld [hl], c
-    ld e, b
-    ld b, c
-    ld e, c
-    and [hl]
-    ld e, c
-    push bc
-    ld e, c
-    rlca
-    ld e, d
-    add b
-    ld d, a
-    jr jr_016_4541
-
-    ld [de], a
-    inc c
-    jr jr_016_4541
-
-    add hl, de
-    daa
-    ei
-    inc a
-    ld bc, $201a
-    dec e
-    cp $22
-    ld a, [de]
-    dec e
-
-jr_016_4541:
-    rla
-    rrca
-    ld bc, $1e14
-    ld bc, $191a
-    ld c, $10
-    rst $30
-    db $fd
-    inc c
-    ld [de], a
-    inc c
-    inc d
-    add hl, de
-    ld bc, $1914
-    ld bc, $130e
-    inc c
-    ld a, [de]
-    ld e, $26
-    cp $fb
-    inc a
-    rra
-    inc de
-    db $10
-    ld bc, $170c
-    inc d
-    db $10
-    add hl, de
-    ld bc, $1a1d
-    dec c
-    ld a, [de]
-    rra
-    ld e, $f7
-    db $fd
-    ld c, $0c
-    rla
-    rla
-    ld bc, $131f
-    db $10
-    jr @+$20
-
-    db $10
-    rla
-    ld hl, $1e10
-    cp $2e
-    ld e, $1f
-    inc c
-    dec e
-    rrca
-    dec e
-    ld a, [de]
-    inc d
-    rrca
-    ld e, $2e
-    ld bc, $190c
-    rrca
-    rst $30
-    db $fd
-    inc de
-    inc c
-    ld hl, $0110
-    ld c, $1a
-    add hl, de
-    inc e
-    jr nz, jr_016_45ae
-
-    dec e
-    db $10
-    rrca
-    cp $18
-    ld a, [de]
-    ld e, $1f
-    ld bc, $201a
-    dec e
-    ld bc, $0c18
-    dec d
-
-jr_016_45ae:
-    ld a, [de]
-    dec e
-    rst $30
-    db $fd
-    ld c, $14
-    rra
-    inc d
-    db $10
-    ld e, $26
-    cp $fb
-    inc a
-    rra
-    inc de
-    db $10
-    inc h
-    ld bc, $1d0c
-    db $10
-    rst $30
-    db $fd
-    ld c, $1a
-    add hl, de
-    ld e, $1f
-    dec e
-    jr nz, @+$10
-
-    rra
-    db $10
-    rrca
-    ld bc, $111a
-    cp $0c
-    rla
-    inc d
-    db $10
-    add hl, de
-    ld bc, $0c18
-    rra
-    db $10
-    dec e
-    inc d
-    inc c
-    rla
-    rst $30
-    db $fd
-    ld [hl+], a
-    inc de
-    inc d
-    ld c, $13
-    ld bc, $101d
-    add hl, de
-    rrca
-    db $10
-    dec e
-    ld bc, $201a
-    dec e
-    cp $22
-    db $10
-    inc c
-    dec de
-    ld a, [de]
-    add hl, de
-    ld e, $01
-    jr nz, @+$20
-
-    db $10
-    rla
-    db $10
-    ld e, $1e
-    ld h, $f7
-    nop
-    dec c
-    jr nz, jr_016_462a
-
-    daa
-    ld bc, $0114
-    inc de
-    inc c
-    ld hl, $0110
-    rrca
-    ld a, [de]
-    add hl, de
-    db $10
-    cp $1e
-    ld a, [de]
-    jr @+$12
-
-    ld bc, $190c
-    inc c
-    rla
-    inc h
-    ld e, $14
-    ld e, $f7
-    db $fd
-    inc c
-    add hl, de
-
-jr_016_462a:
-    rrca
-    ld bc, $1a0e
-    add hl, de
-    ld e, $1f
-    dec e
-    jr nz, jr_016_4642
-
-    rra
-    db $10
-    rrca
-    cp $0c
-    ld bc, $1019
-    ld [hl+], a
-    ld bc, $1022
-    inc c
-    dec de
-
-jr_016_4642:
-    ld a, [de]
-    add hl, de
-    ld bc, $1a11
-    dec e
-    rst $30
-    db $fd
-    inc h
-    ld a, [de]
-    jr nz, jr_016_4674
-
-    ld bc, $fb01
-    inc a
-    inc d
-    rra
-    ld bc, $1422
-    rla
-    rla
-    cp $1d
-    db $10
-    dec de
-    rla
-    inc c
-    ld c, $10
-    ld bc, $1a24
-    jr nz, jr_016_4683
-
-    rst $30
-    db $fd
-    ld e, $20
-    dec de
-    db $10
-    dec e
-    ld bc, $1018
-    ld [de], a
-    inc c
-    cp $0d
-
-jr_016_4674:
-    jr nz, jr_016_4694
-
-    rra
-    db $10
-    dec e
-    ld h, $f7
-    nop
-    ld a, [de]
-    inc de
-    daa
-    ld bc, $1018
-    ld [de], a
-
-jr_016_4683:
-    inc c
-    jr @+$0e
-
-    add hl, de
-    add hl, hl
-    cp $fb
-    inc a
-    rrca
-    inc d
-    rrca
-    ld bc, $1a24
-    jr nz, jr_016_4694
-
-    dec c
-
-jr_016_4694:
-    dec e
-    inc d
-    add hl, de
-    ld [de], a
-    rst $30
-    db $fd
-    dec c
-    inc c
-    ld c, $16
-    ld bc, $131f
-    db $10
-    cp $1b
-    ld bc, $130e
-    inc d
-    dec de
-    ld e, $2a
-    rst $30
-    nop
-    ld e, $10
-    rla
-    db $10
-    ld c, $1f
-    ld bc, $131f
-    db $10
-    ld bc, $1f14
-    db $10
-
-jr_016_46bb:
-    jr jr_016_46bb
-
-    inc h
-    ld a, [de]
-    jr nz, jr_016_46c2
-
-    ld [hl+], a
-
-jr_016_46c2:
-    inc c
-    add hl, de
-    rra
-    ld h, $f4
-    ld c, $1a
-    rla
-    rla
-    db $10
-    ld c, $1f
-    ld bc, $0106
-    ld a, [de]
-    ld de, $1ffe
-    inc de
-    db $10
-    ld e, $10
-
-jr_016_46d9:
-    ld bc, $190c
-    rrca
-    ld bc, $1a24
-    jr nz, jr_016_46d9
-
-    db $fd
-    ld [hl+], a
-    inc d
-    rla
-    rla
-    ld bc, $0c10
-    dec e
-    add hl, de
-    ld bc, $fe0c
-    db $10
-    ld bc, $0c1f
-    add hl, de
-    ld d, $26
-    rst $30
-    nop
-    inc h
-    ld a, [de]
-    jr nz, @+$03
-
-    ld c, $0c
-    add hl, de
-    ld bc, $1a1f
-    rra
-    inc c
-    rla
-    rla
-    inc h
-    cp $1d
-    db $10
-    ld c, $13
-    inc c
-    dec e
-    ld [de], a
-    db $10
-    ld bc, $191a
-    db $10
-    ld bc, $111a
-    rst $30
-    db $fd
-    inc h
-    ld a, [de]
-    jr nz, @+$1f
-
-    ld bc, $1022
-    inc c
-    dec de
-    ld a, [de]
-    add hl, de
-    ld e, $fe
-    ld [hl+], a
-    inc d
-    rra
-    inc de
-    ld bc, $131f
-    inc d
-    ld e, $01
-    inc d
-    rra
-    db $10
-    jr jr_016_475b
-
-    rst $30
-    nop
-    inc h
-    ld a, [de]
-    jr nz, @+$03
-
-    ld c, $0c
-    add hl, de
-    ld bc, $1a1f
-    rra
-    inc c
-    rla
-    rla
-    inc h
-    cp $1d
-    db $10
-    ld c, $13
-    inc c
-    dec e
-    ld [de], a
-    db $10
-    ld bc, $1a24
-    jr nz, @+$1f
-
-    rst $30
-    db $fd
-    db $10
-    add hl, de
-    db $10
-    dec e
-    ld [de], a
-
-jr_016_475b:
-    inc h
-    ld bc, $1017
-    ld hl, $1710
-    cp $22
-    inc d
-    rra
-    inc de
-    ld bc, $131f
-    inc d
-    ld e, $01
-    inc d
-    rra
-    db $10
-    jr jr_016_4798
-
-    rst $30
-    nop
-    inc h
-    ld a, [de]
-    jr nz, @+$03
-
-    ld c, $0c
-    add hl, de
-    ld bc, $1a1f
-    rra
-    inc c
-    rla
-    rla
-    inc h
-    cp $1d
-    db $10
-    ld c, $13
-    inc c
-    dec e
-    ld [de], a
-    db $10
-    ld bc, $1a24
-    jr nz, @+$1f
-
-    rst $30
-    db $fd
-    db $10
-    add hl, de
-    db $10
-    dec e
-    ld [de], a
-
-jr_016_4798:
-    inc h
-    ld bc, $1017
-    ld hl, $1710
-    ld bc, $190c
-    rrca
-    cp $0c
-    rla
-    rla
-    ld bc, $111a
-    ld bc, $1a24
-    jr nz, jr_016_47cc
-
-    rst $30
-    db $fd
-    ld [hl+], a
-    db $10
-    inc c
-    dec de
-    ld a, [de]
-    add hl, de
-    ld e, $01
-    ld [hl+], a
-    inc d
-    rra
-    inc de
-    cp $1f
-    inc de
-    inc d
-    ld e, $01
-    inc d
-    rra
-    db $10
-    jr jr_016_47ee
-
-    rst $30
-    nop
-    db $10
-    inc hl
-
-jr_016_47cc:
-    rra
-    dec e
-    inc c
-    ld bc, $1417
-    ld de, $2610
-    rst $30
-    nop
-    ld [hl+], a
-    inc d
-    rra
-    inc de
-    ld bc, $131f
-    inc d
-    ld e, $01
-    inc d
-    rra
-    db $10
-    jr jr_016_480d
-
-    cp $1f
-    inc de
-    db $10
-    ld bc, $1022
-    inc c
-
-jr_016_47ee:
-    dec de
-    ld a, [de]
-    add hl, de
-    ld bc, $1422
-    rra
-    inc de
-    rst $30
-    db $fd
-    rra
-    inc de
-    db $10
-    ld bc, $1017
-    inc c
-    ld e, $1f
-    ld bc, $180c
-    ld a, [de]
-    jr nz, @+$1b
-
-    rra
-    cp $1a
-    ld de, $1001
-
-jr_016_480d:
-    add hl, de
-    db $10
-    dec e
-    ld [de], a
-    inc h
-    ld bc, $1422
-    rla
-    rla
-    rst $30
-    db $fd
-    dec c
-    db $10
-    ld bc, $101d
-    ld de, $1714
-    rla
-    db $10
-    rrca
-    cp $0c
-    jr nz, jr_016_4847
-
-    ld a, [de]
-    jr jr_016_4837
-
-    rra
-    inc d
-    ld c, $0c
-    rla
-    rla
-    inc h
-    rst $30
-    db $fd
-    ld [hl+], a
-    inc de
-    db $10
-
-jr_016_4837:
-    add hl, de
-    ld bc, $1a24
-    jr nz, jr_016_483e
-
-    dec de
-
-jr_016_483e:
-    inc d
-    ld c, $16
-    ld bc, $1b20
-    cp $0c
-    add hl, de
-
-jr_016_4847:
-    ld bc, $1022
-    inc c
-    dec de
-    ld a, [de]
-    add hl, de
-    rst $30
-    db $fd
-    ld c, $0c
-    dec de
-    ld e, $20
-    rla
-    db $10
-    ld h, $f7
-    nop
-    inc c
-    rla
-    rla
-    ld bc, $111a
-    ld bc, $1a24
-    jr nz, jr_016_4882
-
-    cp $22
-    db $10
-    inc c
-    dec de
-    ld a, [de]
-    add hl, de
-    ld e, $01
-    ld [hl+], a
-    inc d
-    rla
-    rla
-    ld bc, $100d
-    rst $30
-    db $fd
-    inc d
-    jr jr_016_4892
-
-    db $10
-    rrca
-    inc d
-    inc c
-    rra
-    db $10
-    rla
-    inc h
-
-jr_016_4882:
-    cp $1d
-    db $10
-    ld de, $1714
-    rla
-    db $10
-    rrca
-    ld h, $f7
-    nop
-    inc h
-    ld a, [de]
-    jr nz, @+$03
-
-jr_016_4892:
-    ld c, $0c
-    add hl, de
-    jr z, jr_016_48b6
-
-    ld bc, $0c0e
-    dec e
-    dec e
-    inc h
-    cp $0c
-    add hl, de
-    inc h
-    ld bc, $1a18
-    dec e
-    db $10
-    ld bc, $111a
-    ld bc, $131f
-    inc c
-    rra
-    rst $30
-    db $fd
-    inc d
-    rra
-    db $10
-    jr jr_016_48db
-
-    rst $30
-
-jr_016_48b6:
-    nop
-    inc c
-    rla
-    rla
-    ld bc, $111a
-    ld bc, $1a24
-    jr nz, jr_016_48df
-
-    cp $22
-    db $10
-    inc c
-    dec de
-    ld a, [de]
-    add hl, de
-    ld e, $01
-    inc c
-    dec e
-    db $10
-    rst $30
-    db $fd
-    inc c
-    rla
-    dec e
-    db $10
-    inc c
-    rrca
-    inc h
-    ld bc, $2011
-    rla
-
-jr_016_48db:
-    rla
-    ld h, $f7
-    nop
-
-jr_016_48df:
-    inc h
-    ld a, [de]
-    jr nz, jr_016_48e4
-
-    add hl, de
-
-jr_016_48e4:
-    db $10
-    db $10
-    rrca
-    ld bc, $fef5
-    dec de
-    ld bc, $130e
-    inc d
-    dec de
-    ld e, $01
-    ld de, $1d1a
-    ld bc, $131f
-    inc d
-    ld e, $f7
-    db $fd
-    inc d
-    rra
-    db $10
-    jr jr_016_4927
-
-    rst $30
-    nop
-    rrca
-    ld a, [de]
-    ld bc, $1a24
-    jr nz, jr_016_490b
-
-    ld [hl+], a
-
-jr_016_490b:
-    inc c
-    add hl, de
-    rra
-    cp $1f
-    inc de
-    inc d
-    ld e, $01
-    inc d
-    rra
-    db $10
-    jr @+$2c
-
-    rst $30
-    db $fd
-    rra
-    inc de
-    inc d
-    ld e, $01
-    inc d
-    rra
-    db $10
-    jr @+$2c
-
-    cp $01
-
-jr_016_4927:
-    ld bc, $0d01
-    jr nc, jr_016_4945
-
-    ld a, [de]
-    ld bc, $0c01
-    jr nc, jr_016_4956
-
-    db $10
-    ld e, $f6
-    nop
-    inc h
-    ld a, [de]
-    jr nz, jr_016_493b
-
-    rrca
-
-jr_016_493b:
-    ld a, [de]
-    add hl, de
-    jr z, @+$21
-
-    ld bc, $0c13
-    ld hl, $fe10
-
-jr_016_4945:
-    db $10
-    add hl, de
-    ld a, [de]
-    jr nz, jr_016_495c
-
-    inc de
-    ld bc, $011b
-    ld c, $13
-    inc d
-    dec de
-    ld e, $26
-    rst $30
-    nop
-
-jr_016_4956:
-    ld e, $10
-    rla
-    db $10
-    ld c, $1f
-
-jr_016_495c:
-    ld bc, $131f
-    db $10
-    ld bc, $1f14
-    db $10
-
-jr_016_4964:
-    jr jr_016_4964
-
-    inc h
-    ld a, [de]
-    jr nz, jr_016_496b
-
-    ld [hl+], a
-
-jr_016_496b:
-    inc c
-    add hl, de
-    rra
-    ld h, $f4
-    inc c
-    dec e
-    db $10
-    ld bc, $1a24
-
-jr_016_4976:
-    jr nz, jr_016_4976
-
-    ld de, $1914
-    inc d
-    ld e, $13
-    db $10
-    rrca
-    ld a, [hl+]
-    rst $30
-    db $fd
-    ld de, $1914
-    inc d
-    ld e, $13
-    db $10
-    rrca
-    ld a, [hl+]
-    cp $01
-    ld bc, $0d01
-    jr nc, jr_016_49ac
-
-    ld a, [de]
-    ld bc, $0c01
-    jr nc, jr_016_49bd
-
-    db $10
-    ld e, $f6
-    nop
-    ld [de], a
-    ld a, [de]
-    ld a, [de]
-    rrca
-    ld bc, $2017
-    ld c, $16
-    daa
-    cp $18
-    db $10
-    ld [de], a
-    inc c
-
-jr_016_49ac:
-    jr jr_016_49ba
-
-    add hl, de
-    add hl, hl
-    rst $30
-    nop
-    inc d
-    rra
-    ld bc, $1e14
-    ld bc, $0c0e
-
-jr_016_49ba:
-    rla
-    rla
-    db $10
-
-jr_016_49bd:
-    rrca
-    ld bc, $131f
-    db $10
-    cp $2e
-    jr @+$12
-
-    ld [de], a
-    inc c
-    ld bc, $1d0c
-    jr @+$30
-
-    ld bc, $190c
-    rrca
-    rst $30
-    db $fd
-    inc d
-    rra
-    ld bc, $170c
-    rla
-    ld a, [de]
-    ld [hl+], a
-    ld e, $01
-    inc h
-    ld a, [de]
-    jr nz, jr_016_49e2
-
-    rra
-
-jr_016_49e2:
-    ld a, [de]
-    cp $0e
-    inc de
-    inc c
-    dec e
-    ld [de], a
-    db $10
-    ld bc, $1910
-    db $10
-    dec e
-    ld [de], a
-    inc h
-    ld bc, $1914
-    rst $30
-    db $fd
-    inc h
-    ld a, [de]
-    jr nz, @+$1f
-
-    ld bc, $1411
-    ld e, $1f
-    ld bc, $100d
-    ld de, $1d1a
-    db $10
-    cp $24
-    ld a, [de]
-    jr nz, @+$03
-
-    ld de, $1d14
-    db $10
-    ld bc, $1f14
-    ld h, $f7
-    nop
-    inc d
-    ld bc, $0c13
-    ld hl, $0110
-    inc c
-    rla
-    ld e, $1a
-    cp $0e
-    dec e
-    db $10
-    inc c
-    rra
-    db $10
-    rrca
-    ld bc, $010c
-    add hl, de
-    db $10
-    ld [hl+], a
-    rst $30
-    db $fd
-    inc c
-    ld e, $1e
-    inc d
-    ld e, $1f
-    inc c
-    add hl, de
-    rra
-    ld bc, $1a11
-    dec e
-    cp $24
-    ld a, [de]
-    jr nz, @+$28
-
-    ld bc, $fb01
-    inc a
-    inc de
-    inc d
-    ld e, $01
-    add hl, de
-    inc c
-    jr jr_016_4a5e
-
-    rst $30
-    db $fd
-    inc d
-    ld e, $01
-    ld l, $1f
-    inc c
-    add hl, de
-    ld [de], a
-    ld a, [de]
-    ld l, $26
-    rst $30
-    nop
-    inc d
-
-jr_016_4a5e:
-    jr z, jr_016_4a77
-
-    rla
-    ld bc, $1910
-    inc de
-    inc c
-    add hl, de
-    ld c, $10
-    cp $1f
-
-jr_016_4a6b:
-    inc de
-    inc d
-    ld e, $01
-    inc d
-    rra
-    db $10
-    jr jr_016_4a6b
-
-    db $fd
-    dec e
-    db $10
-
-jr_016_4a77:
-    dec de
-    rla
-    inc d
-    ld c, $0c
-    rra
-    ld a, [de]
-    dec e
-    ld bc, $1a1f
-    cp $18
-    inc c
-    ld d, $10
-    ld bc, $1a1b
-    ld [hl+], a
-    db $10
-    dec e
-    ld de, $1720
-    rst $30
-    db $fd
-    inc d
-    rra
-    db $10
-    jr jr_016_4ab5
-
-    ld bc, $1a11
-    dec e
-    ld bc, $1a24
-    jr nz, jr_016_4ac6
-
-    cp $fb
-    inc a
-    ld c, $1a
-    rla
-    rla
-    db $10
-    ld c, $1f
-    ld bc, $1e0c
-    ld bc, $0c18
-    add hl, de
-    inc h
-    rst $30
-    db $fd
-    dec de
-
-jr_016_4ab5:
-    ld bc, $130e
-    inc d
-    dec de
-    ld e, $01
-    inc c
-    ld e, $fe
-    dec de
-    ld a, [de]
-    ld e, $1e
-    inc d
-    dec c
-    rla
-
-jr_016_4ac6:
-    db $10
-    ld bc, $190c
-    rrca
-    rst $30
-    db $fd
-    dec e
-    db $10
-    rra
-    jr nz, jr_016_4aef
-
-    add hl, de
-    ld bc, $1a1f
-    ld bc, $2418
-    ld bc, $0c17
-    dec c
-    cp $1f
-    ld a, [de]
-    ld bc, $2310
-    ld c, $13
-    inc c
-
-jr_016_4ae6:
-    add hl, de
-    ld [de], a
-    db $10
-    ld bc, $131f
-    db $10
-    jr jr_016_4ae6
-
-jr_016_4aef:
-    db $fd
-    ld de, $1d1a
-    ld bc, $1a1b
-    ld [hl+], a
-    db $10
-    dec e
-    cpl
-    jr nz, jr_016_4b17
-
-    cp $14
-    rra
-    db $10
-    jr @+$20
-
-    ld h, $f7
-    db $fd
-    ld [de], a
-    ld a, [de]
-    ld a, [de]
-    rrca
-    ld bc, $2017
-    ld c, $16
-    daa
-    cp $18
-    db $10
-    ld [de], a
-    inc c
-    jr jr_016_4b22
-
-    add hl, de
-
-jr_016_4b17:
-    ld h, $f7
-    nop
-    ld sp, hl
-    ld a, b
-    inc d
-    add hl, de
-    ld bc, $131f
-    db $10
-
-jr_016_4b22:
-    ld bc, $1024
-    inc c
-    dec e
-    ld bc, $0204
-    inc hl
-    inc hl
-    cp $0c
-    rrca
-    daa
-    ld bc, $131f
-    db $10
-    ld bc, $1a22
-    dec e
-    rla
-    rrca
-    ld bc, $1e14
-    db $fd
-    inc c
-    rra
-    ld bc, $101b
-    inc c
-    ld c, $10
-    ld bc, $131f
-    inc c
-    add hl, de
-    ld d, $1e
-    cp $1f
-    ld a, [de]
-    ld bc, $1018
-    ld [de], a
-    inc c
-    jr @+$0e
-
-    add hl, de
-    ld h, $fb
-    ldh a, [$fff4]
-    nop
-    ld sp, hl
-    ld e, d
-    db $fd
-    rrca
-    dec e
-    ld h, $01
-    ld [hl+], a
-    inc d
-    rla
-    inc h
-    jr z, jr_016_4b88
-
-    cp $11
-    ld a, [de]
-    jr nz, jr_016_4b8c
-
-    rra
-    inc de
-    ld bc, $1f0c
-    rra
-    db $10
-    jr @+$1d
-
-    rra
-    db $fd
-    inc c
-    rra
-    ld bc, $1a22
-    dec e
-    rla
-    rrca
-    cp $0f
-    ld a, [de]
-    jr jr_016_4b9b
-
-    add hl, de
-
-jr_016_4b88:
-    inc c
-    rra
-    inc d
-    ld a, [de]
-
-jr_016_4b8c:
-    add hl, de
-    ld bc, $0c13
-    ld e, $fd
-    ld de, $140c
-    rla
-    db $10
-    rrca
-    ld bc, $190c
-
-jr_016_4b9b:
-    rrca
-    ld bc, $1413
-    ld e, $fe
-    add hl, de
-    inc c
-    jr @+$12
-
-    ld bc, $0c13
-    ld e, $01
-    ld a, [de]
-    add hl, de
-    ld c, $10
-    db $fd
-    inc c
-    ld [de], a
-    inc c
-    inc d
-    add hl, de
-    ld bc, $0c11
-    rrca
-    db $10
-    rrca
-    ld bc, $1d11
-    ld a, [de]
-
-jr_016_4bbe:
-    jr jr_016_4bbe
-
-    rra
-    inc de
-    db $10
-    ld bc, $1418
-    add hl, de
-    rrca
-    ld e, $01
-    ld a, [de]
-    ld de, $1f01
-    inc de
-    db $10
-    db $fd
-    ld c, $14
-    rra
-    inc d
-    dec h
-    db $10
-    add hl, de
-    ld e, $01
-    ld a, [de]
-    ld de, $1f01
-    inc de
-    db $10
-    cp $22
-    ld a, [de]
-    dec e
-    rla
-    rrca
-    ld h, $fb
-    inc a
-    db $fd
-    inc c
-    ld bc, $1011
-    ld [hl+], a
-    ld bc, $1a18
-    add hl, de
-    rra
-    inc de
-    ld e, $fe
-    rla
-    inc c
-    rra
-    db $10
-    dec e
-    ld h, $26
-    ld h, $fb
-    rrca
-    db $f4
-    nop
-    ld sp, hl
-    ld a, b
-    ld e, $1a
-    daa
-    ld bc, $1a24
-    jr nz, jr_016_4c0e
-
-    inc c
-
-jr_016_4c0e:
-    dec e
-    db $10
-    ld bc, $131f
-    db $10
-    cp $11
-    inc c
-    jr @+$1c
-
-    jr nz, jr_016_4c39
-
-    ld bc, $1018
-    ld [de], a
-    inc c
-    jr jr_016_4c2e
-
-    add hl, de
-    add hl, hl
-    ei
-    ld a, b
-    db $fd
-    inc d
-    ld bc, $180c
-    ld bc, $101f
-
-jr_016_4c2e:
-    dec e
-    dec e
-    inc c
-    ld bc, $012f
-    inc c
-    add hl, de
-    rrca
-    cp $24
-
-jr_016_4c39:
-    ld a, [de]
-    jr nz, jr_016_4c3d
-
-    ld [hl+], a
-
-jr_016_4c3d:
-    inc d
-    rla
-    rla
-    ld bc, $1a1e
-    ld a, [de]
-    add hl, de
-    ld bc, $100d
-    db $fd
-    jr jr_016_4c6f
-
-    ld bc, $171e
-    inc c
-    ld hl, $2910
-    ei
-    ld a, b
-    db $f4
-    nop
-    ld sp, hl
-    ld a, b
-    ld [hl+], a
-    inc de
-    inc c
-    rra
-    ld a, [hl+]
-    add hl, hl
-    ld bc, $fb01
-    inc a
-    jr jr_016_4c88
-
-    ld bc, $1018
-    ld [de], a
-    inc c
-    cp $0d
-    jr nz, jr_016_4c8b
-
-    rra
-    db $10
-
-jr_016_4c6f:
-    dec e
-    ld bc, $0c13
-    ld e, $01
-    add hl, de
-    ld a, [de]
-    db $fd
-    db $10
-    ld de, $1011
-    ld c, $1f
-    ld bc, $191a
-    ld bc, $1413
-    jr jr_016_4cac
-
-    ld h, $26
-
-jr_016_4c88:
-    ei
-    ld a, b
-    db $f4
-
-jr_016_4c8b:
-    nop
-    ld sp, hl
-    ld a, b
-    inc c
-    ld bc, $1011
-    ld [hl+], a
-    ld bc, $1a13
-    jr nz, jr_016_4cb5
-
-    ld e, $fe
-    rla
-    inc c
-    rra
-    db $10
-    dec e
-    daa
-    ld bc, $131f
-    db $10
-    ld bc, $1a22
-    dec e
-    rla
-    rrca
-    db $fd
-    ld [hl+], a
-
-jr_016_4cac:
-    inc c
-    ld e, $01
-    inc c
-    rra
-    rra
-    inc c
-    ld c, $16
-
-jr_016_4cb5:
-    db $10
-    rrca
-    ld bc, $240d
-    cp $22
-    inc c
-    dec e
-    dec e
-    inc d
-    ld a, [de]
-    dec e
-    ld bc, $1a1d
-    dec c
-    ld a, [de]
-    rra
-    ld e, $fd
-    ld de, $1a1d
-    jr @+$03
-
-    ld e, $1b
-    inc c
-    ld c, $10
-    ld h, $fb
-    or h
-    db $f4
-    nop
-    ld sp, hl
-    ld a, b
-    ld [hl+], a
-    inc de
-    db $10
-    dec e
-    db $10
-    ld bc, $180c
-    ld bc, $2a14
-    ei
-    ld a, b
-    db $f4
-    nop
-    ld sp, hl
-    ld a, b
-    rrca
-    dec e
-    ld h, $01
-    rla
-    inc d
-    ld [de], a
-    inc de
-    rra
-    ld bc, $1a11
-    jr nz, jr_016_4d13
-
-    rrca
-    cp $18
-    db $10
-    ld [de], a
-    inc c
-    jr jr_016_4d0e
-
-    add hl, de
-    ld bc, $190c
-    rrca
-    db $fd
-    db $10
-    inc e
-    jr nz, jr_016_4d20
-
-    dec de
-    dec de
-
-jr_016_4d0e:
-    db $10
-    rrca
-    ld bc, $1413
-
-jr_016_4d13:
-    jr jr_016_4d13
-
-    ld [hl+], a
-    inc d
-    rra
-    inc de
-    ld bc, $131f
-    db $10
-    ld bc, $1019
-
-jr_016_4d20:
-    ld [hl+], a
-    db $fd
-    ld l, $18
-    db $10
-    ld [de], a
-    inc c
-    ld bc, $1d0c
-    jr jr_016_4d5a
-
-    ld h, $fe
-    rra
-    inc de
-    db $10
-    ld bc, $1a18
-    ld e, $1f
-    db $fd
-    dec de
-    ld a, [de]
-    ld [hl+], a
-    db $10
-    dec e
-    ld de, $1720
-    ld bc, $1022
-    inc c
-    dec de
-    ld a, [de]
-    add hl, de
-    cp $10
-    ld hl, $1d10
-    ld bc, $100f
-    ld hl, $1e14
-    db $10
-    rrca
-    ld h, $fb
-    ld a, b
-    db $f4
-    nop
-    ld sp, hl
-    ld a, b
-
-jr_016_4d5a:
-    ld [hl+], a
-    inc de
-    inc h
-    ld bc, $0c13
-    ld hl, $0110
-    rra
-    inc de
-    db $10
-    cp $1e
-    rra
-    inc c
-    dec e
-    rrca
-    dec e
-    ld a, [de]
-    inc d
-    rrca
-    ld e, $01
-    ld c, $1a
-    jr jr_016_4d86
-
-    db $fd
-    inc de
-    db $10
-    dec e
-    db $10
-    add hl, hl
-    ld a, [hl+]
-    ei
-    ld a, b
-    db $f4
-    nop
-    rra
-    inc de
-    inc d
-    ld e, $01
-
-jr_016_4d86:
-    inc d
-    ld e, $01
-    inc c
-    cp $1b
-    ld a, [de]
-    ld [hl+], a
-    db $10
-    dec e
-
-jr_016_4d90:
-    cpl
-    jr nz, jr_016_4dae
-
-    ld bc, $1f14
-    db $10
-    jr jr_016_4d90
-
-    db $fd
-    ld de, $1d1a
-    ld bc, $131f
-    db $10
-    cp $2e
-    jr @+$12
-
-    ld [de], a
-    inc c
-    ld bc, $1d0c
-    jr jr_016_4dda
-
-    ld h, $f7
-
-jr_016_4dae:
-    db $fd
-    ld a, [de]
-    add hl, de
-    ld c, $10
-    ld bc, $1914
-    ld e, $1f
-    inc c
-    rla
-    rla
-    db $10
-    rrca
-    daa
-    cp $24
-    ld a, [de]
-    jr nz, @+$03
-
-    ld c, $0c
-    add hl, de
-    ld bc, $1d12
-    inc c
-    dec c
-    ld bc, $190c
-    rst $30
-    db $fd
-    inc d
-    rra
-    db $10
-    jr @+$03
-
-    ld de, $1a1d
-    jr @+$03
-
-jr_016_4dda:
-    ld de, $1d0c
-    cp $0c
-    ld [hl+], a
-    inc c
-    inc h
-    ld h, $f7
-    nop
-    rra
-    inc de
-    inc d
-    ld e, $01
-    inc d
-    ld e, $01
-    inc c
-    cp $1b
-    ld a, [de]
-    ld [hl+], a
-    db $10
-    dec e
-
-jr_016_4df4:
-    cpl
-    jr nz, jr_016_4e12
-
-    ld bc, $1f14
-    db $10
-    jr jr_016_4df4
-
-    db $fd
-    ld de, $1d1a
-    ld bc, $131f
-    db $10
-    cp $2e
-    jr @+$12
-
-    ld [de], a
-    inc c
-    ld bc, $1d0c
-    jr jr_016_4e3e
-
-    ld h, $f7
-
-jr_016_4e12:
-    db $fd
-    ld a, [de]
-    add hl, de
-    ld c, $10
-    ld bc, $1914
-    ld e, $1f
-    inc c
-    rla
-    rla
-    db $10
-    rrca
-    daa
-    cp $24
-    ld a, [de]
-    jr nz, @+$03
-
-    ld c, $0c
-    add hl, de
-    ld bc, $1d12
-    inc c
-    dec c
-    ld bc, $190c
-    rrca
-    rst $30
-    db $fd
-    inc c
-    rra
-    rra
-    inc c
-    ld c, $16
-    ld bc, $131f
-
-jr_016_4e3e:
-    db $10
-    ld bc, $1910
-    db $10
-    jr jr_016_4e69
-
-    cp $1a
-    ld hl, $1d10
-    ld bc, $190c
-    rrca
-    ld bc, $211a
-    db $10
-    dec e
-    ld h, $f7
-    nop
-    rra
-    inc de
-    inc d
-    ld e, $01
-    dec de
-    ld a, [de]
-    ld [hl+], a
-    db $10
-    dec e
-    cp $12
-    db $10
-    add hl, de
-    db $10
-    dec e
-    inc c
-    rra
-    ld a, [de]
-
-jr_016_4e69:
-    dec e
-    ld bc, $0c22
-    ld e, $f7
-    db $fd
-    jr @+$0e
-
-    rrca
-    db $10
-    ld bc, $1d11
-    ld a, [de]
-    jr jr_016_4e7b
-
-    rra
-
-jr_016_4e7b:
-    inc de
-    db $10
-    ld bc, $fe06
-    ld c, $1d
-    inc h
-    ld e, $1f
-    inc c
-    rla
-    ld e, $01
-    inc h
-    ld a, [de]
-    jr nz, @-$07
-
-    db $fd
-    dec c
-    dec e
-    ld a, [de]
-    jr nz, jr_016_4ea5
-
-    inc de
-    rra
-    ld bc, $0c0d
-    ld c, $16
-    ld h, $fe
-    ei
-    inc a
-    rra
-    inc de
-    db $10
-    ld bc, $1a1b
-    ld [hl+], a
-
-jr_016_4ea5:
-    db $10
-    dec e
-    rst $30
-    db $fd
-    ld [de], a
-    db $10
-    add hl, de
-    db $10
-    dec e
-    inc c
-    rra
-    ld a, [de]
-    dec e
-    ld bc, $1422
-    rla
-    rla
-    cp $1d
-    db $10
-    rrca
-    jr nz, @+$10
-
-    db $10
-    ld bc, $131f
-    db $10
-    rst $30
-    db $fd
-    inc c
-    jr jr_016_4ee1
-
-    jr nz, jr_016_4ee2
-
-    rra
-    ld bc, $111a
-    ld bc, $1910
-    db $10
-    dec e
-    ld [de], a
-    inc h
-    cp $24
-    ld a, [de]
-    jr nz, @+$1f
-
-    ld bc, $1b1e
-    db $10
-    ld c, $14
-    inc c
-    rla
-
-jr_016_4ee1:
-    rst $30
-
-jr_016_4ee2:
-    db $fd
-    ld [hl+], a
-    db $10
-    inc c
-    dec de
-    ld a, [de]
-    add hl, de
-    ld e, $01
-    jr nz, jr_016_4f0b
-
-    db $10
-    ld bc, $240d
-    cp $13
-    inc c
-    rla
-    ld de, $f726
-    db $fd
-    add hl, de
-    ld a, [de]
-    ld bc, $011b
-    ld c, $13
-    inc d
-    dec de
-    ld e, $01
-    inc c
-    dec e
-    db $10
-    cp $1d
-    db $10
-    inc e
-
-jr_016_4f0b:
-    jr nz, @+$16
-
-    dec e
-    db $10
-    rrca
-    ld bc, $1a11
-    dec e
-    rst $30
-    db $fd
-    rra
-    inc de
-    inc d
-    ld e, $01
-    inc d
-    rra
-    db $10
-    jr jr_016_4f47
-
-    ld bc, $191a
-    rla
-    inc h
-    cp $1f
-    inc de
-    db $10
-    ld bc, $1d0e
-    inc h
-    ld e, $1f
-    inc c
-    rla
-    ld e, $26
-    rst $30
-    nop
-    inc h
-    ld a, [de]
-    jr nz, @+$03
-
-    ld c, $0c
-    add hl, de
-    jr z, jr_016_4f5d
-
-    ld bc, $0c18
-    ld d, $10
-    cp $0c
-    add hl, de
-    inc h
-
-jr_016_4f47:
-    ld bc, $1a18
-    dec e
-    db $10
-    ld bc, $111a
-    ld bc, $131f
-    inc d
-    ld e, $f7
-    db $fd
-    inc d
-    rra
-    db $10
-    jr @+$28
-
-    rst $30
-    nop
-
-jr_016_4f5d:
-    rrca
-    dec e
-    ld h, $01
-    rla
-    inc d
-    ld [de], a
-    inc de
-    rra
-    add hl, hl
-    add hl, hl
-    cp $fb
-    inc a
-    inc d
-    ld bc, $1a11
-    jr nz, jr_016_4f8a
-
-    rrca
-    ld bc, $131f
-    inc d
-    ld e, $f7
-    db $fd
-    ld c, $1d
-    inc h
-    ld e, $1f
-    inc c
-    rla
-    ld bc, $191a
-    ld bc, $131f
-    db $10
-    cp $1b
-    rla
-
-jr_016_4f8a:
-    inc c
-    add hl, de
-    db $10
-    rra
-    add hl, hl
-    rst $30
-    db $fd
-    inc h
-    ld a, [de]
-    jr nz, jr_016_4f96
-
-    dec c
-
-jr_016_4f96:
-    db $10
-    rra
-    rra
-    db $10
-    dec e
-    cp $0c
-    add hl, de
-    inc c
-    rla
-    inc h
-    dec h
-    db $10
-    ld bc, $1f14
-    ld h, $f7
-    db $fd
-    rla
-    db $10
-    rra
-    ld bc, $1018
-    ld bc, $101e
-    db $10
-    ld h, $26
-    ld h, $fb
-    ld a, b
-    rst $30
-    db $fd
-    ld [hl+], a
-    db $10
-    rla
-    rla
-    daa
-    ld bc, $131f
-    inc d
-    ld e, $fe
-    ld c, $1d
-    inc h
-    ld e, $1f
-    inc c
-    rla
-    ld bc, $101e
-    db $10
-    jr jr_016_4ff0
-
-    ld bc, $1a1f
-    rst $30
-    db $fd
-    dec c
-    db $10
-    ld bc, $131f
-    db $10
-    ld bc, $1910
-    db $10
-    dec e
-    ld [de], a
-    inc h
-    cp $1e
-    ld a, [de]
-    jr nz, @+$1f
-
-    ld c, $10
-    ld bc, $1e20
-    db $10
-    rrca
-
-jr_016_4ff0:
-    ld bc, $240d
-    rst $30
-    db $fd
-    rra
-    inc de
-    inc c
-    rra
-    ld bc, $171b
-    inc c
-    add hl, de
-    db $10
-    rra
-    jr z, jr_016_5020
-
-    cp $0c
-    add hl, de
-    ld c, $14
-    db $10
-    add hl, de
-    rra
-    rst $30
-    db $fd
-    ld c, $14
-    ld hl, $1714
-    inc d
-    dec h
-    inc c
-    rra
-    inc d
-    ld a, [de]
-    add hl, de
-    ld h, $fe
-    ei
-    inc a
-    ld [hl+], a
-    inc d
-    rra
-    inc de
-
-jr_016_5020:
-    ld bc, $0106
-    ld a, [de]
-    ld de, $1f01
-    inc de
-    db $10
-    ld e, $10
-    daa
-    rst $30
-    db $fd
-    inc d
-    ld bc, $0c0e
-    add hl, de
-    ld bc, $0c18
-    ld d, $10
-    ld bc, $190c
-    cp $14
-    rra
-    db $10
-    jr jr_016_5042
-
-    rra
-
-jr_016_5042:
-    inc de
-    inc c
-    rra
-    ld bc, $1422
-    rla
-    rla
-    rst $30
-    db $fd
-    dec e
-    db $10
-    rrca
-    jr nz, jr_016_505f
-
-    db $10
-    ld bc, $131f
-    db $10
-    cp $10
-    add hl, de
-    db $10
-    dec e
-    ld [de], a
-    inc h
-    rst $30
-    db $fd
-
-jr_016_505f:
-    ld c, $1a
-    add hl, de
-    ld e, $20
-    jr jr_016_5081
-
-    rra
-    inc d
-    ld a, [de]
-    add hl, de
-    ld bc, $111a
-    cp $24
-    ld a, [de]
-    jr nz, jr_016_508f
-
-    ld bc, $1b1e
-    db $10
-    ld c, $14
-    inc c
-    rla
-    rst $30
-    db $fd
-    ld [hl+], a
-    db $10
-    inc c
-    dec de
-    ld a, [de]
-
-jr_016_5081:
-    add hl, de
-    ld e, $01
-    dec c
-    inc h
-    ld bc, $0c13
-    rla
-    ld de, $fe26
-    ei
-    inc a
-
-jr_016_508f:
-    inc d
-    ld bc, $1e0c
-    ld e, $20
-    jr jr_016_50a7
-
-    ld bc, $131f
-    db $10
-    dec e
-    db $10
-    rst $30
-    db $fd
-    inc c
-    dec e
-    db $10
-    ld bc, $141e
-    jr jr_016_50bb
-
-jr_016_50a7:
-    rla
-    inc c
-    dec e
-    cp $0e
-    dec e
-    inc h
-    ld e, $1f
-    inc c
-    rla
-    ld e, $01
-    rla
-    inc d
-    ld d, $10
-    rst $30
-    db $fd
-    rra
-
-jr_016_50bb:
-    inc de
-    inc d
-    ld e, $01
-    ld a, [de]
-    add hl, de
-    ld bc, $1f1a
-    inc de
-    db $10
-    dec e
-    cp $1b
-    rla
-    inc c
-    add hl, de
-    db $10
-    rra
-    ld e, $01
-    rra
-    ld a, [de]
-    ld a, [de]
-    ld h, $f7
-    db $fd
-    ld c, $1a
-    rla
-    rla
-    db $10
-    ld c, $1f
-    ld bc, $170c
-    rla
-    ld bc, $1a11
-    jr nz, @+$1f
-
-    cp $0e
-    dec e
-    inc h
-    ld e, $1f
-    inc c
-    rla
-    ld e, $01
-    inc c
-    add hl, de
-    rrca
-    rst $30
-    db $fd
-    dec c
-    dec e
-    inc d
-    add hl, de
-    ld [de], a
-    ld bc, $131f
-    db $10
-    jr jr_016_5101
-
-    dec c
-
-jr_016_5101:
-    inc c
-    ld c, $16
-    cp $1f
-    ld a, [de]
-    ld bc, $131f
-    db $10
-    ld bc, $0c17
-    dec c
-    ld h, $f7
-    db $fd
-    ld [de], a
-    ld a, [de]
-    ld a, [de]
-    rrca
-    ld bc, $2017
-    ld c, $16
-    add hl, hl
-    rst $30
-    nop
-    ld sp, hl
-    ld a, b
-    rra
-    inc de
-    inc c
-    rra
-    jr z, jr_016_5144
-
-    ld bc, $1f1e
-    dec e
-    inc c
-    add hl, de
-    ld [de], a
-    db $10
-    ld h, $26
-    cp $fb
-    inc a
-    rra
-    inc de
-    db $10
-    dec e
-    db $10
-    jr z, jr_016_5158
-
-    ld bc, $1a19
-    rra
-    inc de
-    inc d
-    add hl, de
-    ld [de], a
-    db $fd
-    inc de
-
-jr_016_5144:
-    db $10
-    dec e
-    db $10
-    ld h, $fb
-    ld a, b
-    db $f4
-    nop
-    inc d
-    rra
-    jr z, jr_016_516e
-
-    ld bc, $100d
-    db $10
-    add hl, de
-    ld bc, $010c
-
-jr_016_5158:
-    rla
-    ld a, [de]
-    add hl, de
-    ld [de], a
-    cp $1f
-    inc d
-    jr @+$12
-
-    daa
-    ld bc, $3cfb
-    jr jr_016_5177
-
-    ld [de], a
-    inc c
-    jr jr_016_5177
-
-    add hl, de
-    add hl, hl
-    rst $30
-
-jr_016_516e:
-    db $fd
-    inc d
-    ld bc, $140f
-    rrca
-    add hl, de
-    jr z, @+$21
-
-jr_016_5177:
-    ld bc, $2310
-    dec de
-    db $10
-    ld c, $1f
-    cp $1f
-    ld a, [de]
-    ld bc, $101e
-    db $10
-    ld bc, $1a24
-    jr nz, jr_016_518b
-
-    inc d
-
-jr_016_518b:
-    add hl, de
-    rst $30
-    db $fd
-    ld a, [de]
-    add hl, de
-    db $10
-    ld bc, $141b
-    db $10
-    ld c, $10
-    ld bc, $120c
-    inc c
-    inc d
-    add hl, de
-    ld h, $fe
-    ei
-    inc a
-    dec c
-    jr nz, jr_016_51c3
-
-    ld bc, $131f
-    inc c
-    rra
-    ld bc, $1e14
-    ld bc, $111a
-    rst $30
-    db $fd
-    rla
-    inc d
-    rra
-    rra
-    rla
-    db $10
-    cp $0e
-    ld a, [de]
-    add hl, de
-    ld e, $10
-    inc e
-    jr nz, jr_016_51d0
-
-    add hl, de
-    ld c, $10
-
-jr_016_51c3:
-    ld bc, $1a19
-    ld [hl+], a
-    ld h, $f7
-    db $fd
-    inc d
-    ld bc, $1422
-    rla
-    rla
-
-jr_016_51d0:
-    ld bc, $100f
-    ld e, $1f
-    dec e
-    ld a, [de]
-    inc h
-    cp $24
-    ld a, [de]
-    jr nz, jr_016_51de
-
-    inc c
-
-jr_016_51de:
-    ld e, $01
-    inc d
-    ld bc, $140f
-    rrca
-    rst $30
-    db $fd
-    dec c
-    db $10
-    ld de, $1d1a
-    db $10
-    ld bc, $190c
-    rrca
-    cp $0c
-    ld hl, $1910
-    ld [de], a
-    db $10
-    ld bc, $2418
-    ld bc, $0c11
-    rla
-    rla
-    db $10
-    add hl, de
-    rst $30
-    db $fd
-    ld c, $1a
-    jr jr_016_5225
-
-    inc c
-    rrca
-    db $10
-    ld e, $26
-    rst $30
-    db $fd
-    rrca
-    inc c
-    dec e
-    ld d, $01
-    jr @+$1c
-
-    ld a, [de]
-    add hl, de
-    daa
-    cp $fb
-    inc a
-    inc c
-    rra
-    rra
-    inc c
-    ld c, $16
-    add hl, hl
-    rst $30
-    nop
-
-jr_016_5225:
-    ld [hl+], a
-    db $10
-    rla
-    ld c, $1a
-    jr jr_016_523c
-
-    ld bc, $0c0d
-    ld c, $16
-    daa
-    cp $fb
-    ld e, $18
-    db $10
-    ld [de], a
-    inc c
-    jr jr_016_5247
-
-    add hl, de
-
-jr_016_523c:
-    add hl, hl
-    ld bc, $3cfb
-    ld bc, $2814
-    ld hl, $f710
-    db $fd
-
-jr_016_5247:
-    dec d
-    jr nz, jr_016_5268
-
-    rra
-    ld bc, $140f
-    ld e, $0e
-    ld a, [de]
-    ld hl, $1d10
-    db $10
-    rrca
-    cp $1e
-    ld a, [de]
-    jr jr_016_526b
-
-    ld bc, $131e
-    ld a, [de]
-    ld c, $16
-    inc d
-    add hl, de
-    ld [de], a
-    rst $30
-    db $fd
-    add hl, de
-    db $10
-
-jr_016_5268:
-    ld [hl+], a
-    ld e, $26
-
-jr_016_526b:
-    rst $30
-    db $fd
-    rra
-    inc de
-    db $10
-    ld bc, $1f1e
-    inc c
-    dec e
-    rrca
-    dec e
-    ld a, [de]
-    inc d
-    rrca
-    ld e, $fe
-    inc de
-    inc c
-    ld hl, $0110
-    dec c
-    db $10
-    db $10
-    add hl, de
-    ld bc, $1e20
-    inc d
-    add hl, de
-    ld [de], a
-    rst $30
-    db $fd
-    rra
-    inc de
-    db $10
-    ld bc, $101d
-    ld e, $1a
-    jr nz, @+$1f
-
-    ld c, $10
-    ld e, $fe
-    ld de, $1a1d
-    jr jr_016_52a1
-
-    db $10
-
-jr_016_52a1:
-    inc c
-    dec e
-    rra
-    inc de
-    ld bc, $1a1f
-    rst $30
-    db $fd
-    ld c, $1d
-    db $10
-    inc c
-    rra
-    db $10
-    ld bc, $190c
-    ld bc, $2110
-    db $10
-    add hl, de
-    cp $18
-    ld a, [de]
-    dec e
-    db $10
-    ld bc, $1a1b
-    ld [hl+], a
-    db $10
-    dec e
-    ld de, $1720
-    rst $30
-    db $fd
-    ld [de], a
-    db $10
-    add hl, de
-    db $10
-    dec e
-    inc c
-    rra
-    inc d
-    ld a, [de]
-    add hl, de
-    ld bc, $111a
-    cp $1d
-    ld a, [de]
-    dec c
-    ld a, [de]
-    rra
-    ld e, $26
-    ld bc, $fb01
-    inc a
-    inc d
-    ld de, $1f01
-    inc de
-    db $10
-    inc h
-    rst $30
-    db $fd
-    rla
-    inc c
-    jr nz, jr_016_5307
-
-    ld c, $13
-    ld bc, $190c
-    cp $0c
-    rla
-    rla
-    cpl
-    ld a, [de]
-    jr nz, @+$21
-
-    ld bc, $1f0c
-    rra
-    inc c
-    ld c, $16
-    rst $30
-    db $fd
-    add hl, de
-    ld a, [de]
-    ld [hl+], a
-
-jr_016_5307:
-    daa
-    ld bc, $1022
-    jr z, jr_016_5324
-
-    rla
-    ld bc, $100d
-    cp $10
-    inc c
-    ld e, $14
-    rla
-    inc h
-    ld bc, $100f
-    ld de, $0c10
-    rra
-    db $10
-    rrca
-    ld h, $f7
-    db $fd
-
-jr_016_5324:
-    inc d
-    jr z, jr_016_533f
-
-    ld bc, $1a19
-    rra
-    ld bc, $201e
-    dec e
-    db $10
-    cp $22
-    inc de
-    inc c
-    rra
-    ld bc, $1a1f
-    ld bc, $1a0f
-    ld h, $f7
-    nop
-    rrca
-
-jr_016_533f:
-    dec e
-    ld h, $01
-    rla
-    inc d
-    ld [de], a
-    inc de
-    rra
-    daa
-    ld bc, $3cfb
-    ld [hl+], a
-    db $10
-    cp $19
-    db $10
-    db $10
-    rrca
-    ld bc, $1a1f
-    ld bc, $1f1e
-    dec e
-    inc d
-    ld d, $10
-    rst $30
-    db $fd
-    add hl, de
-    ld a, [de]
-    ld [hl+], a
-    add hl, hl
-    ld bc, $fb01
-    inc a
-    inc d
-    ld de, $2401
-    ld a, [de]
-    jr nz, @+$03
-
-    ld c, $0c
-    add hl, de
-    cp $1f
-    dec e
-    inc c
-    add hl, de
-    ld e, $11
-    ld a, [de]
-    dec e
-    jr jr_016_537c
-
-    dec e
-
-jr_016_537c:
-    jr nz, jr_016_539c
-
-    inc de
-    rst $30
-    db $fd
-    ld de, $1d1a
-    ld bc, $1b1e
-    inc c
-    ld c, $10
-    cp $1f
-    dec e
-    inc c
-    ld hl, $1710
-    daa
-    ld bc, $1022
-    ld bc, $0c0e
-    add hl, de
-    rst $30
-    db $fd
-    rra
-
-jr_016_539c:
-    dec e
-    inc h
-    ld bc, $010c
-    ld e, $20
-    dec e
-    dec de
-    dec e
-    inc d
-    ld e, $10
-    cp $0c
-    rra
-    rra
-    inc c
-    ld c, $16
-    ld bc, $190c
-    rrca
-    ld bc, $1422
-    dec de
-    db $10
-    rst $30
-    db $fd
-    rra
-    inc de
-    db $10
-    jr jr_016_53c1
-
-    ld a, [de]
-
-jr_016_53c1:
-    jr nz, jr_016_53e2
-
-    ld h, $f7
-    nop
-    ld sp, $3131
-    ld sp, $fe31
-    nop
-    ld a, [de]
-    ld d, $26
-    ld bc, $fb01
-    inc a
-    inc d
-    jr z, jr_016_53ee
-
-    rla
-    ld bc, $1f1e
-    inc c
-    dec e
-    rra
-    cp $18
-    ld a, [de]
-    rrca
-
-jr_016_53e2:
-    inc d
-    ld de, $1424
-    add hl, de
-    ld [de], a
-    ld bc, $201d
-    ld e, $13
-    rst $30
-
-jr_016_53ee:
-    db $fd
-    inc c
-    add hl, de
-    rrca
-    ld bc, $1412
-    ld hl, $0110
-    inc de
-    inc d
-
-jr_016_53fa:
-    jr jr_016_53fa
-
-    ld e, $1a
-    jr jr_016_5410
-
-    ld bc, $2310
-    rra
-    dec e
-    inc c
-    rst $30
-    db $fd
-    ld de, $1d14
-    db $10
-    dec de
-    ld a, [de]
-    ld [hl+], a
-    db $10
-
-jr_016_5410:
-    dec e
-    ld h, $01
-    ld bc, $3cfb
-    rra
-    inc de
-    inc d
-    ld e, $fe
-    jr jr_016_5429
-
-    inc h
-    ld bc, $0c1f
-    ld d, $10
-    ld bc, $1a1e
-    jr jr_016_5438
-
-    rst $30
-
-jr_016_5429:
-    db $fd
-    rra
-    inc d
-    jr @+$12
-
-    daa
-    ld bc, $1a1e
-    ld bc, $1322
-    inc h
-    cp $0f
-
-jr_016_5438:
-    ld a, [de]
-    add hl, de
-    jr z, jr_016_545b
-
-    ld bc, $1a24
-    jr nz, jr_016_5442
-
-    ld [de], a
-
-jr_016_5442:
-    ld a, [de]
-    rst $30
-    db $fd
-    db $10
-    inc hl
-    ld c, $13
-    inc c
-    add hl, de
-    ld [de], a
-    db $10
-    ld bc, $1a24
-    jr nz, jr_016_546f
-
-    cp $1b
-    ld bc, $130e
-    inc d
-    dec de
-    ld e, $01
-
-jr_016_545b:
-    ld de, $1d1a
-    rst $30
-    db $fd
-    inc d
-    rra
-    db $10
-    jr jr_016_5483
-
-    ld h, $f7
-    nop
-    ld sp, hl
-    ld a, b
-    inc d
-    ld bc, $131e
-    ld a, [de]
-
-jr_016_546f:
-    jr nz, jr_016_5488
-
-    rrca
-    ld bc, $0c13
-    ld hl, $fe10
-    rrca
-    db $10
-    ld de, $0c10
-    rra
-    db $10
-    rrca
-    ld bc, $170c
-
-jr_016_5483:
-    rla
-    ld bc, $131f
-    db $10
-
-jr_016_5488:
-    db $fd
-    ld e, $1f
-    inc c
-    dec e
-    rrca
-    dec e
-    ld a, [de]
-    inc d
-    rrca
-    ld e, $26
-    db $f4
-    nop
-    ld [hl+], a
-    inc de
-    inc c
-    rra
-    ld a, [hl+]
-    ld bc, $fb01
-    inc a
-    ld [hl+], a
-    inc de
-    inc c
-    rra
-    jr z, jr_016_54c3
-
-    cp $1f
-    inc de
-    inc c
-    rra
-    ld bc, $1f1e
-    inc c
-    dec e
-    ld a, [hl+]
-    ld h, $26
-    ld h, $f4
-    nop
-    ld sp, hl
-    ld a, b
-    ld [hl+], a
-    inc c
-    inc d
-    rra
-    ld h, $26
-    ld h, $fe
-    ei
-    ld a, b
-    inc d
-    rra
-
-jr_016_54c3:
-    jr z, jr_016_54e3
-
-    ld bc, $1a18
-    ld hl, $1914
-    ld [de], a
-    ld h, $26
-    ld h, $fd
-    add hl, de
-    ld a, [de]
-    add hl, hl
-    cp $fb
-    ld a, b
-    inc d
-    rra
-    ld bc, $0c0e
-    add hl, de
-    jr z, jr_016_54fd
-
-    ld bc, $100d
-    add hl, hl
-    db $f4
-
-jr_016_54e3:
-    nop
-    ld [hl+], a
-    inc d
-    rla
-    inc h
-    ld a, [hl+]
-    add hl, hl
-    ei
-    ld a, b
-    db $f4
-    nop
-    inc d
-    ld e, $01
-    inc de
-    db $10
-    ld bc, $100d
-    inc de
-    inc d
-    add hl, de
-    rrca
-    cp $1f
-    inc de
-
-jr_016_54fd:
-    inc d
-    ld e, $2a
-    add hl, hl
-    db $f4
-    nop
-    ld a, [de]
-    ld a, [de]
-    dec de
-    ld e, $29
-    ld bc, $fb01
-    ld a, b
-    rra
-    inc de
-    inc c
-    rra
-    ld bc, $0c22
-    ld e, $fe
-    ld c, $17
-    ld a, [de]
-    ld e, $10
-    add hl, hl
-    db $f4
-    nop
-    ld sp, hl
-    ld a, b
-    inc de
-    inc d
-    rra
-    ld bc, $131f
-    db $10
-    ld bc, $1015
-    rra
-    ld e, $27
-    cp $1d
-    jr nz, jr_016_554e
-
-    inc de
-    add hl, hl
-    ld bc, $fb01
-    inc a
-    rla
-    db $10
-    rra
-    jr z, jr_016_5559
-
-    ld bc, $1a12
-    add hl, hl
-    db $f4
-    nop
-    inc c
-    dec e
-    db $10
-    ld bc, $1a24
-    jr nz, jr_016_554a
-
-    ld a, [de]
-
-jr_016_554a:
-    ld d, $2a
-    cp $fb
-
-jr_016_554e:
-    ld a, b
-    inc de
-    db $10
-    dec e
-    db $10
-    daa
-    ld bc, $1d12
-    inc c
-    dec c
-
-jr_016_5559:
-    ld bc, $2418
-    rst $30
-    db $fd
-    ld e, $13
-    ld a, [de]
-    jr nz, jr_016_557a
-
-    rrca
-    db $10
-    dec e
-    ld h, $01
-    ld bc, $3cfb
-    inc d
-    jr z, @+$1a
-
-    cp $1e
-    jr nz, jr_016_558f
-
-    db $10
-    ld bc, $1a24
-    jr nz, @+$03
-
-    ld c, $0c
-
-jr_016_557a:
-    add hl, de
-    ld bc, $100d
-    rst $30
-    db $fd
-    ld de, $2314
-    db $10
-    rrca
-    ld bc, $1f0c
-    cp $0f
-    dec e
-    ld h, $01
-    rla
-    inc d
-
-jr_016_558f:
-    ld [de], a
-    inc de
-    rra
-    jr z, jr_016_55b2
-
-    ld bc, $0c17
-    dec c
-    ld h, $f7
-    db $fd
-    jr jr_016_55ad
-
-    ld [de], a
-    inc c
-    jr jr_016_55ad
-
-    add hl, de
-    ld h, $26
-    ld h, $01
-    ld bc, $32fb
-    ld [hl+], a
-    inc de
-    inc h
-    ld a, [hl+]
-
-jr_016_55ad:
-    ei
-    ld e, d
-    rst $30
-    db $fd
-    ld [hl+], a
-
-jr_016_55b2:
-    inc de
-    inc h
-    ld bc, $1d0c
-    db $10
-    ld bc, $1a24
-
-jr_016_55bb:
-    jr nz, jr_016_55bb
-
-    inc de
-    db $10
-    rla
-    dec de
-    inc d
-    add hl, de
-    ld [de], a
-    ld bc, $1018
-    ld a, [hl+]
-    rst $30
-    db $fd
-    dec c
-    db $10
-    ld c, $0c
-    jr nz, jr_016_55ee
-
-    db $10
-    ld bc, $1022
-    ld bc, $1d0c
-    db $10
-    cp $0d
-    ld a, [de]
-    rra
-    inc de
-    ld bc, $1a1d
-    dec c
-    ld a, [de]
-    rra
-    ld e, $26
-    rst $30
-    db $fd
-    inc h
-    db $10
-    ld e, $26
-    ld bc, $fb01
-
-jr_016_55ee:
-    inc a
-    inc c
-    add hl, de
-    rrca
-    ld bc, $1022
-    cp $22
-    db $10
-    dec e
-    db $10
-    ld bc, $1a0d
-    rra
-    inc de
-    rst $30
-    db $fd
-    ld c, $1d
-    db $10
-    inc c
-    rra
-    db $10
-    rrca
-    ld bc, $1a1f
-    cp $11
-    inc d
-    ld [de], a
-    inc de
-    rra
-    add hl, hl
-    rst $30
-    nop
-    add hl, de
-    ld a, [de]
-    daa
-    ld bc, $3cfb
-    inc h
-    ld a, [de]
-    jr nz, jr_016_5646
-
-    dec e
-    db $10
-    cp $22
-    dec e
-    ld a, [de]
-    add hl, de
-    ld [de], a
-    add hl, hl
-    ld bc, $fb01
-    inc a
-    inc d
-    ld bc, $191a
-    rla
-    inc h
-    rst $30
-    db $fd
-    ld de, $1214
-    inc de
-    rra
-    ld bc, $1322
-    db $10
-    add hl, de
-    ld bc, $0114
-    inc c
-
-jr_016_5641:
-    jr jr_016_5641
-
-    ld de, $1d1a
-
-jr_016_5646:
-    ld c, $10
-    rrca
-    ld bc, $1a1f
-    rst $30
-    db $fd
-    dec de
-    dec e
-    ld a, [de]
-    rra
-    db $10
-    ld c, $1f
-    ld bc, $131f
-    db $10
-    cp $22
-    ld a, [de]
-    dec e
-    rla
-    rrca
-    ld bc, $1d11
-    ld a, [de]
-    jr jr_016_5666
-
-    rra
-
-jr_016_5666:
-    inc de
-    ld a, [de]
-    ld e, $10
-    rst $30
-    db $fd
-    ld [hl+], a
-    inc de
-    ld a, [de]
-    ld bc, $1a22
-    jr nz, jr_016_568b
-
-    rrca
-    ld bc, $141b
-    rra
-    cp $18
-    inc c
-    ld c, $13
-    inc d
-    add hl, de
-    db $10
-    ld e, $01
-    inc c
-    ld [de], a
-    inc c
-    inc d
-    add hl, de
-    ld e, $1f
-    rst $30
-
-jr_016_568b:
-    db $fd
-    jr jr_016_569a
-
-    add hl, de
-    ld h, $01
-    ld bc, $3cfb
-    inc d
-    ld bc, $100d
-    rla
-    inc d
-
-jr_016_569a:
-    db $10
-    ld hl, $fe10
-    inc de
-    jr nz, @+$1a
-
-    inc c
-    add hl, de
-    ld e, $01
-    inc c
-    add hl, de
-    rrca
-    rst $30
-    db $fd
-    dec e
-    ld a, [de]
-    dec c
-    ld a, [de]
-    rra
-    ld e, $01
-    ld c, $0c
-    add hl, de
-    ld bc, $1417
-    ld hl, $fe10
-    inc d
-    add hl, de
-    ld bc, $101b
-    inc c
-    ld c, $10
-    add hl, hl
-    rst $30
-    db $fd
-    jr jr_016_56d3
-
-    inc h
-    dec c
-    db $10
-    ld h, $26
-    ld h, $01
-    ei
-    inc a
-    dec c
-    jr nz, @+$21
-
-jr_016_56d3:
-    ld bc, $fe14
-    ld [hl+], a
-    inc d
-    rla
-    rla
-    ld bc, $1019
-    ld hl, $1d10
-    ld bc, $1916
-    ld a, [de]
-    ld [hl+], a
-    ld h, $f7
-    db $fd
-    jr @+$26
-
-    ld bc, $2011
-    ld e, $14
-    ld a, [de]
-    add hl, de
-    cp $1d
-    db $10
-    inc c
-    ld c, $1f
-    ld a, [de]
-    dec e
-    ld bc, $1e14
-    ld bc, $1a12
-    inc d
-    add hl, de
-    ld [de], a
-    rst $30
-    db $fd
-    ld c, $1d
-    inc d
-    rra
-    inc d
-    ld c, $0c
-    rla
-    ld bc, $190c
-    rrca
-    cp $22
-    inc de
-    db $10
-    add hl, de
-    ld bc, $1f14
-    ld bc, $1a0f
-    db $10
-    ld e, $27
-    ld bc, $1f14
-    rst $30
-    db $fd
-    ld [hl+], a
-    inc d
-    rla
-    rla
-    ld bc, $100f
-    ld e, $1f
-    dec e
-    ld a, [de]
-    inc h
-    cp $1f
-    inc de
-    inc d
-    ld e, $01
-    db $10
-    add hl, de
-    rra
-    inc d
-    dec e
-    db $10
-    rst $30
-    db $fd
-    ld de, $1d1a
-    rra
-    dec e
-    db $10
-    ld e, $1e
-    ld h, $f7
-    db $fd
-    ld e, $20
-    add hl, de
-    ld e, $1f
-    inc c
-    dec e
-    ld h, $26
-    ld h, $fb
-    inc a
-    rst $30
-    db $fd
-    rla
-    db $10
-    inc c
-    ld hl, $0110
-    add hl, de
-    ld a, [de]
-    ld [hl+], a
-    add hl, hl
-    ei
-    inc a
-    rst $30
-    nop
-    ld sp, hl
-    ld a, b
-    ld [hl+], a
-    inc d
-    rla
-    inc h
-    add hl, hl
-    cp $fb
-    ld a, b
-    inc h
-    ld a, [de]
-    jr nz, @+$03
-
-    ld e, $20
-    dec e
-    ld hl, $2114
-    db $10
-    rrca
-    ld a, [hl+]
-    add hl, hl
-    ei
-    ld a, b
-    db $f4
-    nop
-    ld sp, hl
-    ld a, b
-    ld c, $20
-    dec e
-    ld e, $10
-    ld bc, $1a24
-    jr nz, @+$29
-
-    cp $fb
-    ld a, b
-    jr @+$12
-
-    ld [de], a
-    inc c
-    jr @+$0e
-
-    add hl, de
-    add hl, hl
-    db $fd
-    rra
-    inc de
-    inc d
-    ld e, $01
-    ld [hl+], a
-    inc c
-    dec e
-    cp $10
-    add hl, de
-    rrca
-    ld e, $01
-    add hl, de
-    ld a, [de]
-    ld [hl+], a
-    add hl, hl
-    ei
-    ld a, b
-    db $f4
-    nop
-    jr jr_016_57c0
-
-    ld [de], a
-    inc c
-    jr jr_016_57c0
-
-    add hl, de
-    daa
-    cp $fb
-    inc a
-    ld [hl+], a
-    db $10
-    rla
-    ld c, $1a
-    jr jr_016_57d0
-
-jr_016_57c0:
-    ld bc, $1a13
-    jr jr_016_57d5
-
-    add hl, hl
-    rst $30
-    db $fd
-    inc d
-    ld bc, $0c13
-    ld hl, $0110
-    dec d
-
-jr_016_57d0:
-    jr nz, jr_016_57f0
-
-    rra
-    cp $0e
-
-jr_016_57d5:
-    ld a, [de]
-    jr jr_016_57f3
-
-    rla
-    db $10
-    rra
-    db $10
-    rrca
-    rst $30
-    db $fd
-    rra
-    inc de
-    db $10
-    ld bc, $201f
-    dec e
-    dec c
-    ld a, [de]
-    cp $0c
-    ld c, $0e
-    db $10
-    rla
-    db $10
-    dec e
-
-jr_016_57f0:
-    inc c
-    rra
-    ld a, [de]
-
-jr_016_57f3:
-    dec e
-    ld bc, $1a11
-    dec e
-    rst $30
-    db $fd
-    inc h
-    ld a, [de]
-    jr nz, jr_016_581b
-
-    ld bc, $182e
-    db $10
-    ld [de], a
-    inc c
-    ld bc, $1d0c
-    jr jr_016_5837
-
-    ld h, $f7
-    nop
-    ld a, [de]
-    ld d, $26
-    rst $30
-    db $fd
-    inc d
-    rra
-    jr z, @+$20
-
-    ld bc, $2011
-    add hl, de
-    ld c, $1f
-
-jr_016_581b:
-    inc d
-    ld a, [de]
-    add hl, de
-    inc d
-    add hl, de
-    ld [de], a
-    cp $1b
-    db $10
-    dec e
-    ld de, $0e10
-    rra
-    rla
-    inc h
-    ld h, $f7
-    db $fd
-    ld [de], a
-    ld a, [de]
-    ld a, [de]
-    rrca
-    ld bc, $2017
-    ld c, $16
-
-jr_016_5837:
-    daa
-    cp $18
-    db $10
-    ld [de], a
-    inc c
-    jr jr_016_584b
-
-    add hl, de
-    add hl, hl
-    rst $30
-    nop
-    inc d
-    ld bc, $1411
-    add hl, de
-    inc c
-    rla
-    rla
-
-jr_016_584b:
-    inc h
-    cp $0f
-    db $10
-    ld e, $1f
-    dec e
-    ld a, [de]
-    inc h
-    db $10
-    rrca
-    ld bc, $170c
-    rla
-    rst $30
-    db $fd
-    rra
-    inc de
-    db $10
-    ld bc, $1b1e
-    inc c
-    ld c, $10
-    cp $1e
-    rra
-    inc c
-    rra
-    inc d
-    ld a, [de]
-    add hl, de
-    ld e, $29
-    rst $30
-    nop
-    inc h
-    ld a, [de]
-    jr nz, @+$03
-
-    ld de, $1a1a
-    rla
-    cp $18
-    db $10
-    ld [de], a
-    inc c
-    jr @+$0e
-
-    add hl, de
-    add hl, hl
-    rst $30
-    db $fd
-    inc h
-    ld a, [de]
-    jr nz, jr_016_5889
-
-    inc de
-
-jr_016_5889:
-    inc c
-    ld hl, $0110
-    jr jr_016_589f
-
-    rra
-    rra
-    rla
-    db $10
-    rrca
-    cp $22
-    inc d
-    rra
-    inc de
-    ld bc, $2418
-    ld bc, $171b
-
-jr_016_589f:
-    inc c
-    add hl, de
-    ld bc, $1a11
-    dec e
-    rst $30
-    db $fd
-    rra
-    inc de
-    db $10
-    ld bc, $0c17
-    ld e, $1f
-    ld bc, $141f
-    jr @+$12
-
-    ld h, $f7
-    db $fd
-    ld [hl+], a
-    db $10
-    ld bc, $1a0e
-    jr nz, jr_016_58d5
-
-    rrca
-    ld bc, $0c13
-    ld hl, $fe10
-    ld c, $1d
-    db $10
-    inc c
-    rra
-    db $10
-    rrca
-    ld bc, $010c
-    add hl, de
-    db $10
-    ld [hl+], a
-    rst $30
-    db $fd
-    ld [hl+], a
-
-jr_016_58d5:
-    ld a, [de]
-    dec e
-    rla
-    rrca
-    ld bc, $1a11
-    dec e
-    ld bc, $170c
-    rla
-    cp $1d
-    ld a, [de]
-    dec c
-    ld a, [de]
-    rra
-    ld e, $29
-    ld bc, $fb01
-    inc a
-    inc de
-    ld a, [de]
-    ld [hl+], a
-    ld bc, $0c0e
-    add hl, de
-    rst $30
-    db $fd
-    inc d
-    ld bc, $0c11
-    ld c, $10
-    ld bc, $2418
-    ld bc, $0c18
-    ld e, $1f
-    db $10
-    dec e
-    cp $19
-    ld a, [de]
-    ld [hl+], a
-    ld a, [hl+]
-    ld bc, $fb01
-    inc a
-    inc d
-    ld bc, $2018
-    ld e, $1f
-    rst $30
-    db $fd
-    dec e
-    db $10
-    rrca
-    db $10
-    db $10
-    jr @+$03
-
-    jr jr_016_5944
-
-    ld e, $10
-    rla
-    ld de, $0d01
-    inc h
-    cp $0d
-    rla
-    ld a, [de]
-    ld [hl+], a
-    inc d
-    add hl, de
-    ld [de], a
-    ld bc, $1a24
-    jr nz, jr_016_5935
-
-    rra
-
-jr_016_5935:
-    ld a, [de]
-    rst $30
-    db $fd
-    dec de
-    inc d
-    db $10
-    ld c, $10
-    ld e, $29
-    rst $30
-    nop
-    ld sp, hl
-    ld a, b
-    dec c
-
-jr_016_5944:
-    db $10
-    inc de
-    ld a, [de]
-    rla
-    rrca
-    ld bc, $1018
-    ld [de], a
-    inc c
-    jr jr_016_595c
-
-    add hl, de
-    daa
-    cp $fb
-    inc a
-    inc d
-    ld bc, $0c13
-    ld hl, $0110
-
-jr_016_595c:
-    inc c
-    ld [hl+], a
-    inc c
-    ld d, $10
-    add hl, de
-    db $10
-    rrca
-    db $fd
-    rra
-    inc de
-    db $10
-    ld bc, $190c
-    ld c, $14
-    db $10
-    add hl, de
-    rra
-    cp $22
-    db $10
-    inc c
-    dec de
-    ld a, [de]
-    add hl, de
-    ld bc, $201e
-    add hl, de
-    ld e, $1f
-    inc c
-    dec e
-    add hl, hl
-    db $fd
-    inc d
-    rra
-    ld e, $01
-    add hl, de
-    ld a, [de]
-    ld hl, $010c
-    ld [hl+], a
-    db $10
-    inc c
-    dec de
-    ld a, [de]
-    add hl, de
-    cp $22
-    inc d
-    rla
-    rla
-    ld bc, $100f
-    ld e, $1f
-    dec e
-    ld a, [de]
-    inc h
-    db $fd
-    inc h
-    ld a, [de]
-    jr nz, jr_016_59cb
-
-    ei
-    ld a, b
-    db $f4
-    nop
-    ld e, $20
-    add hl, de
-    ld e, $1f
-    inc c
-    dec e
-    daa
-    ld bc, $3cfb
-    rrca
-    db $10
-    ld e, $1f
-    dec e
-    ld a, [de]
-    inc h
-    cp $18
-    db $10
-    ld [de], a
-    inc c
-    jr jr_016_59cb
-
-    add hl, de
-    add hl, hl
-    ei
-    ld a, b
-    db $f4
-    nop
-    ld sp, hl
-    ld a, b
-    ld [hl+], a
-    inc de
-    inc c
-    rra
-
-jr_016_59cb:
-    ld a, [hl+]
-    add hl, hl
-    ld a, [hl+]
-    cp $fb
-    ld e, d
-    inc h
-    ld a, [de]
-    jr nz, @+$03
-
-    ld de, $1a1a
-    rla
-    add hl, hl
-    db $fd
-    inc de
-    ld a, [de]
-    ld [hl+], a
-    ld bc, $0c0f
-    dec e
-    db $10
-    ld bc, $1a24
-
-jr_016_59e6:
-    jr nz, jr_016_59e6
-
-    inc c
-    rra
-    rra
-    inc c
-    ld c, $16
-    ld bc, $131f
-    db $10
-    db $fd
-    jr jr_016_5a09
-
-    ld [de], a
-    inc de
-    rra
-    inc h
-    ld bc, $1d0f
-    ld h, $01
-    ld [hl+], a
-    inc d
-    rla
-    inc h
-    add hl, hl
-    ei
-    ld a, b
-    db $f4
-    nop
-    ld sp, hl
-    ld a, b
-
-jr_016_5a09:
-    inc h
-    ld a, [de]
-    jr nz, jr_016_5a0e
-
-    inc c
-
-jr_016_5a0e:
-    dec e
-    db $10
-    ld h, $26
-    ld h, $fe
-    ei
-    ld e, d
-    jr jr_016_5a28
-
-    ld [de], a
-    inc c
-    jr jr_016_5a28
-
-    add hl, de
-    ld h, $26
-    ld h, $fd
-    inc d
-    ld bc, $180c
-    ld bc, $201e
-
-jr_016_5a28:
-    add hl, de
-    ld e, $1f
-    inc c
-    dec e
-    ld h, $26
-    ld h, $fd
-    rra
-    inc de
-    db $10
-    ld bc, $1a0f
-    ld a, [de]
-    jr jr_016_5a58
-
-    rrca
-    inc c
-    inc h
-    cp $22
-    db $10
-    inc c
-    dec de
-    ld a, [de]
-    add hl, de
-    ld h, $26
-    ld h, $fd
-    inc d
-    ld bc, $2018
-    ld e, $1f
-    ld bc, $100f
-    ld e, $1f
-    dec e
-    ld a, [de]
-    inc h
-    cp $0c
-
-jr_016_5a58:
-    rla
-    rla
-    ld bc, $1914
-    ld de, $1d10
-    inc d
-    ld a, [de]
-    dec e
-    db $fd
-    rla
-    inc d
-    ld de, $0110
-    ld de, $1d1a
-    jr jr_016_5a8c
-
-    add hl, hl
-    ei
-    ld a, b
-    db $f4
-    nop
+Bank16TextPointers:
+    dw $c937, Bank16Text_01, Bank16Text_02, Bank16Text_03, Bank16Text_04, Bank16Text_05, Bank16Text_06, Bank16Text_07
+    dw Bank16Text_08, Bank16Text_09, Bank16Text_0a, Bank16Text_0b, Bank16Text_0c, Bank16Text_0d, Bank16Text_0e, Bank16Text_0f
+    dw Bank16Text_10, Bank16Text_11, Bank16Text_12, Bank16Text_13, Bank16Text_14, Bank16Text_15, Bank16Text_16, Bank16Text_17
+    dw Bank16Text_18, Bank16Text_19, Bank16Text_1a, Bank16Text_1b, Bank16Text_1c, Bank16Text_1d, Bank16Text_1e, Bank16Text_1f
+    dw Bank16Text_20, Bank16Text_21, Bank16Text_22, Bank16Text_23, Bank16Text_24, Bank16Text_25, Bank16Text_26, Bank16Text_27
+    dw Bank16Text_28, Bank16Text_29, Bank16Text_2a, Bank16Text_2b, Bank16Text_2c, Bank16Text_2d, Bank16Text_2e, Bank16Text_2f
+    dw Bank16Text_30, Bank16Text_31, Bank16Text_32, Bank16Text_33, Bank16Text_34, Bank16Text_35, Bank16Text_36, Bank16Text_37
+    dw Bank16Text_38, Bank16Text_39, Bank16Text_3a, Bank16Text_3b, Bank16Text_3c
+
+Bank16Text_01:
+    ; Message(s): $01
+    ; MEGAMAN,<FB><3C> OUR
+    ; WORLD IS ONCE<WAIT>
+    ;
+    ; AGAIN IN CHAOS.
+    ; <FB><3C>THE ALIEN ROBOTS<WAIT>
+    ;
+    ; CALL THEMSELVES
+    ; "STARDROIDS" AND<WAIT>
+    ;
+    ; HAVE CONQUERED
+    ; MOST OUR MAJOR<WAIT>
+    ;
+    ; CITIES.
+    ; <FB><3C>THEY ARE<WAIT>
+    ;
+    ; CONSTRUCTED OF
+    ; ALIEN MATERIAL<WAIT>
+    ;
+    ; WHICH RENDER OUR
+    ; WEAPONS USELESS.<WAIT>
+    db $18, $10, $12, $0c, $18, $0c, $19, $27, $fb, $3c, $01, $1a, $20, $1d, $fe, $22
+    db $1a, $1d, $17, $0f, $01, $14, $1e, $01, $1a, $19, $0e, $10, $f7, $fd, $0c, $12
+    db $0c, $14, $19, $01, $14, $19, $01, $0e, $13, $0c, $1a, $1e, $26, $fe, $fb, $3c
+    db $1f, $13, $10, $01, $0c, $17, $14, $10, $19, $01, $1d, $1a, $0d, $1a, $1f, $1e
+    db $f7, $fd, $0e, $0c, $17, $17, $01, $1f, $13, $10, $18, $1e, $10, $17, $21, $10
+    db $1e, $fe, $2e, $1e, $1f, $0c, $1d, $0f, $1d, $1a, $14, $0f, $1e, $2e, $01, $0c
+    db $19, $0f, $f7, $fd, $13, $0c, $21, $10, $01, $0e, $1a, $19, $1c, $20, $10, $1d
+    db $10, $0f, $fe, $18, $1a, $1e, $1f, $01, $1a, $20, $1d, $01, $18, $0c, $15, $1a
+    db $1d, $f7, $fd, $0e, $14, $1f, $14, $10, $1e, $26, $fe, $fb, $3c, $1f, $13, $10
+    db $24, $01, $0c, $1d, $10, $f7, $fd, $0e, $1a, $19, $1e, $1f, $1d, $20, $0e, $1f
+    db $10, $0f, $01, $1a, $11, $fe, $0c, $17, $14, $10, $19, $01, $18, $0c, $1f, $10
+    db $1d, $14, $0c, $17, $f7, $fd, $22, $13, $14, $0e, $13, $01, $1d, $10, $19, $0f
+    db $10, $1d, $01, $1a, $20, $1d, $fe, $22, $10, $0c, $1b, $1a, $19, $1e, $01, $20
+    db $1e, $10, $17, $10, $1e, $1e, $26, $f7, $00
+
+Bank16Text_02:
+    ; Message(s): $02
+    ; BUT, I HAVE DONE
+    ; SOME ANALYSIS<WAIT>
+    ;
+    ; AND CONSTRUCTED
+    ; A NEW WEAPON FOR<WAIT>
+    ;
+    ; YOU.  <FB><3C>IT WILL
+    ; REPLACE YOUR<WAIT>
+    ;
+    ; SUPER MEGA
+    ; BUSTER.<WAIT>
+    db $0d, $20, $1f, $27, $01, $14, $01, $13, $0c, $21, $10, $01, $0f, $1a, $19, $10
+    db $fe, $1e, $1a, $18, $10, $01, $0c, $19, $0c, $17, $24, $1e, $14, $1e, $f7, $fd
+    db $0c, $19, $0f, $01, $0e, $1a, $19, $1e, $1f, $1d, $20, $0e, $1f, $10, $0f, $fe
+    db $0c, $01, $19, $10, $22, $01, $22, $10, $0c, $1b, $1a, $19, $01, $11, $1a, $1d
+    db $f7, $fd, $24, $1a, $20, $26, $01, $01, $fb, $3c, $14, $1f, $01, $22, $14, $17
+    db $17, $fe, $1d, $10, $1b, $17, $0c, $0e, $10, $01, $24, $1a, $20, $1d, $f7, $fd
+    db $1e, $20, $1b, $10, $1d, $01, $18, $10, $12, $0c, $fe, $0d, $20, $1e, $1f, $10
+    db $1d, $26, $f7, $00
+
+Bank16Text_03:
+    ; Message(s): $03
+    ; OH, MEGAMAN!
+    ; <FB><3C>DID YOU BRING<WAIT>
+    ;
+    ; BACK THE
+    ; P CHIPS?<WAIT>
+    db $1a, $13, $27, $01, $18, $10, $12, $0c, $18, $0c, $19, $29, $fe, $fb, $3c, $0f
+    db $14, $0f, $01, $24, $1a, $20, $01, $0d, $1d, $14, $19, $12, $f7, $fd, $0d, $0c
+    db $0e, $16, $01, $1f, $13, $10, $fe, $1b, $01, $0e, $13, $14, $1b, $1e, $2a, $f7
+    db $00
+
+Bank16Text_04:
+    ; Message(s): $04
+    ; SELECT THE ITEM
+    ; YOU WANT.<F4>COLLECT <06> OF
+    ; THESE AND YOU<WAIT>
+    ;
+    ; WILL EARN A
+    ; E TANK.<WAIT>
+    db $1e, $10, $17, $10, $0e, $1f, $01, $1f, $13, $10, $01, $14, $1f, $10, $18, $fe
+    db $24, $1a, $20, $01, $22, $0c, $19, $1f, $26, $f4
+
+Bank16Text_05:
+    ; Message(s): $05
+    ; COLLECT <06> OF
+    ; THESE AND YOU<WAIT>
+    ;
+    ; WILL EARN A
+    ; E TANK.<WAIT>
+    db $0e, $1a, $17, $17, $10, $0e, $1f, $01, $06, $01, $1a, $11, $fe, $1f, $13, $10
+    db $1e, $10, $01, $0c, $19, $0f, $01, $24, $1a, $20, $f7, $fd, $22, $14, $17, $17
+    db $01, $10, $0c, $1d, $19, $01, $0c, $fe, $10, $01, $1f, $0c, $19, $16, $26, $f7
+    db $00
+
+Bank16Text_06:
+    ; Message(s): $06
+    ; YOU CAN TOTALLY
+    ; RECHARGE ONE OF<WAIT>
+    ;
+    ; YOUR WEAPONS
+    ; WITH THIS ITEM.<WAIT>
+    db $24, $1a, $20, $01, $0e, $0c, $19, $01, $1f, $1a, $1f, $0c, $17, $17, $24, $fe
+    db $1d, $10, $0e, $13, $0c, $1d, $12, $10, $01, $1a, $19, $10, $01, $1a, $11, $f7
+    db $fd, $24, $1a, $20, $1d, $01, $22, $10, $0c, $1b, $1a, $19, $1e, $fe, $22, $14
+    db $1f, $13, $01, $1f, $13, $14, $1e, $01, $14, $1f, $10, $18, $26, $f7, $00
+
+Bank16Text_07:
+    ; Message(s): $07
+    ; YOU CAN TOTALLY
+    ; RECHARGE YOUR<WAIT>
+    ;
+    ; ENERGY LEVEL
+    ; WITH THIS ITEM.<WAIT>
+    db $24, $1a, $20, $01, $0e, $0c, $19, $01, $1f, $1a, $1f, $0c, $17, $17, $24, $fe
+    db $1d, $10, $0e, $13, $0c, $1d, $12, $10, $01, $24, $1a, $20, $1d, $f7, $fd, $10
+    db $19, $10, $1d, $12, $24, $01, $17, $10, $21, $10, $17, $fe, $22, $14, $1f, $13
+    db $01, $1f, $13, $14, $1e, $01, $14, $1f, $10, $18, $26, $f7, $00
+
+Bank16Text_08:
+    ; Message(s): $08
+    ; YOU CAN TOTALLY
+    ; RECHARGE YOUR<WAIT>
+    ;
+    ; ENERGY LEVEL AND
+    ; ALL OF YOUR<WAIT>
+    ;
+    ; WEAPONS WITH
+    ; THIS ITEM.<WAIT>
+    db $24, $1a, $20, $01, $0e, $0c, $19, $01, $1f, $1a, $1f, $0c, $17, $17, $24, $fe
+    db $1d, $10, $0e, $13, $0c, $1d, $12, $10, $01, $24, $1a, $20, $1d, $f7, $fd, $10
+    db $19, $10, $1d, $12, $24, $01, $17, $10, $21, $10, $17, $01, $0c, $19, $0f, $fe
+    db $0c, $17, $17, $01, $1a, $11, $01, $24, $1a, $20, $1d, $f7, $fd, $22, $10, $0c
+    db $1b, $1a, $19, $1e, $01, $22, $14, $1f, $13, $fe, $1f, $13, $14, $1e, $01, $14
+    db $1f, $10, $18, $26, $f7, $00
+
+Bank16Text_09:
+    ; Message(s): $09
+    ; EXTRA LIFE.<WAIT>
+    db $10, $23, $1f, $1d, $0c, $01, $17, $14, $11, $10, $26, $f7, $00
+
+Bank16Text_0a:
+    ; Message(s): $0a
+    ; WITH THIS ITEM,
+    ; THE WEAPON WITH<WAIT>
+    ;
+    ; THE LEAST AMOUNT
+    ; OF ENERGY WILL<WAIT>
+    ;
+    ; BE REFILLED
+    ; AUTOMATICALLY<WAIT>
+    ;
+    ; WHEN YOU PICK UP
+    ; AN WEAPON<WAIT>
+    ;
+    ; CAPSULE.<WAIT>
+    db $22, $14, $1f, $13, $01, $1f, $13, $14, $1e, $01, $14, $1f, $10, $18, $27, $fe
+    db $1f, $13, $10, $01, $22, $10, $0c, $1b, $1a, $19, $01, $22, $14, $1f, $13, $f7
+    db $fd, $1f, $13, $10, $01, $17, $10, $0c, $1e, $1f, $01, $0c, $18, $1a, $20, $19
+    db $1f, $fe, $1a, $11, $01, $10, $19, $10, $1d, $12, $24, $01, $22, $14, $17, $17
+    db $f7, $fd, $0d, $10, $01, $1d, $10, $11, $14, $17, $17, $10, $0f, $fe, $0c, $20
+    db $1f, $1a, $18, $0c, $1f, $14, $0e, $0c, $17, $17, $24, $f7, $fd, $22, $13, $10
+    db $19, $01, $24, $1a, $20, $01, $1b, $14, $0e, $16, $01, $20, $1b, $fe, $0c, $19
+    db $01, $22, $10, $0c, $1b, $1a, $19, $f7, $fd, $0e, $0c, $1b, $1e, $20, $17, $10
+    db $26, $f7, $00
+
+Bank16Text_0b:
+    ; Message(s): $0b
+    ; ALL OF YOUR
+    ; WEAPONS WILL BE<WAIT>
+    ;
+    ; IMMEDIATELY
+    ; REFILLED.<WAIT>
+    db $0c, $17, $17, $01, $1a, $11, $01, $24, $1a, $20, $1d, $fe, $22, $10, $0c, $1b
+    db $1a, $19, $1e, $01, $22, $14, $17, $17, $01, $0d, $10, $f7, $fd, $14, $18, $18
+    db $10, $0f, $14, $0c, $1f, $10, $17, $24, $fe, $1d, $10, $11, $14, $17, $17, $10
+    db $0f, $26, $f7, $00
+
+Bank16Text_0c:
+    ; Message(s): $0c
+    ; YOU CAN'T CARRY
+    ; ANY MORE OF THAT<WAIT>
+    ;
+    ; ITEM.<WAIT>
+    db $24, $1a, $20, $01, $0e, $0c, $19, $28, $1f, $01, $0e, $0c, $1d, $1d, $24, $fe
+    db $0c, $19, $24, $01, $18, $1a, $1d, $10, $01, $1a, $11, $01, $1f, $13, $0c, $1f
+    db $f7, $fd, $14, $1f, $10, $18, $26, $f7, $00
+
+Bank16Text_0d:
+    ; Message(s): $0d
+    ; ALL OF YOUR
+    ; WEAPONS ARE<WAIT>
+    ;
+    ; ALREADY FULL.<WAIT>
+    db $0c, $17, $17, $01, $1a, $11, $01, $24, $1a, $20, $1d, $fe, $22, $10, $0c, $1b
+    db $1a, $19, $1e, $01, $0c, $1d, $10, $f7, $fd, $0c, $17, $1d, $10, $0c, $0f, $24
+    db $01, $11, $20, $17, $17, $26, $f7, $00
+
+Bank16Text_0e:
+    ; Message(s): $0e
+    ; YOU NEED <F5>
+    ; P CHIPS FOR THIS<WAIT>
+    ;
+    ; ITEM.<WAIT>
+    db $24, $1a, $20, $01, $19, $10, $10, $0f, $01, $f5, $fe, $1b, $01, $0e, $13, $14
+    db $1b, $1e, $01, $11, $1a, $1d, $01, $1f, $13, $14, $1e, $f7, $fd, $14, $1f, $10
+    db $18, $26, $f7, $00
+
+Bank16Text_0f:
+    ; Message(s): $0f
+    ; DO YOU WANT
+    ; THIS ITEM?<WAIT>
+    ;
+    ; THIS ITEM?
+    ;    B<30>NO  A<30>YES<F6>
+    db $0f, $1a, $01, $24, $1a, $20, $01, $22, $0c, $19, $1f, $fe, $1f, $13, $14, $1e
+    db $01, $14, $1f, $10, $18, $2a, $f7, $fd, $1f, $13, $14, $1e, $01, $14, $1f, $10
+    db $18, $2a, $fe, $01, $01, $01, $0d, $30, $19, $1a, $01, $01, $0c, $30, $24, $10
+    db $1e, $f6, $00
+
+Bank16Text_10:
+    ; Message(s): $10
+    ; YOU DON'T HAVE
+    ; ENOUGH P CHIPS.<WAIT>
+    db $24, $1a, $20, $01, $0f, $1a, $19, $28, $1f, $01, $13, $0c, $21, $10, $fe, $10
+    db $19, $1a, $20, $12, $13, $01, $1b, $01, $0e, $13, $14, $1b, $1e, $26, $f7, $00
+
+Bank16Text_11:
+    ; Message(s): $11
+    ; SELECT THE ITEM
+    ; YOU WANT.<F4>ARE YOU
+    ; FINISHED?<WAIT>
+    ;
+    ; FINISHED?
+    ;    B<30>NO  A<30>YES<F6>
+    db $1e, $10, $17, $10, $0e, $1f, $01, $1f, $13, $10, $01, $14, $1f, $10, $18, $fe
+    db $24, $1a, $20, $01, $22, $0c, $19, $1f, $26, $f4
+
+Bank16Text_12:
+    ; Message(s): $12
+    ; ARE YOU
+    ; FINISHED?<WAIT>
+    ;
+    ; FINISHED?
+    ;    B<30>NO  A<30>YES<F6>
+    db $0c, $1d, $10, $01, $24, $1a, $20, $fe, $11, $14, $19, $14, $1e, $13, $10, $0f
+    db $2a, $f7, $fd, $11, $14, $19, $14, $1e, $13, $10, $0f, $2a, $fe, $01, $01, $01
+    db $0d, $30, $19, $1a, $01, $01, $0c, $30, $24, $10, $1e, $f6, $00
+
+Bank16Text_13:
+    ; Message(s): $13
+    ; GOOD LUCK,
+    ; MEGAMAN!<WAIT>
+    db $12, $1a, $1a, $0f, $01, $17, $20, $0e, $16, $27, $fe, $18, $10, $12, $0c, $18
+    db $0c, $19, $29, $f7, $00
+
+Bank16Text_14:
+    ; Message(s): $14
+    ; IT IS CALLED THE
+    ; "MEGA ARM" AND<WAIT>
+    ;
+    ; IT ALLOWS YOU TO
+    ; CHARGE ENERGY IN<WAIT>
+    ;
+    ; YOUR FIST BEFORE
+    ; YOU FIRE IT.<WAIT>
+    db $14, $1f, $01, $14, $1e, $01, $0e, $0c, $17, $17, $10, $0f, $01, $1f, $13, $10
+    db $fe, $2e, $18, $10, $12, $0c, $01, $0c, $1d, $18, $2e, $01, $0c, $19, $0f, $f7
+    db $fd, $14, $1f, $01, $0c, $17, $17, $1a, $22, $1e, $01, $24, $1a, $20, $01, $1f
+    db $1a, $fe, $0e, $13, $0c, $1d, $12, $10, $01, $10, $19, $10, $1d, $12, $24, $01
+    db $14, $19, $f7, $fd, $24, $1a, $20, $1d, $01, $11, $14, $1e, $1f, $01, $0d, $10
+    db $11, $1a, $1d, $10, $fe, $24, $1a, $20, $01, $11, $14, $1d, $10, $01, $14, $1f
+    db $26, $f7, $00
+
+Bank16Text_15:
+    ; Message(s): $15
+    ; I HAVE ALSO
+    ; CREATED A NEW<WAIT>
+    ;
+    ; ASSISTANT FOR
+    ; YOU.  <FB><3C>HIS NAME<WAIT>
+    ;
+    ; IS "TANGO".<WAIT>
+    db $14, $01, $13, $0c, $21, $10, $01, $0c, $17, $1e, $1a, $fe, $0e, $1d, $10, $0c
+    db $1f, $10, $0f, $01, $0c, $01, $19, $10, $22, $f7, $fd, $0c, $1e, $1e, $14, $1e
+    db $1f, $0c, $19, $1f, $01, $11, $1a, $1d, $fe, $24, $1a, $20, $26, $01, $01, $fb
+    db $3c, $13, $14, $1e, $01, $19, $0c, $18, $10, $f7, $fd, $14, $1e, $01, $2e, $1f
+    db $0c, $19, $12, $1a, $2e, $26, $f7, $00
+
+Bank16Text_16:
+    ; Message(s): $16
+    ; I'LL ENHANCE
+    ; THIS ITEM<WAIT>
+    ;
+    ; REPLICATOR TO
+    ; MAKE POWERFUL<WAIT>
+    ;
+    ; ITEMS FOR YOU.
+    ; <FB><3C>COLLECT AS MANY<WAIT>
+    ;
+    ; P CHIPS AS
+    ; POSSIBLE AND<WAIT>
+    ;
+    ; RETURN TO MY LAB
+    ; TO EXCHANGE THEM<WAIT>
+    ;
+    ; FOR POWER-UP
+    ; ITEMS.<WAIT>
+    ;
+    ; GOOD LUCK,
+    ; MEGAMAN.<WAIT>
+    db $14, $28, $17, $17, $01, $10, $19, $13, $0c, $19, $0e, $10, $fe, $1f, $13, $14
+    db $1e, $01, $14, $1f, $10, $18, $f7, $fd, $1d, $10, $1b, $17, $14, $0e, $0c, $1f
+    db $1a, $1d, $01, $1f, $1a, $fe, $18, $0c, $16, $10, $01, $1b, $1a, $22, $10, $1d
+    db $11, $20, $17, $f7, $fd, $14, $1f, $10, $18, $1e, $01, $11, $1a, $1d, $01, $24
+    db $1a, $20, $26, $fe, $fb, $3c, $0e, $1a, $17, $17, $10, $0e, $1f, $01, $0c, $1e
+    db $01, $18, $0c, $19, $24, $f7, $fd, $1b, $01, $0e, $13, $14, $1b, $1e, $01, $0c
+    db $1e, $fe, $1b, $1a, $1e, $1e, $14, $0d, $17, $10, $01, $0c, $19, $0f, $f7, $fd
+    db $1d, $10, $1f, $20, $1d, $19, $01, $1f, $1a, $01, $18, $24, $01, $17, $0c, $0d
+    db $fe, $1f, $1a, $01, $10, $23, $0e, $13, $0c, $19, $12, $10, $01, $1f, $13, $10
+    db $18, $f7, $fd, $11, $1a, $1d, $01, $1b, $1a, $22, $10, $1d, $2f, $20, $1b, $fe
+    db $14, $1f, $10, $18, $1e, $26, $f7, $fd, $12, $1a, $1a, $0f, $01, $17, $20, $0e
+    db $16, $27, $fe, $18, $10, $12, $0c, $18, $0c, $19, $26, $f7, $00
+
+Bank16Text_17:
+    ; Message(s): $17
+    ; <F9><78>IN THE YEAR <04><02>XX
+    ; AD, THE WORLD IS
+    ;
+    ; AT PEACE THANKS
+    ; TO MEGAMAN.<FB><F0><F4>
+    db $f9, $78, $14, $19, $01, $1f, $13, $10, $01, $24, $10, $0c, $1d, $01, $04, $02
+    db $23, $23, $fe, $0c, $0f, $27, $01, $1f, $13, $10, $01, $22, $1a, $1d, $17, $0f
+    db $01, $14, $1e, $fd, $0c, $1f, $01, $1b, $10, $0c, $0e, $10, $01, $1f, $13, $0c
+    db $19, $16, $1e, $fe, $1f, $1a, $01, $18, $10, $12, $0c, $18, $0c, $19, $26, $fb
+    db $f0, $f4, $00
+
+Bank16Text_18:
+    ; Message(s): $18
+    ; <F9><5A>
+    ;
+    ; DR. WILY'S
+    ; FOURTH ATTEMPT
+    ;
+    ; AT WORLD
+    ; DOMINATION HAS
+    ;
+    ; FAILED AND HIS
+    ; NAME HAS ONCE
+    ;
+    ; AGAIN FADED FROM
+    ; THE MINDS OF THE
+    ;
+    ; CITIZENS OF THE
+    ; WORLD.<FB><3C>
+    ;
+    ; A FEW MONTHS
+    ; LATER...<FB>D<F4>
+    db $f9, $5a, $fd, $0f, $1d, $26, $01, $22, $14, $17, $24, $28, $1e, $fe, $11, $1a
+    db $20, $1d, $1f, $13, $01, $0c, $1f, $1f, $10, $18, $1b, $1f, $fd, $0c, $1f, $01
+    db $22, $1a, $1d, $17, $0f, $fe, $0f, $1a, $18, $14, $19, $0c, $1f, $14, $1a, $19
+    db $01, $13, $0c, $1e, $fd, $11, $0c, $14, $17, $10, $0f, $01, $0c, $19, $0f, $01
+    db $13, $14, $1e, $fe, $19, $0c, $18, $10, $01, $13, $0c, $1e, $01, $1a, $19, $0e
+    db $10, $fd, $0c, $12, $0c, $14, $19, $01, $11, $0c, $0f, $10, $0f, $01, $11, $1d
+    db $1a, $18, $fe, $1f, $13, $10, $01, $18, $14, $19, $0f, $1e, $01, $1a, $11, $01
+    db $1f, $13, $10, $fd, $0e, $14, $1f, $14, $25, $10, $19, $1e, $01, $1a, $11, $01
+    db $1f, $13, $10, $fe, $22, $1a, $1d, $17, $0f, $26, $fb, $3c, $fd, $0c, $01, $11
+    db $10, $22, $01, $18, $1a, $19, $1f, $13, $1e, $fe, $17, $0c, $1f, $10, $1d, $26
+    db $26, $26, $fb, $0f, $f4, $00
+
+Bank16Text_19:
+    ; Message(s): $19
+    ; <F9><78>SO, YOU ARE THE
+    ; FAMOUS MEGAMAN!<FB><78>
+    ;
+    ; I AM TERRA - AND
+    ; YOU WILL SOON BE
+    ;
+    ; MY SLAVE!<FB><78><F4>
+    db $f9, $78, $1e, $1a, $27, $01, $24, $1a, $20, $01, $0c, $1d, $10, $01, $1f, $13
+    db $10, $fe, $11, $0c, $18, $1a, $20, $1e, $01, $18, $10, $12, $0c, $18, $0c, $19
+    db $29, $fb, $78, $fd, $14, $01, $0c, $18, $01, $1f, $10, $1d, $1d, $0c, $01, $2f
+    db $01, $0c, $19, $0f, $fe, $24, $1a, $20, $01, $22, $14, $17, $17, $01, $1e, $1a
+    db $1a, $19, $01, $0d, $10, $fd, $18, $24, $01, $1e, $17, $0c, $21, $10, $29, $fb
+    db $78, $f4, $00
+
+Bank16Text_1a:
+    ; Message(s): $1a
+    ; <F9><78>WHAT?!  <FB><3C>MY MEGA
+    ; BUSTER HAS NO
+    ;
+    ; EFFECT ON HIM...<FB><78><F4>
+    db $f9, $78, $22, $13, $0c, $1f, $2a, $29, $01, $01, $fb, $3c, $18, $24, $01, $18
+    db $10, $12, $0c, $fe, $0d, $20, $1e, $1f, $10, $1d, $01, $13, $0c, $1e, $01, $19
+    db $1a, $fd, $10, $11, $11, $10, $0e, $1f, $01, $1a, $19, $01, $13, $14, $18, $26
+    db $26, $26, $fb, $78, $f4, $00
+
+Bank16Text_1b:
+    ; Message(s): $1b
+    ; <F9><78>A FEW HOURS
+    ; LATER, THE WORLD
+    ;
+    ; WAS ATTACKED BY
+    ; WARRIOR ROBOTS
+    ;
+    ; FROM SPACE.<FB><B4><F4>
+    db $f9, $78, $0c, $01, $11, $10, $22, $01, $13, $1a, $20, $1d, $1e, $fe, $17, $0c
+    db $1f, $10, $1d, $27, $01, $1f, $13, $10, $01, $22, $1a, $1d, $17, $0f, $fd, $22
+    db $0c, $1e, $01, $0c, $1f, $1f, $0c, $0e, $16, $10, $0f, $01, $0d, $24, $fe, $22
+    db $0c, $1d, $1d, $14, $1a, $1d, $01, $1d, $1a, $0d, $1a, $1f, $1e, $fd, $11, $1d
+    db $1a, $18, $01, $1e, $1b, $0c, $0e, $10, $26, $fb, $b4, $f4, $00
+
+Bank16Text_1c:
+    ; Message(s): $1c
+    ; <F9><78>WHERE AM I?<FB><78><F4>
+    db $f9, $78, $22, $13, $10, $1d, $10, $01, $0c, $18, $01, $14, $2a, $fb, $78, $f4
+    db $00
+
+Bank16Text_1d:
+    ; Message(s): $1d
+    ; <F9><78>DR. LIGHT FOUND
+    ; MEGAMAN AND
+    ;
+    ; EQUIPPED HIM
+    ; WITH THE NEW
+    ;
+    ; "MEGA ARM".
+    ; THE MOST
+    ;
+    ; POWERFUL WEAPON
+    ; EVER DEVISED.<FB><78><F4>
+    db $f9, $78, $0f, $1d, $26, $01, $17, $14, $12, $13, $1f, $01, $11, $1a, $20, $19
+    db $0f, $fe, $18, $10, $12, $0c, $18, $0c, $19, $01, $0c, $19, $0f, $fd, $10, $1c
+    db $20, $14, $1b, $1b, $10, $0f, $01, $13, $14, $18, $fe, $22, $14, $1f, $13, $01
+    db $1f, $13, $10, $01, $19, $10, $22, $fd, $2e, $18, $10, $12, $0c, $01, $0c, $1d
+    db $18, $2e, $26, $fe, $1f, $13, $10, $01, $18, $1a, $1e, $1f, $fd, $1b, $1a, $22
+    db $10, $1d, $11, $20, $17, $01, $22, $10, $0c, $1b, $1a, $19, $fe, $10, $21, $10
+    db $1d, $01, $0f, $10, $21, $14, $1e, $10, $0f, $26, $fb, $78, $f4, $00
+
+Bank16Text_1e:
+    ; Message(s): $1e
+    ; <F9><78>WHY HAVE THE
+    ; STARDROIDS COME
+    ;
+    ; HERE!?<FB><78><F4>
+    db $f9, $78, $22, $13, $24, $01, $13, $0c, $21, $10, $01, $1f, $13, $10, $fe, $1e
+    db $1f, $0c, $1d, $0f, $1d, $1a, $14, $0f, $1e, $01, $0e, $1a, $18, $10, $fd, $13
+    db $10, $1d, $10, $29, $2a, $fb, $78, $f4, $00
+
+Bank16Text_1f:
+    ; Message(s): $1f
+    ; THIS IS A
+    ; POWER-UP ITEM<WAIT>
+    ;
+    ; FOR THE
+    ; "MEGA ARM".<WAIT>
+    ;
+    ; ONCE INSTALLED,
+    ; YOU CAN GRAB AN<WAIT>
+    ;
+    ; ITEM FROM FAR
+    ; AWAY.<WAIT>
+    db $1f, $13, $14, $1e, $01, $14, $1e, $01, $0c, $fe, $1b, $1a, $22, $10, $1d, $2f
+    db $20, $1b, $01, $14, $1f, $10, $18, $f7, $fd, $11, $1a, $1d, $01, $1f, $13, $10
+    db $fe, $2e, $18, $10, $12, $0c, $01, $0c, $1d, $18, $2e, $26, $f7, $fd, $1a, $19
+    db $0e, $10, $01, $14, $19, $1e, $1f, $0c, $17, $17, $10, $0f, $27, $fe, $24, $1a
+    db $20, $01, $0e, $0c, $19, $01, $12, $1d, $0c, $0d, $01, $0c, $19, $f7, $fd, $14
+    db $1f, $10, $18, $01, $11, $1d, $1a, $18, $01, $11, $0c, $1d, $fe, $0c, $22, $0c
+    db $24, $26, $f7, $00
+
+Bank16Text_20:
+    ; Message(s): $20
+    ; THIS IS A
+    ; POWER-UP ITEM<WAIT>
+    ;
+    ; FOR THE
+    ; "MEGA ARM".<WAIT>
+    ;
+    ; ONCE INSTALLED,
+    ; YOU CAN GRAB AND<WAIT>
+    ;
+    ; ATTACK THE ENEMY
+    ; OVER AND OVER.<WAIT>
+    db $1f, $13, $14, $1e, $01, $14, $1e, $01, $0c, $fe, $1b, $1a, $22, $10, $1d, $2f
+    db $20, $1b, $01, $14, $1f, $10, $18, $f7, $fd, $11, $1a, $1d, $01, $1f, $13, $10
+    db $fe, $2e, $18, $10, $12, $0c, $01, $0c, $1d, $18, $2e, $26, $f7, $fd, $1a, $19
+    db $0e, $10, $01, $14, $19, $1e, $1f, $0c, $17, $17, $10, $0f, $27, $fe, $24, $1a
+    db $20, $01, $0e, $0c, $19, $01, $12, $1d, $0c, $0d, $01, $0c, $19, $0f, $f7, $fd
+    db $0c, $1f, $1f, $0c, $0e, $16, $01, $1f, $13, $10, $01, $10, $19, $10, $18, $24
+    db $fe, $1a, $21, $10, $1d, $01, $0c, $19, $0f, $01, $1a, $21, $10, $1d, $26, $f7
+    db $00
+
+Bank16Text_21:
+    ; Message(s): $21
+    ; THIS POWER
+    ; GENERATOR WAS<WAIT>
+    ;
+    ; MADE FROM THE <06>
+    ; CRYSTALS YOU<WAIT>
+    ;
+    ; BROUGHT BACK.
+    ; <FB><3C>THE POWER<WAIT>
+    ;
+    ; GENERATOR WILL
+    ; REDUCE THE<WAIT>
+    ;
+    ; AMOUNT OF ENERGY
+    ; YOUR SPECIAL<WAIT>
+    ;
+    ; WEAPONS USE BY
+    ; HALF.<WAIT>
+    ;
+    ; NO P CHIPS ARE
+    ; REQUIRED FOR<WAIT>
+    ;
+    ; THIS ITEM, ONLY
+    ; THE CRYSTALS.<WAIT>
+    db $1f, $13, $14, $1e, $01, $1b, $1a, $22, $10, $1d, $fe, $12, $10, $19, $10, $1d
+    db $0c, $1f, $1a, $1d, $01, $22, $0c, $1e, $f7, $fd, $18, $0c, $0f, $10, $01, $11
+    db $1d, $1a, $18, $01, $1f, $13, $10, $01, $06, $fe, $0e, $1d, $24, $1e, $1f, $0c
+    db $17, $1e, $01, $24, $1a, $20, $f7, $fd, $0d, $1d, $1a, $20, $12, $13, $1f, $01
+    db $0d, $0c, $0e, $16, $26, $fe, $fb, $3c, $1f, $13, $10, $01, $1b, $1a, $22, $10
+    db $1d, $f7, $fd, $12, $10, $19, $10, $1d, $0c, $1f, $1a, $1d, $01, $22, $14, $17
+    db $17, $fe, $1d, $10, $0f, $20, $0e, $10, $01, $1f, $13, $10, $f7, $fd, $0c, $18
+    db $1a, $20, $19, $1f, $01, $1a, $11, $01, $10, $19, $10, $1d, $12, $24, $fe, $24
+    db $1a, $20, $1d, $01, $1e, $1b, $10, $0e, $14, $0c, $17, $f7, $fd, $22, $10, $0c
+    db $1b, $1a, $19, $1e, $01, $20, $1e, $10, $01, $0d, $24, $fe, $13, $0c, $17, $11
+    db $26, $f7, $fd, $19, $1a, $01, $1b, $01, $0e, $13, $14, $1b, $1e, $01, $0c, $1d
+    db $10, $fe, $1d, $10, $1c, $20, $14, $1d, $10, $0f, $01, $11, $1a, $1d, $f7, $fd
+    db $1f, $13, $14, $1e, $01, $14, $1f, $10, $18, $27, $01, $1a, $19, $17, $24, $fe
+    db $1f, $13, $10, $01, $0e, $1d, $24, $1e, $1f, $0c, $17, $1e, $26, $f7, $00
+
+Bank16Text_22:
+    ; Message(s): $22
+    ; YOU CAN'T MAKE
+    ; ANY MORE OF THIS<WAIT>
+    ;
+    ; ITEM.<WAIT>
+    db $24, $1a, $20, $01, $0e, $0c, $19, $28, $1f, $01, $18, $0c, $16, $10, $fe, $0c
+    db $19, $24, $01, $18, $1a, $1d, $10, $01, $1a, $11, $01, $1f, $13, $14, $1e, $f7
+    db $fd, $14, $1f, $10, $18, $26, $f7, $00
+
+Bank16Text_23:
+    ; Message(s): $23
+    ; DR. LIGHT!!
+    ; <FB><3C>I FOUND THIS<WAIT>
+    ;
+    ; CRYSTAL ON THE
+    ; PLANET!<WAIT>
+    ;
+    ; YOU BETTER
+    ; ANALYZE IT.<WAIT>
+    ;
+    ; LET ME SEE...<FB><78><WAIT>
+    ;
+    ; WELL, THIS
+    ; CRYSTAL SEEMS TO<WAIT>
+    ;
+    ; BE THE ENERGY
+    ; SOURCE USED BY<WAIT>
+    ;
+    ; THAT PLANET'S
+    ; ANCIENT<WAIT>
+    ;
+    ; CIVILIZATION.
+    ; <FB><3C>WITH <06> OF THESE,<WAIT>
+    ;
+    ; I CAN MAKE AN
+    ; ITEM THAT WILL<WAIT>
+    ;
+    ; REDUCE THE
+    ; ENERGY<WAIT>
+    ;
+    ; CONSUMPTION OF
+    ; YOUR SPECIAL<WAIT>
+    ;
+    ; WEAPONS BY HALF.
+    ; <FB><3C>I ASSUME THERE<WAIT>
+    ;
+    ; ARE SIMILAR
+    ; CRYSTALS LIKE<WAIT>
+    ;
+    ; THIS ON OTH
+    db $0f, $1d, $26, $01, $17, $14, $12, $13, $1f, $29, $29, $fe, $fb, $3c, $14, $01
+    db $11, $1a, $20, $19, $0f, $01, $1f, $13, $14, $1e, $f7, $fd, $0e, $1d, $24, $1e
+    db $1f, $0c, $17, $01, $1a, $19, $01, $1f, $13, $10, $fe, $1b, $17, $0c, $19, $10
+    db $1f, $29, $f7, $fd, $24, $1a, $20, $01, $0d, $10, $1f, $1f, $10, $1d, $fe, $0c
+    db $19, $0c, $17, $24, $25, $10, $01, $14, $1f, $26, $f7, $fd, $17, $10, $1f, $01
+    db $18, $10, $01, $1e, $10, $10, $26, $26, $26, $fb, $78, $f7, $fd, $22, $10, $17
+    db $17, $27, $01, $1f, $13, $14, $1e, $fe, $0e, $1d, $24, $1e, $1f, $0c, $17, $01
+    db $1e, $10, $10, $18, $1e, $01, $1f, $1a, $f7, $fd, $0d, $10, $01, $1f, $13, $10
+    db $01, $10, $19, $10, $1d, $12, $24, $fe, $1e, $1a, $20, $1d, $0e, $10, $01, $20
+    db $1e, $10, $0f, $01, $0d, $24, $f7, $fd, $1f, $13, $0c, $1f, $01, $1b, $17, $0c
+    db $19, $10, $1f, $28, $1e, $fe, $0c, $19, $0e, $14, $10, $19, $1f, $f7, $fd, $0e
+    db $14, $21, $14, $17, $14, $25, $0c, $1f, $14, $1a, $19, $26, $fe, $fb, $3c, $22
+    db $14, $1f, $13, $01, $06, $01, $1a, $11, $01, $1f, $13, $10, $1e, $10, $27, $f7
+    db $fd, $14, $01, $0e, $0c, $19, $01, $18, $0c, $16, $10, $01, $0c, $19, $fe, $14
+    db $1f, $10, $18, $01, $1f, $13, $0c, $1f, $01, $22, $14, $17, $17, $f7, $fd, $1d
+    db $10, $0f, $20, $0e, $10, $01, $1f, $13, $10, $fe, $10, $19, $10, $1d, $12, $24
+    db $f7, $fd, $0e, $1a, $19, $1e, $20, $18, $1b, $1f, $14, $1a, $19, $01, $1a, $11
+    db $fe, $24, $1a, $20, $1d, $01, $1e, $1b, $10, $0e, $14, $0c, $17, $f7, $fd, $22
+    db $10, $0c, $1b, $1a, $19, $1e, $01, $0d, $24, $01, $13, $0c, $17, $11, $26, $fe
+    db $fb, $3c, $14, $01, $0c, $1e, $1e, $20, $18, $10, $01, $1f, $13, $10, $1d, $10
+    db $f7, $fd, $0c, $1d, $10, $01, $1e, $14, $18, $14, $17, $0c, $1d, $fe, $0e, $1d
+    db $24, $1e, $1f, $0c, $17, $1e, $01, $17, $14, $16, $10, $f7, $fd, $1f, $13, $14
+    db $1e, $01, $1a, $19, $01, $1a, $1f, $13, $10, $1d, $fe, $1b, $17, $0c, $19, $10
+    db $1f, $1e, $01, $1f, $1a, $1a, $26, $f7, $fd, $0e, $1a, $17, $17, $10, $0e, $1f
+    db $01, $0c, $17, $17, $01, $11, $1a, $20, $1d, $fe, $0e, $1d, $24, $1e, $1f, $0c
+    db $17, $1e, $01, $0c, $19, $0f, $f7, $fd, $0d, $1d, $14, $19, $12, $01, $1f, $13
+    db $10, $18, $01, $0d, $0c, $0e, $16, $fe, $1f, $1a, $01, $1f, $13, $10, $01, $17
+    db $0c, $0d, $26, $f7, $fd, $12, $1a, $1a, $0f, $01, $17, $20, $0e, $16, $29, $f7
+    db $00
+
+Bank16Text_24:
+    ; Message(s): $24
+    ; <F9><78>THAT'S STRANGE..
+    ; <FB><3C>THERE'S NOTHING
+    ;
+    ; HERE.<FB><78><F4>
+    db $f9, $78, $1f, $13, $0c, $1f, $28, $1e, $01, $1e, $1f, $1d, $0c, $19, $12, $10
+    db $26, $26, $fe, $fb, $3c, $1f, $13, $10, $1d, $10, $28, $1e, $01, $19, $1a, $1f
+    db $13, $14, $19, $12, $fd, $13, $10, $1d, $10, $26, $fb, $78, $f4, $00
+
+Bank16Text_25:
+    ; Message(s): $25
+    ; IT'S BEEN A LONG
+    ; TIME, <FB><3C>MEGAMAN!<WAIT>
+    ;
+    ; I DIDN'T EXPECT
+    ; TO SEE YOU IN<WAIT>
+    ;
+    ; ONE PIECE AGAIN.
+    ; <FB><3C>BUT THAT IS OF<WAIT>
+    ;
+    ; LITTLE
+    ; CONSEQUENCE NOW.<WAIT>
+    ;
+    ; I WILL DESTROY
+    ; YOU AS I DID<WAIT>
+    ;
+    ; BEFORE AND
+    ; AVENGE MY FALLEN<WAIT>
+    ;
+    ; COMRADES.<WAIT>
+    ;
+    ; DARK MOON,
+    ; <FB><3C>ATTACK!<WAIT>
+    db $14, $1f, $28, $1e, $01, $0d, $10, $10, $19, $01, $0c, $01, $17, $1a, $19, $12
+    db $fe, $1f, $14, $18, $10, $27, $01, $fb, $3c, $18, $10, $12, $0c, $18, $0c, $19
+    db $29, $f7, $fd, $14, $01, $0f, $14, $0f, $19, $28, $1f, $01, $10, $23, $1b, $10
+    db $0e, $1f, $fe, $1f, $1a, $01, $1e, $10, $10, $01, $24, $1a, $20, $01, $14, $19
+    db $f7, $fd, $1a, $19, $10, $01, $1b, $14, $10, $0e, $10, $01, $0c, $12, $0c, $14
+    db $19, $26, $fe, $fb, $3c, $0d, $20, $1f, $01, $1f, $13, $0c, $1f, $01, $14, $1e
+    db $01, $1a, $11, $f7, $fd, $17, $14, $1f, $1f, $17, $10, $fe, $0e, $1a, $19, $1e
+    db $10, $1c, $20, $10, $19, $0e, $10, $01, $19, $1a, $22, $26, $f7, $fd, $14, $01
+    db $22, $14, $17, $17, $01, $0f, $10, $1e, $1f, $1d, $1a, $24, $fe, $24, $1a, $20
+    db $01, $0c, $1e, $01, $14, $01, $0f, $14, $0f, $f7, $fd, $0d, $10, $11, $1a, $1d
+    db $10, $01, $0c, $19, $0f, $fe, $0c, $21, $10, $19, $12, $10, $01, $18, $24, $01
+    db $11, $0c, $17, $17, $10, $19, $f7, $fd, $0e, $1a, $18, $1d, $0c, $0f, $10, $1e
+    db $26, $f7, $fd, $0f, $0c, $1d, $16, $01, $18, $1a, $1a, $19, $27, $fe, $fb, $3c
+    db $0c, $1f, $1f, $0c, $0e, $16, $29, $f7, $00
+
+Bank16Text_26:
+    ; Message(s): $26
+    ; WELCOME BACK,
+    ; <FB>SMEGAMAN! <FB><3C> I'VE<WAIT>
+    ;
+    ; JUST DISCOVERED
+    ; SOME SHOCKING<WAIT>
+    ;
+    ; NEWS.<WAIT>
+    ;
+    ; THE STARDROIDS
+    ; HAVE BEEN USING<WAIT>
+    ;
+    ; THE RESOURCES
+    ; FROM EARTH TO<WAIT>
+    ;
+    ; CREATE AN EVEN
+    ; MORE POWERFUL<WAIT>
+    ;
+    ; GENERATION OF
+    ; ROBOTS.  <FB><3C>IF THEY<WAIT>
+    ;
+    ; LAUNCH AN
+    ; ALL-OUT ATTACK<WAIT>
+    ;
+    ; NOW, WE'LL BE
+    ; EASILY DEFEATED.<WAIT>
+    ;
+    ; I'M NOT SURE
+    ; WHAT TO DO.<WAIT>
+    db $22, $10, $17, $0e, $1a, $18, $10, $01, $0d, $0c, $0e, $16, $27, $fe, $fb, $1e
+    db $18, $10, $12, $0c, $18, $0c, $19, $29, $01, $fb, $3c, $01, $14, $28, $21, $10
+    db $f7, $fd, $15, $20, $1e, $1f, $01, $0f, $14, $1e, $0e, $1a, $21, $10, $1d, $10
+    db $0f, $fe, $1e, $1a, $18, $10, $01, $1e, $13, $1a, $0e, $16, $14, $19, $12, $f7
+    db $fd, $19, $10, $22, $1e, $26, $f7, $fd, $1f, $13, $10, $01, $1e, $1f, $0c, $1d
+    db $0f, $1d, $1a, $14, $0f, $1e, $fe, $13, $0c, $21, $10, $01, $0d, $10, $10, $19
+    db $01, $20, $1e, $14, $19, $12, $f7, $fd, $1f, $13, $10, $01, $1d, $10, $1e, $1a
+    db $20, $1d, $0e, $10, $1e, $fe, $11, $1d, $1a, $18, $01, $10, $0c, $1d, $1f, $13
+    db $01, $1f, $1a, $f7, $fd, $0e, $1d, $10, $0c, $1f, $10, $01, $0c, $19, $01, $10
+    db $21, $10, $19, $fe, $18, $1a, $1d, $10, $01, $1b, $1a, $22, $10, $1d, $11, $20
+    db $17, $f7, $fd, $12, $10, $19, $10, $1d, $0c, $1f, $14, $1a, $19, $01, $1a, $11
+    db $fe, $1d, $1a, $0d, $1a, $1f, $1e, $26, $01, $01, $fb, $3c, $14, $11, $01, $1f
+    db $13, $10, $24, $f7, $fd, $17, $0c, $20, $19, $0e, $13, $01, $0c, $19, $fe, $0c
+    db $17, $17, $2f, $1a, $20, $1f, $01, $0c, $1f, $1f, $0c, $0e, $16, $f7, $fd, $19
+    db $1a, $22, $27, $01, $22, $10, $28, $17, $17, $01, $0d, $10, $fe, $10, $0c, $1e
+    db $14, $17, $24, $01, $0f, $10, $11, $10, $0c, $1f, $10, $0f, $26, $f7, $fd, $14
+    db $28, $18, $01, $19, $1a, $1f, $01, $1e, $20, $1d, $10, $fe, $22, $13, $0c, $1f
+    db $01, $1f, $1a, $01, $0f, $1a, $26, $f7, $00
+
+Bank16Text_27:
+    ; Message(s): $27
+    ; DR. LIGHT, <FB><3C>WE
+    ; NEED TO STRIKE<WAIT>
+    ;
+    ; NOW!  <FB><3C>IF YOU CAN
+    ; TRANSFORM RUSH<WAIT>
+    ;
+    ; FOR SPACE
+    ; TRAVEL, WE CAN<WAIT>
+    ;
+    ; TRY A SURPRISE
+    ; ATTACK AND WIPE<WAIT>
+    ;
+    ; THEM OUT.<WAIT>
+    db $0f, $1d, $26, $01, $17, $14, $12, $13, $1f, $27, $01, $fb, $3c, $22, $10, $fe
+    db $19, $10, $10, $0f, $01, $1f, $1a, $01, $1e, $1f, $1d, $14, $16, $10, $f7, $fd
+    db $19, $1a, $22, $29, $01, $01, $fb, $3c, $14, $11, $01, $24, $1a, $20, $01, $0e
+    db $0c, $19, $fe, $1f, $1d, $0c, $19, $1e, $11, $1a, $1d, $18, $01, $1d, $20, $1e
+    db $13, $f7, $fd, $11, $1a, $1d, $01, $1e, $1b, $0c, $0e, $10, $fe, $1f, $1d, $0c
+    db $21, $10, $17, $27, $01, $22, $10, $01, $0e, $0c, $19, $f7, $fd, $1f, $1d, $24
+    db $01, $0c, $01, $1e, $20, $1d, $1b, $1d, $14, $1e, $10, $fe, $0c, $1f, $1f, $0c
+    db $0e, $16, $01, $0c, $19, $0f, $01, $22, $14, $1b, $10, $f7, $fd, $1f, $13, $10
+    db $18, $01, $1a, $20, $1f, $26, $f7, $00
+
+Bank16Text_28:
+    ; Message(s): $28
+    ; <31><31><31><31><31>
+    ;
+    db $31, $31, $31, $31, $31, $fe, $00
+
+Bank16Text_34:
+    ; Message(s): $34
+    ; OK.  <FB><3C>I'LL START
+    ; MODIFYING RUSH<WAIT>
+    ;
+    ; AND GIVE HIM
+    ; SOME EXTRA<WAIT>
+    ;
+    ; FIREPOWER.  <FB><3C>THIS
+    ; MAY TAKE SOME<WAIT>
+    ;
+    ; TIME, SO WHY
+    ; DON'T YOU GO<WAIT>
+    ;
+    ; EXCHANGE YOUR
+    ; P CHIPS FOR<WAIT>
+    ;
+    ; ITEMS.<WAIT>
+    db $1a, $16, $26, $01, $01, $fb, $3c, $14, $28, $17, $17, $01, $1e, $1f, $0c, $1d
+    db $1f, $fe, $18, $1a, $0f, $14, $11, $24, $14, $19, $12, $01, $1d, $20, $1e, $13
+    db $f7, $fd, $0c, $19, $0f, $01, $12, $14, $21, $10, $01, $13, $14, $18, $fe, $1e
+    db $1a, $18, $10, $01, $10, $23, $1f, $1d, $0c, $f7, $fd, $11, $14, $1d, $10, $1b
+    db $1a, $22, $10, $1d, $26, $01, $01, $fb, $3c, $1f, $13, $14, $1e, $fe, $18, $0c
+    db $24, $01, $1f, $0c, $16, $10, $01, $1e, $1a, $18, $10, $f7, $fd, $1f, $14, $18
+    db $10, $27, $01, $1e, $1a, $01, $22, $13, $24, $fe, $0f, $1a, $19, $28, $1f, $01
+    db $24, $1a, $20, $01, $12, $1a, $f7, $fd, $10, $23, $0e, $13, $0c, $19, $12, $10
+    db $01, $24, $1a, $20, $1d, $fe, $1b, $01, $0e, $13, $14, $1b, $1e, $01, $11, $1a
+    db $1d, $f7, $fd, $14, $1f, $10, $18, $1e, $26, $f7, $00
+
+Bank16Text_29:
+    ; Message(s): $29
+    ; <F9><78>I SHOULD HAVE
+    ; DEFEATED ALL THE
+    ;
+    ; STARDROIDS.<F4>
+    db $f9, $78, $14, $01, $1e, $13, $1a, $20, $17, $0f, $01, $13, $0c, $21, $10, $fe
+    db $0f, $10, $11, $10, $0c, $1f, $10, $0f, $01, $0c, $17, $17, $01, $1f, $13, $10
+    db $fd, $1e, $1f, $0c, $1d, $0f, $1d, $1a, $14, $0f, $1e, $26, $f4, $00
+
+Bank16Text_2a:
+    ; Message(s): $2a
+    ; WHAT?  <FB><3C>WHAT'S
+    ; THAT STAR?...<F4>
+    db $22, $13, $0c, $1f, $2a, $01, $01, $fb, $3c, $22, $13, $0c, $1f, $28, $1e, $fe
+    db $1f, $13, $0c, $1f, $01, $1e, $1f, $0c, $1d, $2a, $26, $26, $26, $f4, $00
+
+Bank16Text_2b:
+    ; Message(s): $2b
+    ; <F9><78>WAIT...
+    ; <FB><78>IT'S MOVING...
+    ;
+    ; NO!
+    ; <FB><78>IT CAN'T BE!<F4>
+    db $f9, $78, $22, $0c, $14, $1f, $26, $26, $26, $fe, $fb, $78, $14, $1f, $28, $1e
+    db $01, $18, $1a, $21, $14, $19, $12, $26, $26, $26, $fd, $19, $1a, $29, $fe, $fb
+    db $78, $14, $1f, $01, $0e, $0c, $19, $28, $1f, $01, $0d, $10, $29, $f4, $00
+
+Bank16Text_2c:
+    ; Message(s): $2c
+    ; WILY?!<FB><78><F4>
+    db $22, $14, $17, $24, $2a, $29, $fb, $78, $f4, $00
+
+Bank16Text_35:
+    ; Message(s): $35
+    ; IS HE BEHIND
+    ; THIS?!<F4>
+    db $14, $1e, $01, $13, $10, $01, $0d, $10, $13, $14, $19, $0f, $fe, $1f, $13, $14
+    db $1e, $2a, $29, $f4, $00
+
+Bank16Text_2d:
+    ; Message(s): $2d
+    ; OOPS!  <FB><78>THAT WAS
+    ; CLOSE!<F4>
+    db $1a, $1a, $1b, $1e, $29, $01, $01, $fb, $78, $1f, $13, $0c, $1f, $01, $22, $0c
+    db $1e, $fe, $0e, $17, $1a, $1e, $10, $29, $f4, $00
+
+Bank16Text_2e:
+    ; Message(s): $2e
+    ; <F9><78>HIT THE JETS,
+    ; RUSH!  <FB><3C>LET'S GO!<F4>
+    db $f9, $78, $13, $14, $1f, $01, $1f, $13, $10, $01, $15, $10, $1f, $1e, $27, $fe
+    db $1d, $20, $1e, $13, $29, $01, $01, $fb, $3c, $17, $10, $1f, $28, $1e, $01, $12
+    db $1a, $29, $f4, $00
+
+Bank16Text_2f:
+    ; Message(s): $2f
+    ; ARE YOU OK?
+    ; <FB><78>HERE, GRAB MY<WAIT>
+    ;
+    ; SHOULDER.  <FB><3C>I'M
+    ; SURE YOU CAN BE<WAIT>
+    ;
+    ; FIXED AT
+    ; DR. LIGHT'S LAB.<WAIT>
+    ;
+    ; MEGAMAN...  <FB><32>WHY?<FB><5A><WAIT>
+    ;
+    ; WHY ARE YOU
+    ; HELPING ME?<WAIT>
+    ;
+    ; BECAUSE WE ARE
+    ; BOTH ROBOTS.<WAIT>
+    ;
+    ; YES.  <FB><3C>AND WE
+    ; WERE BOTH<WAIT>
+    ;
+    ; CREATED TO
+    ; FIGHT!<WAIT>
+    db $0c, $1d, $10, $01, $24, $1a, $20, $01, $1a, $16, $2a, $fe, $fb, $78, $13, $10
+    db $1d, $10, $27, $01, $12, $1d, $0c, $0d, $01, $18, $24, $f7, $fd, $1e, $13, $1a
+    db $20, $17, $0f, $10, $1d, $26, $01, $01, $fb, $3c, $14, $28, $18, $fe, $1e, $20
+    db $1d, $10, $01, $24, $1a, $20, $01, $0e, $0c, $19, $01, $0d, $10, $f7, $fd, $11
+    db $14, $23, $10, $0f, $01, $0c, $1f, $fe, $0f, $1d, $26, $01, $17, $14, $12, $13
+    db $1f, $28, $1e, $01, $17, $0c, $0d, $26, $f7, $fd, $18, $10, $12, $0c, $18, $0c
+    db $19, $26, $26, $26, $01, $01, $fb, $32, $22, $13, $24, $2a, $fb, $5a, $f7, $fd
+    db $22, $13, $24, $01, $0c, $1d, $10, $01, $24, $1a, $20, $fe, $13, $10, $17, $1b
+    db $14, $19, $12, $01, $18, $10, $2a, $f7, $fd, $0d, $10, $0e, $0c, $20, $1e, $10
+    db $01, $22, $10, $01, $0c, $1d, $10, $fe, $0d, $1a, $1f, $13, $01, $1d, $1a, $0d
+    db $1a, $1f, $1e, $26, $f7, $fd, $24, $10, $1e, $26, $01, $01, $fb, $3c, $0c, $19
+    db $0f, $01, $22, $10, $fe, $22, $10, $1d, $10, $01, $0d, $1a, $1f, $13, $f7, $fd
+    db $0e, $1d, $10, $0c, $1f, $10, $0f, $01, $1f, $1a, $fe, $11, $14, $12, $13, $1f
+    db $29, $f7, $00
+
+Bank16Text_30:
+    ; Message(s): $30
+    ; NO, <FB><3C>YOU'RE
+    ; WRONG!  <FB><3C>I ONLY<WAIT>
+    ;
+    ; FIGHT WHEN I AM
+    ; FORCED TO<WAIT>
+    ;
+    ; PROTECT THE
+    ; WORLD FROM THOSE<WAIT>
+    ;
+    ; WHO WOULD PIT
+    ; MACHINES AGAINST<WAIT>
+    ;
+    ; MAN.  <FB><3C>I BELIEVE
+    ; HUMANS AND<WAIT>
+    ;
+    ; ROBOTS CAN LIVE
+    ; IN PEACE!<WAIT>
+    ;
+    ; MAYBE... <FB><3C>BUT I
+    ; WILL NEVER KNOW.<WAIT>
+    ;
+    ; MY FUSION
+    ; REACTOR IS GOING<WAIT>
+    ;
+    ; CRITICAL AND
+    ; WHEN IT DOES, IT<WAIT>
+    ;
+    ; WILL DESTROY
+    ; THIS ENTIRE<WAIT>
+    ;
+    ; FORTRESS.<WAIT>
+    ;
+    ; SUNSTAR...<FB><3C><WAIT>
+    ;
+    ; LEAVE NOW!<FB><3C><WAIT>
+    db $19, $1a, $27, $01, $fb, $3c, $24, $1a, $20, $28, $1d, $10, $fe, $22, $1d, $1a
+    db $19, $12, $29, $01, $01, $fb, $3c, $14, $01, $1a, $19, $17, $24, $f7, $fd, $11
+    db $14, $12, $13, $1f, $01, $22, $13, $10, $19, $01, $14, $01, $0c, $18, $fe, $11
+    db $1a, $1d, $0e, $10, $0f, $01, $1f, $1a, $f7, $fd, $1b, $1d, $1a, $1f, $10, $0e
+    db $1f, $01, $1f, $13, $10, $fe, $22, $1a, $1d, $17, $0f, $01, $11, $1d, $1a, $18
+    db $01, $1f, $13, $1a, $1e, $10, $f7, $fd, $22, $13, $1a, $01, $22, $1a, $20, $17
+    db $0f, $01, $1b, $14, $1f, $fe, $18, $0c, $0e, $13, $14, $19, $10, $1e, $01, $0c
+    db $12, $0c, $14, $19, $1e, $1f, $f7, $fd, $18, $0c, $19, $26, $01, $01, $fb, $3c
+    db $14, $01, $0d, $10, $17, $14, $10, $21, $10, $fe, $13, $20, $18, $0c, $19, $1e
+    db $01, $0c, $19, $0f, $f7, $fd, $1d, $1a, $0d, $1a, $1f, $1e, $01, $0e, $0c, $19
+    db $01, $17, $14, $21, $10, $fe, $14, $19, $01, $1b, $10, $0c, $0e, $10, $29, $f7
+    db $fd, $18, $0c, $24, $0d, $10, $26, $26, $26, $01, $fb, $3c, $0d, $20, $1f, $01
+    db $14, $fe, $22, $14, $17, $17, $01, $19, $10, $21, $10, $1d, $01, $16, $19, $1a
+    db $22, $26, $f7, $fd, $18, $24, $01, $11, $20, $1e, $14, $1a, $19, $fe, $1d, $10
+    db $0c, $0e, $1f, $1a, $1d, $01, $14, $1e, $01, $12, $1a, $14, $19, $12, $f7, $fd
+    db $0e, $1d, $14, $1f, $14, $0e, $0c, $17, $01, $0c, $19, $0f, $fe, $22, $13, $10
+    db $19, $01, $14, $1f, $01, $0f, $1a, $10, $1e, $27, $01, $14, $1f, $f7, $fd, $22
+    db $14, $17, $17, $01, $0f, $10, $1e, $1f, $1d, $1a, $24, $fe, $1f, $13, $14, $1e
+    db $01, $10, $19, $1f, $14, $1d, $10, $f7, $fd, $11, $1a, $1d, $1f, $1d, $10, $1e
+    db $1e, $26, $f7, $fd, $1e, $20, $19, $1e, $1f, $0c, $1d, $26, $26, $26, $fb, $3c
+    db $f7, $fd, $17, $10, $0c, $21, $10, $01, $19, $1a, $22, $29, $fb, $3c, $f7, $00
+
+Bank16Text_31:
+    ; Message(s): $31
+    ; <F9><78>WILY!
+    ; <FB><78>YOU SURVIVED?!<FB><78><F4>
+    db $f9, $78, $22, $14, $17, $24, $29, $fe, $fb, $78, $24, $1a, $20, $01, $1e, $20
+    db $1d, $21, $14, $21, $10, $0f, $2a, $29, $fb, $78, $f4, $00
+
+Bank16Text_3c:
+    ; Message(s): $3c
+    ; <F9><78>CURSE YOU,
+    ; <FB><78>MEGAMAN!
+    ;
+    ; THIS WAR
+    ; ENDS NOW!<FB><78><F4>
+    db $f9, $78, $0e, $20, $1d, $1e, $10, $01, $24, $1a, $20, $27, $fe, $fb, $78, $18
+    db $10, $12, $0c, $18, $0c, $19, $29, $fd, $1f, $13, $14, $1e, $01, $22, $0c, $1d
+    db $fe, $10, $19, $0f, $1e, $01, $19, $1a, $22, $29, $fb, $78, $f4, $00
+
+Bank16Text_32:
+    ; Message(s): $32
+    ; MEGAMAN,
+    ; <FB><3C>WELCOME HOME!<WAIT>
+    ;
+    ; I HAVE JUST
+    ; COMPLETED<WAIT>
+    ;
+    ; THE TURBO
+    ; ACCELERATOR FOR<WAIT>
+    ;
+    ; YOUR "MEGA ARM".<WAIT>
+    db $18, $10, $12, $0c, $18, $0c, $19, $27, $fe, $fb, $3c, $22, $10, $17, $0e, $1a
+    db $18, $10, $01, $13, $1a, $18, $10, $29, $f7, $fd, $14, $01, $13, $0c, $21, $10
+    db $01, $15, $20, $1e, $1f, $fe, $0e, $1a, $18, $1b, $17, $10, $1f, $10, $0f, $f7
+    db $fd, $1f, $13, $10, $01, $1f, $20, $1d, $0d, $1a, $fe, $0c, $0e, $0e, $10, $17
+    db $10, $1d, $0c, $1f, $1a, $1d, $01, $11, $1a, $1d, $f7, $fd, $24, $1a, $20, $1d
+    db $01, $2e, $18, $10, $12, $0c, $01, $0c, $1d, $18, $2e, $26, $f7, $00
+
+Bank16Text_33:
+    ; Message(s): $33
+    ; OK.<WAIT>
+    ;
+    ; IT'S FUNCTIONING
+    ; PERFECTLY.<WAIT>
+    ;
+    ; GOOD LUCK,
+    ; MEGAMAN!<WAIT>
+    db $1a, $16, $26, $f7, $fd, $14, $1f, $28, $1e, $01, $11, $20, $19, $0e, $1f, $14
+    db $1a, $19, $14, $19, $12, $fe, $1b, $10, $1d, $11, $10, $0e, $1f, $17, $24, $26
+    db $f7, $fd, $12, $1a, $1a, $0f, $01, $17, $20, $0e, $16, $27, $fe, $18, $10, $12
+    db $0c, $18, $0c, $19, $29, $f7, $00
+
+Bank16Text_36:
+    ; Message(s): $36
+    ; I FINALLY
+    ; DESTROYED ALL<WAIT>
+    ;
+    ; THE SPACE
+    ; STATIONS!<WAIT>
+    db $14, $01, $11, $14, $19, $0c, $17, $17, $24, $fe, $0f, $10, $1e, $1f, $1d, $1a
+    db $24, $10, $0f, $01, $0c, $17, $17, $f7, $fd, $1f, $13, $10, $01, $1e, $1b, $0c
+    db $0e, $10, $fe, $1e, $1f, $0c, $1f, $14, $1a, $19, $1e, $29, $f7, $00
+
+Bank16Text_37:
+    ; Message(s): $37
+    ; YOU FOOL
+    ; MEGAMAN!<WAIT>
+    ;
+    ; YOU HAVE METTLED
+    ; WITH MY PLAN FOR<WAIT>
+    ;
+    ; THE LAST TIME.<WAIT>
+    ;
+    ; WE COULD HAVE
+    ; CREATED A NEW<WAIT>
+    ;
+    ; WORLD FOR ALL
+    ; ROBOTS!  <FB><3C>HOW CAN<WAIT>
+    ;
+    ; I FACE MY MASTER
+    ; NOW?  <FB><3C>I MUST<WAIT>
+    ;
+    ; REDEEM MYSELF BY
+    ; BLOWING YOU TO<WAIT>
+    ;
+    ; PIECES!<WAIT>
+    db $24, $1a, $20, $01, $11, $1a, $1a, $17, $fe, $18, $10, $12, $0c, $18, $0c, $19
+    db $29, $f7, $fd, $24, $1a, $20, $01, $13, $0c, $21, $10, $01, $18, $10, $1f, $1f
+    db $17, $10, $0f, $fe, $22, $14, $1f, $13, $01, $18, $24, $01, $1b, $17, $0c, $19
+    db $01, $11, $1a, $1d, $f7, $fd, $1f, $13, $10, $01, $17, $0c, $1e, $1f, $01, $1f
+    db $14, $18, $10, $26, $f7, $fd, $22, $10, $01, $0e, $1a, $20, $17, $0f, $01, $13
+    db $0c, $21, $10, $fe, $0e, $1d, $10, $0c, $1f, $10, $0f, $01, $0c, $01, $19, $10
+    db $22, $f7, $fd, $22, $1a, $1d, $17, $0f, $01, $11, $1a, $1d, $01, $0c, $17, $17
+    db $fe, $1d, $1a, $0d, $1a, $1f, $1e, $29, $01, $01, $fb, $3c, $13, $1a, $22, $01
+    db $0e, $0c, $19, $f7, $fd, $14, $01, $11, $0c, $0e, $10, $01, $18, $24, $01, $18
+    db $0c, $1e, $1f, $10, $1d, $fe, $19, $1a, $22, $2a, $01, $01, $fb, $3c, $14, $01
+    db $18, $20, $1e, $1f, $f7, $fd, $1d, $10, $0f, $10, $10, $18, $01, $18, $24, $1e
+    db $10, $17, $11, $01, $0d, $24, $fe, $0d, $17, $1a, $22, $14, $19, $12, $01, $24
+    db $1a, $20, $01, $1f, $1a, $f7, $fd, $1b, $14, $10, $0e, $10, $1e, $29, $f7, $00
+
+Bank16Text_38:
+    ; Message(s): $38
+    ; <F9><78>BEHOLD MEGAMAN,
+    ; <FB><3C>I HAVE AWAKENED
+    ;
+    ; THE ANCIENT
+    ; WEAPON SUNSTAR!
+    ;
+    ; ITS NOVA WEAPON
+    ; WILL DESTROY
+    ;
+    ; YOU!<FB><78><F4>
+    db $f9, $78, $0d, $10, $13, $1a, $17, $0f, $01, $18, $10, $12, $0c, $18, $0c, $19
+    db $27, $fe, $fb, $3c, $14, $01, $13, $0c, $21, $10, $01, $0c, $22, $0c, $16, $10
+    db $19, $10, $0f, $fd, $1f, $13, $10, $01, $0c, $19, $0e, $14, $10, $19, $1f, $fe
+    db $22, $10, $0c, $1b, $1a, $19, $01, $1e, $20, $19, $1e, $1f, $0c, $1d, $29, $fd
+    db $14, $1f, $1e, $01, $19, $1a, $21, $0c, $01, $22, $10, $0c, $1b, $1a, $19, $fe
+    db $22, $14, $17, $17, $01, $0f, $10, $1e, $1f, $1d, $1a, $24, $fd, $24, $1a, $20
+    db $29, $fb, $78, $f4, $00
+
+Bank16Text_39:
+    ; Message(s): $39
+    ; SUNSTAR, <FB><3C>DESTROY
+    ; MEGAMAN!<FB><78><F4>
+    db $1e, $20, $19, $1e, $1f, $0c, $1d, $27, $01, $fb, $3c, $0f, $10, $1e, $1f, $1d
+    db $1a, $24, $fe, $18, $10, $12, $0c, $18, $0c, $19, $29, $fb, $78, $f4, $00
+
+Bank16Text_3a:
+    ; Message(s): $3a
+    ; <F9><78>WHAT?!?
+    ; <FB><5A>YOU FOOL!
+    ;
+    ; HOW DARE YOU
+    ; ATTACK THE
+    ;
+    ; MIGHTY DR. WILY!<FB><78><F4>
+    db $f9, $78, $22, $13, $0c, $1f, $2a, $29, $2a, $fe, $fb, $5a, $24, $1a, $20, $01
+    db $11, $1a, $1a, $17, $29, $fd, $13, $1a, $22, $01, $0f, $0c, $1d, $10, $01, $24
+    db $1a, $20, $fe, $0c, $1f, $1f, $0c, $0e, $16, $01, $1f, $13, $10, $fd, $18, $14
+    db $12, $13, $1f, $24, $01, $0f, $1d, $26, $01, $22, $14, $17, $24, $29, $fb, $78
+    db $f4, $00
+
+Bank16Text_3b:
+    ; Message(s): $3b
+    ; <F9><78>YOU ARE...
+    ; <FB><5A>MEGAMAN...
+    ;
+    ; I AM SUNSTAR...
+    ;
+    ; THE DOOMSDAY
+    ; WEAPON...
+    ;
+    ; I MUST DESTROY
+    ; ALL INFERIOR
+    ;
+    ; LIFE FORMS!<FB><78><F4>
+    db $f9, $78, $24, $1a, $20, $01, $0c, $1d, $10, $26, $26, $26, $fe, $fb, $5a, $18
+    db $10, $12, $0c, $18, $0c, $19, $26, $26, $26, $fd, $14, $01, $0c, $18, $01, $1e
+    db $20, $19, $1e, $1f, $0c, $1d, $26, $26, $26, $fd, $1f, $13, $10, $01, $0f, $1a
+    db $1a, $18, $1e, $0f, $0c, $24, $fe, $22, $10, $0c, $1b, $1a, $19, $26, $26, $26
+    db $fd, $14, $01, $18, $20, $1e, $1f, $01, $0f, $10, $1e, $1f, $1d, $1a, $24, $fe
+    db $0c, $17, $17, $01, $14, $19, $11, $10, $1d, $14, $1a, $1d, $fd, $17, $14, $11
+    db $10, $01, $11, $1a, $1d, $18, $1e, $29, $fb, $78, $f4, $00
     ld a, [$c995]
     call Call_016_5a7c
     jp Jump_016_619a
@@ -6537,7 +3231,7 @@ jr_016_5d88:
 
 Call_016_5ea8:
 Jump_016_5ea8:
-    ld hl, $44b5
+    ld hl, Bank16TextPointers
     ld a, [$cf7b]
     call Call_000_016e
     call Call_016_5ec4
@@ -7236,7 +3930,7 @@ jr_016_6227:
     dec a
 
 Call_016_6228:
-    ld hl, $6210
+    ld hl, ShopItemTableExpanded
     call Call_000_016e
     ld d, $00
     add hl, de
@@ -7662,7 +4356,7 @@ Call_016_63f6:
 Call_016_63f7:
     ld a, [wCrystalCollectedFlags]
     cp $0f
-    ld a, $0a
+    ld a, $0b
     jr z, jr_016_6401
 
     dec a
@@ -11204,37 +7898,16 @@ Call_016_77c0:
     ret
 
 
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
+ShopItemTableExpanded:
+    dw $61b6, $61bf, $61c8, $61d1, $61da, $61e3, $61ec, $61f5
+    dw $61fe, ShopItemMegaBusterMkII, $6207
+
+ShopItemMegaBusterMkII:
+    dw wMegaBusterMkIIUnlocked
+    db $01
+    dw $0078
+    db $1f, $22
+    dw $6937
     rst $38
     rst $38
     rst $38
