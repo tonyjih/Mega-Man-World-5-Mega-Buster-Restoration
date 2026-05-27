@@ -18,6 +18,7 @@ Players can switch between the Mega Arm and Mega Buster from the pause menu by p
 - Loads the correct Mega Buster projectile graphics
 - Uses separate switching sound effects for each mode
 - Gives the Mega Buster its own behavior, including recoil and very fast charging
+- Supports distinct semi-charged and fully charged shot behavior
 - Designed to feel like a restored hidden feature rather than a cheat
 
 # Controls
@@ -32,6 +33,12 @@ Players can switch between the Mega Arm and Mega Buster from the pause menu by p
 - Mega Buster: restored hidden buster mode
 
 # Version History
+
+## v1.2
+
+- Removed the muzzle flash effect from Mega Buster semi-charged shots
+- Fully charged Mega Buster shots still keep the muzzle flash effect
+- Mega Arm behavior is unchanged
 
 ## v1.1
 
@@ -51,4 +58,4 @@ The restored Mega Buster is not a recreation from scratch. It is based on unused
 
 Some behavior differs from Mega Man IV / Rockman World 4, suggesting that this may have been an early or experimental Mega Man World 5 version of the buster before the Mega Arm became the final default weapon.
 
-Use v1.0 if you want to experience the initially restored unused buster behavior before the v1.1 refinements.
+Use v1.0 if you want to experience the initially restored unused buster behavior before the later refinements.
