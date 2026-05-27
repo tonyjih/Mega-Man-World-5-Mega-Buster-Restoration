@@ -5,13 +5,15 @@ RGBGFX ?= ../rgbgfx.exe
 
 all: game.gb
 
+GFX_DEPS := gfx/mkii_icon.2bpp
+
 %.2bpp: %.png
 	$(RGBGFX) --colors embedded -o $@ $<
 
 %.1bpp: %.png
 	$(RGBGFX) -d 1 -o $@ $<
 
-game.o: game.asm bank_*.asm
+game.o: game.asm bank_*.asm $(GFX_DEPS)
 	$(RGBASM) -o game.o game.asm
 
 game.gb: game.o

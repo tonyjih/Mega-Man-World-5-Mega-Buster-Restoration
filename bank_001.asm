@@ -11522,9 +11522,9 @@ ToggleMegaBusterModeOnPauseSelect:
     or a
     jr nz, .done
 
-    ; ld a, [wMegaBusterMkIIUnlocked]
-    ; or a
-    ; jr z, .done
+    ld a, [wMegaBusterMkIIUnlocked]
+    or a
+    jr z, .done
 
     ld hl, wPrimaryWeaponModeFlags
     ld a, [hl]

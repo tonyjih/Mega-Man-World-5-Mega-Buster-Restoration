@@ -3831,97 +3831,80 @@ Call_016_61ae:
     ret
 
 
-    jr c, @-$1f
-
+ShopItemETankPiece:
+    dw wETankAndPieceCount
     db $10
-    inc d
-    nop
-    dec b
-    inc c
-    call nz, Call_000_3a68
-    rst $18
-    inc b
-    ld e, $00
-    ld b, $0c
-    ret
+    dw $0014
+    db $05, $0c
+    dw $68c4
 
+ShopItemWTank:
+    dw wWTankCount
+    db $04
+    dw $001e
+    db $06, $0c
+    dw $68c9
 
-    ld l, b
-    add hl, sp
-    rst $18
-    inc b
-    inc a
-    nop
-    rlca
-    inc c
-    jp c, Jump_000_0068
+ShopItemETank:
+    dw $df39
+    db $04
+    dw $003c
+    db $07, $0c
+    dw $68da
 
-    nop
-    nop
-    ld b, [hl]
-    nop
-    dec bc
-    dec c
-    ld h, $69
-    inc [hl]
-    rst $18
-    ld a, [bc]
-    ld [hl-], a
-    nop
-    add hl, bc
-    inc c
-    db $eb
-    ld l, b
-    inc a
-    rst $18
-    ld bc, $008c
-    ld a, [bc]
-    inc c
-    db $fc
-    ld l, b
-    dec sp
-    rst $18
-    ld bc, $0078
-    ld [$150c], sp
-    ld l, c
-    ld a, d
-    rst $18
-    ld bc, $005a
-    rra
-    ld [hl+], a
-    scf
-    ld l, c
-    ld a, e
-    rst $18
-    ld bc, $0064
-    jr nz, jr_016_6227
+ShopItemWeaponRefill:
+    dw $0000
+    db $00
+    dw $0046
+    db $0b, $0d
+    dw $6926
 
-    ld c, b
-    ld l, c
-    ld a, h
-    rst $18
-    ld bc, $0000
-    ld hl, $5922
-    ld l, c
-    or [hl]
-    ld h, c
-    cp a
-    ld h, c
-    ret z
+ShopItemExtraLife:
+    dw $df34
+    db $0a
+    dw $0032
+    db $09, $0c
+    dw $68eb
 
-    ld h, c
-    pop de
-    ld h, c
-    jp c, $e361
+ShopItemEnergyBalancer:
+    dw wEnergyBalancerUnlocked
+    db $01
+    dw $008c
+    db $0a, $0c
+    dw $68fc
 
-    ld h, c
-    db $ec
-    ld h, c
-    push af
-    ld h, c
-    cp $61
-    rlca
-    ld h, d
+ShopItemSTank:
+    dw wSTankCount
+    db $01
+    dw $0078
+    db $08, $0c
+    dw $6915
+
+ShopItemMegaArmUpgradeMH:
+    dw wMegaArmUpgradeMHUnlocked
+    db $01
+    dw $005a
+    db $1f, $22
+    dw $6937
+
+ShopItemMegaArmUpgradeCL:
+    dw wMegaArmUpgradeCLUnlocked
+    db $01
+    dw $0064
+    db $20, $22
+    dw $6948
+
+ShopItemPowerGenerator:
+    dw wPowerGeneratorUnlocked
+    db $01
+    dw $0000
+    db $21, $22
+    dw $6959
+
+ShopItemTableOriginal:
+    dw ShopItemETankPiece, ShopItemWTank, ShopItemETank, ShopItemWeaponRefill
+    dw ShopItemExtraLife, ShopItemEnergyBalancer, ShopItemSTank
+    dw ShopItemMegaArmUpgradeMH, ShopItemMegaArmUpgradeCL, ShopItemPowerGenerator
 
 Call_016_6224:
     ld a, [$c9c4]
@@ -5521,14 +5504,16 @@ Call_016_6a75:
     cp $02
     jr z, jr_016_6aa2
 
-    ld l, $38
-    push hl
-    push bc
-    ld a, $5e
-    call Call_000_020a
-    pop bc
-    pop hl
-    ld [hl], a
+    call LoadShopItemGfxWithMegaBusterMkIIIcon
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
+    nop
 
 jr_016_6aa2:
     ld l, c
@@ -7898,16 +7883,65 @@ Call_016_77c0:
     ret
 
 
+LoadShopItemGfxWithMegaBusterMkIIIcon:
+    ld l, $38
+    push hl
+    push bc
+    ld a, $5e
+    call Call_000_020a
+    pop bc
+    pop hl
+    ld [hl], a
+    call LoadShopItemMegaBusterMkIIIconGfx
+    ret
+
+LoadShopItemMegaBusterMkIIIconGfx:
+    push af
+    push bc
+    push de
+    push hl
+    ld hl, ShopItemMegaBusterMkIIIconGfx
+    ld bc, $0040
+    ld de, $8ca0
+    call Call_016_66a7
+    pop hl
+    pop de
+    pop bc
+    pop af
+    ret
+
 ShopItemTableExpanded:
-    dw $61b6, $61bf, $61c8, $61d1, $61da, $61e3, $61ec, $61f5
-    dw $61fe, ShopItemMegaBusterMkII, $6207
+    dw ShopItemETankPiece, ShopItemWTank, ShopItemETank, ShopItemWeaponRefill
+    dw ShopItemExtraLife, ShopItemEnergyBalancer, ShopItemSTank
+    dw ShopItemMegaArmUpgradeMH, ShopItemMegaArmUpgradeCL, ShopItemMegaBusterMkII
+    dw ShopItemPowerGenerator
 
 ShopItemMegaBusterMkII:
     dw wMegaBusterMkIIUnlocked
     db $01
     dw $0078
     db $3d, $22
-    dw $6937
+    dw ShopItemMegaBusterMkIIIconOAM
+
+ShopItemMegaBusterMkIIIconOAM:
+    db $f8, $f8, $ca, $00
+    db $00, $08, $cb, $00
+    db $08, $f8, $cc, $00
+    db $00, $08, $cd, $00
+    db $80
+    db $f8, $f8, $ca, $00
+    db $00, $08, $cb, $00
+    db $08, $f8, $cc, $00
+    db $00, $08, $cd, $00
+    db $80
+    db $f8, $f8, $ca, $00
+    db $00, $08, $cb, $00
+    db $08, $f8, $cc, $00
+    db $00, $08, $cd, $00
+    db $80
+
+ShopItemMegaBusterMkIIIconGfx:
+    INCBIN "gfx/mkii_icon.2bpp"
 
 Bank16TextPointersExpanded:
     dw $c937, Bank16Text_01, Bank16Text_02, Bank16Text_03, Bank16Text_04, Bank16Text_05, Bank16Text_06, Bank16Text_07
