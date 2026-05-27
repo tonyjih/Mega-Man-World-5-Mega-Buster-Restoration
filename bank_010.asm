@@ -10359,1262 +10359,169 @@ jr_010_6e41:
 
 
 Jump_010_6e5e:
-    ld hl, $6e77
-    ld bc, $1014
+    ld hl, PauseMenuBaseTilemap
+    ld bc, $1014 ; 16 rows, 20 tiles per row
     ld de, $9c40
     call Call_010_6e41
-    ld hl, $6fb7
+    ld hl, PauseMenuBaseGfx
     ld de, $88d0
-    ld bc, $03a0
+    ld bc, $03a0 ; 58 tiles
     call Call_000_0183
     ret
 
 
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    db $e4
-    db $ed
-    inc bc
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    inc bc
-    or a
-    cp b
-    cp e
-    cp h
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    inc bc
-    cp c
-    cp d
-    cp l
-    cp [hl]
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    cp a
-    ret nz
-
-    jp $03c4
-
-
-    inc bc
-    inc bc
-    inc bc
-    or $ef
-    inc bc
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    inc bc
-    pop bc
-    jp nz, $c6c5
-
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    nop
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    ldh a, [c]
-    rst $28
-    inc bc
-    nop
-    nop
-    inc bc
-    db $ec
-    rst $20
-    inc bc
-    xor a
-    or b
-    inc bc
-    ldh [c], a
-    db $eb
-    inc bc
-    or e
-    or h
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    nop
-    nop
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    or c
-    or d
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    or l
-    or [hl]
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    db $e4
-    pop hl
-    inc bc
-    and l
-    and [hl]
-    and a
-    inc bc
-    rst $28
-    and $03
-    xor e
-    xor h
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    xor b
-    xor c
-    xor d
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    xor l
-    xor [hl]
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    rst $28
-    ldh [c], a
-    inc bc
-    sbc d
-    inc bc
-    sbc e
-    sbc e
-    sbc e
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    db $ed
-    db $e4
-    rst $30
-    di
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    inc bc
-    nop
-    nop
-    dec bc
-    ld a, a
-    add b
-    add b
-    sub a
-    cp a
-    sub b
-    or b
-    sub b
-    or b
-    sub e
-    or e
-    sub b
-    or b
-    nop
-    nop
-    ret nc
-
-    cp $01
-    ld bc, $fde9
-    add hl, bc
-    dec c
-    add hl, bc
-    dec c
-    jp hl
-
-
-    db $fd
-    add hl, bc
-    dec e
-    sub b
-    or b
-    sub e
-    or e
-    sub b
-    or b
-    sub b
-    or b
-    sub a
-    cp a
-    add b
-    add b
-    dec bc
-    ld a, a
-    nop
-    nop
-    add hl, bc
-    dec e
-    jp hl
-
-
-    db $fd
-    add hl, bc
-    dec c
-    add hl, bc
-    dec c
-    jp hl
-
-
-    db $fd
-    ld bc, $d001
-    cp $00
-    nop
-    nop
-    nop
-    nop
-    ld b, h
-    nop
-    ld e, h
-    nop
-    ld b, h
-    nop
-    ld e, h
-    nop
-    ld b, h
-    nop
-    ld a, h
-    nop
-    nop
-    nop
-    nop
-    dec bc
-    ld a, a
-    add b
-    add b
-    sub a
-    cp a
-    add a
-    and a
-    add a
-    and a
-    add [hl]
-    and [hl]
-    add h
-    and h
-    nop
-    nop
-    ret nc
-
-    cp $01
-    ld bc, $fde9
-    pop hl
-    push hl
-    pop hl
-    push hl
-    ld h, c
-    ld h, l
-    ld hl, $8025
-    and b
-    add c
-    and c
-    add e
-    and e
-    add a
-    and a
-    sub a
-    cp a
-    add b
-    add b
-    dec bc
-    ld a, a
-    nop
-    nop
-    ld bc, $8105
-    add l
-    pop bc
-    push bc
-    pop hl
-    push hl
-    jp hl
-
-
-    db $fd
-    ld bc, $d001
-    cp $00
-    nop
-    nop
-    nop
-    dec bc
-    ld a, a
-    add b
-    add b
-    sub a
-    cp a
-    sub b
-    cp b
-    sub c
-    or c
-    sub c
-    or c
-    sub b
-    cp b
-    nop
-    nop
-    ret nc
-
-    cp $01
-    ld bc, $fde9
-    add hl, bc
-    dec e
-    adc c
-    adc l
-    ret
-
-
-    call Call_010_7d69
-    sub [hl]
-    cp [hl]
-    sub e
-    or e
-    sub c
-    or c
-    sub b
-    cp b
-    sub a
-    cp a
-    add b
-    add b
-    dec bc
-    ld a, a
-    nop
-    nop
-    add hl, bc
-    dec e
-    adc c
-    adc l
-    adc c
-    adc l
-    add hl, bc
-    dec e
-    jp hl
-
-
-    db $fd
-    ld bc, $d001
-    cp $00
-    nop
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    pop bc
-    rst $38
-    rst $38
-    rst $38
-    pop bc
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    jp $99ff
-
-
-    rst $38
-    sbc c
-    rst $38
-    sbc c
-    rst $38
-    sbc c
-    rst $38
-    sbc c
-    rst $38
-    sbc c
-    rst $38
-    jp $e7ff
-
-
-    rst $38
-    rst $00
-    rst $38
-    rst $20
-    rst $38
-    rst $20
-    rst $38
-    rst $20
-    rst $38
-    rst $20
-    rst $38
-    rst $20
-    rst $38
-    jp $e3ff
-
-
-    rst $38
-    ret
-
-
-    rst $38
-    ret
-
-
-    rst $38
-    ld sp, hl
-    rst $38
-    di
-    rst $38
-    rst $20
-    rst $38
-    rst $08
-    rst $38
-    pop bc
-    rst $38
-    db $e3
-    rst $38
-    reti
-
-
-    rst $38
-    ld sp, hl
-    rst $38
-    db $e3
-    rst $38
-    ld sp, hl
-    rst $38
-    ld sp, hl
-
-jr_010_70d3:
-    rst $38
-    reti
-
-
-    rst $38
-    db $e3
-
-jr_010_70d7:
-    rst $38
-    di
-    rst $38
-    db $e3
-    rst $38
-    db $d3
-    rst $38
-    or e
-    rst $38
-    or e
-    rst $38
-    add c
-    rst $38
-    di
-    rst $38
-    di
-    rst $38
-    pop bc
-    rst $38
-    rst $08
-    rst $38
-    rst $08
-    rst $38
-    jp $f9ff
-
-
-    rst $38
-    ld sp, hl
-    rst $38
-    reti
-
-
-    rst $38
-    db $e3
-    rst $38
-    db $e3
-    rst $38
-    call $cfff
-    rst $38
-    jp $c9ff
-
-
-    rst $38
-    ret
-
-
-    rst $38
-    ret
-
-
-    rst $38
-    db $e3
-    rst $38
-    pop bc
-    rst $38
-    ret
-
-
-    rst $38
-    ret
-
-
-    rst $38
-    ld sp, hl
-    rst $38
-    di
-    rst $38
-    di
-    rst $38
-    di
-    rst $38
-    di
-    rst $38
-    db $e3
-    rst $38
-    ret
-
-
-    rst $38
-    ret
-
-
-    rst $38
-    db $e3
-    rst $38
-    ret
-
-
-    rst $38
-    ret
-
-
-    rst $38
-    ret
-
-
-    rst $38
-    db $e3
-    rst $38
-    db $e3
-    rst $38
-    ret
-
-
-    rst $38
-    ret
-
-
-    rst $38
-    ret
-
-
-    rst $38
-    pop hl
-    rst $38
-    ld sp, hl
-    rst $38
-    reti
-
-
-    rst $38
-    db $e3
-    ldh [$ffe0], a
-    rst $08
-    rst $18
-    add b
-    and b
-    db $10
-    ld c, a
-    ld b, $5f
-    ld [$005f], sp
-    ld e, a
-    nop
-    ld e, a
-    ld [$c108], sp
-    di
-    ld [$1970], sp
-    inc hl
-    add hl, sp
-    add e
-    jr nc, jr_010_70d3
-
-    dec h
-    adc [hl]
-    jr nz, jr_010_70d7
-
-    ccf
-    ccf
-    cp a
-    ccf
-    ccf
-    ccf
-    sbc a
-    rra
-    adc a
-    rrca
-    cpl
-    rrca
-    ld b, e
-    inc bc
-    xor c
-    dec a
-    db $10
-    ld c, a
-    add b
-    and b
-    adc a
-    sbc a
-    ret nz
-
-    ret nz
-
-    rst $08
-    jp c, $dfca
-
-    rst $20
-    db $ed
-    ldh a, [$fff0]
-    ld h, $0f
-    add hl, hl
-    ld c, a
-    rrca
-    ret
-
-
-    add hl, hl
-    add hl, bc
-    and [hl]
-    rst $08
-    or a
-    ret nz
-
-    ret c
-
-    ld h, b
-    nop
-    nop
-    jp $ef03
-
-
-    rrca
-    jp $9503
-
-
-    add hl, hl
-    jp Jump_010_4f03
-
-
-    rrca
-    rrca
-    rrca
-    rra
-    rra
-    ld hl, sp-$08
-    di
-    rst $30
-    ldh [$ffe0], a
-    call nz, $88d6
-    xor h
-    nop
-    nop
-    rla
-    ld a, a
-    rla
-    ld a, a
-    ccf
-    ccf
-    sbc a
-    rst $18
-    rrca
-    rrca
-    ld b, a
-    rst $10
-    inc hl
-    ld l, e
-    ld bc, $d101
-    db $fd
-    pop de
-    db $fd
-    inc b
-    inc h
-    nop
-    nop
-    adc e
-    cp a
-    nop
-    nop
-    rla
-    ld a, a
-    rla
-    ld a, a
-    rla
-    ccf
-    add b
-    add b
-    ld b, c
-    ld c, c
-    ld bc, $a301
-    ei
-    ld bc, $d101
-    db $fd
-    pop de
-    db $fd
-    pop de
-    ld sp, hl
-    inc bc
-    inc bc
-    ld hl, sp-$08
-    db $e3
-    rst $20
-    ret z
-
-    ret z
-
-    sub c
-    sub c
-    sbc e
-    sbc e
-    dec d
-    ld d, l
-    ld d, c
-    ld d, c
-    ld d, c
-    ld d, l
-    rra
-    rra
-    rst $00
-    rst $20
-    inc de
-    dec de
-    ld bc, $0505
-    ld h, l
-    nop
-    ld [hl], d
-    ld [bc], a
-    ld [hl], d
-    ld [bc], a
-    ld [bc], a
-    ld b, b
-    ld b, h
-    ld b, b
-    ld c, a
-    nop
-    ld c, a
-    and b
-    and a
-    add b
-    and b
-    ret z
-
-    ret c
-
-    db $e3
-    rst $20
-    ld hl, sp-$08
-    ld c, d
-    ld c, d
-    ld c, d
-    ld c, d
-    ld a, b
-    ld a, d
-    ld c, c
-    ld c, c
-    ld c, c
-    ld c, c
-    inc bc
-    inc bc
-    rst $00
-    rst $20
-    rra
-    rra
-    ld hl, sp-$08
-    pop hl
-    pop hl
-    adc $ce
-    sub c
-    sub c
-    sub b
-    sub [hl]
-    db $10
-    ld d, [hl]
-    ld d, c
-    ld d, c
-    ld c, [hl]
-    ld c, [hl]
-    rra
-    rra
-    rst $00
-    rst $20
-    inc de
-    dec de
-    ld bc, $0505
-    ld h, l
-    nop
-    ld [hl], d
-    ld [bc], a
-    ld [hl], d
-    ld [bc], a
-    ld [de], a
-    ld b, b
-    ld b, c
-    ld b, b
-    ld c, a
-    nop
-    ld c, a
-    and b
-    and a
-    add b
-    and b
-    ret z
-
-    ret c
-
-    db $e3
-    rst $20
-    ld hl, sp-$08
-    ld b, d
-    ld d, d
-    ld b, d
-    ld d, d
-    ld b, b
-    ld d, d
-    ld b, c
-    ld b, c
-    ld a, c
-    ld a, c
-    inc bc
-    inc bc
-    rst $00
-    rst $20
-    rra
-    rra
-    rst $38
-    rst $38
-    ld hl, sp-$08
-    rst $30
-    rst $30
-    rst $28
-    rst $28
-    rst $08
-    rst $18
-    rst $18
-    rst $18
-    sbc a
-    cp a
-    sbc [hl]
-    cp a
-    rst $38
-    rst $38
-    ccf
-    ccf
-    sbc a
-    rst $18
-    rst $08
-    rst $28
-    rst $00
-    rst $30
-    rst $20
-    rst $30
-    ld h, e
-    ei
-    inc hl
-    ei
-    sbc [hl]
-    cp a
-    sbc [hl]
-    cp a
-    adc [hl]
-    cp a
-    rst $08
-    rst $18
-    rst $00
-    rst $18
-    db $e3
-    rst $28
-    ldh a, [$fff7]
-    ld hl, sp-$08
-    inc hl
-    ei
-    inc bc
-    ei
-    inc hl
-    ei
-    ld h, a
-    rst $30
-    rst $00
-    rst $30
-    adc a
-    rst $28
-    rra
-    rst $18
-    ccf
-    ccf
-    rst $38
-    rst $38
-    ld hl, sp-$08
-    rst $30
-    rst $30
-    db $e3
-    rst $28
-    pop bc
-    rst $18
-    sbc a
-    cp a
-    add l
-    cp a
-    adc e
-    cp a
-    rst $38
-    rst $38
-    ccf
-    ccf
-    ld e, a
-    rst $18
-    xor a
-    rst $28
-    rst $10
-    rst $30
-    ei
-    ei
-    cp e
-    ei
-    ld [hl], e
-    ei
-    add [hl]
-    cp a
-    adc l
-    cp a
-    sbc a
-    cp a
-    adc $df
-    rst $20
-    rst $28
-    ldh a, [$fff7]
-    ld hl, sp-$08
-    rst $38
-    rst $38
-    db $e3
-    ei
-    jp $f3fb
-
-
-    di
-    rst $00
-    rst $30
-    ld l, a
-    rst $28
-    rra
-    rst $18
-    ccf
-    ccf
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    ldh a, [$fff0]
-    ldh [c], a
-    rst $28
-    rst $00
-    rst $18
-    adc a
-    cp a
-    inc a
-    ld a, a
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rra
-    rra
-    cpl
-    rst $28
-    sub a
-    rst $30
-    set 7, e
-    dec b
-    db $fd
-    add a
-    cp a
-    rst $00
-    rst $18
-    db $e3
-    rst $28
-    di
-    rst $30
-    ld sp, hl
-    ei
-    db $fc
-    db $fd
-    cp $fe
-    rst $38
-    rst $38
-    dec de
-    ei
-    rla
-    rst $30
-    cpl
-    rst $28
-    ld e, a
-    rst $18
-    ccf
-    cp a
-    ld a, a
-    ld a, a
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    cp $fe
-    db $fc
-    db $fd
-    ld sp, hl
-    ei
-    di
-    rst $30
-    rst $20
-    rst $28
-    rst $20
-    rst $28
-    rst $20
-    rst $28
-    rst $20
-    rst $28
-    rst $38
-    rst $38
-    ld a, a
-    ld a, a
-    ccf
-    cp a
-    rra
-    rst $18
-    ld c, a
-    rst $28
-    ld c, a
-    rst $28
-    ld c, a
-    rst $28
-    ld c, a
-    rst $28
-    rst $20
-    rst $28
-    rst $20
-    rst $28
-    rst $20
-    rst $28
-    ldh [c], a
-    rst $28
-    pop af
-    rst $30
-    ld sp, hl
-    ei
-    db $fc
-    db $fd
-    cp $fe
-    ld c, a
-    rst $28
-    ld c, a
-    rst $28
-    ld c, a
-    rst $28
-    rst $08
-    rst $28
-    sbc a
-    rst $18
-    ccf
-    cp a
-    ld a, a
-    ld a, a
-    rst $38
-    rst $38
+PauseMenuBaseTilemap:
+    ; BG map $9c40
+    db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03
+    ; BG map $9c60
+    db $03, $03, $e4, $ed, $03, $00, $00, $00, $00, $00, $00, $00, $00, $03, $b7, $b8, $bb, $bc, $03, $03
+    ; BG map $9c80
+    db $03, $03, $03, $03, $03, $00, $00, $00, $00, $00, $00, $00, $00, $03, $b9, $ba, $bd, $be, $03, $03
+    ; BG map $9ca0
+    db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $bf, $c0, $c3, $c4, $03, $03
+    ; BG map $9cc0
+    db $03, $03, $f6, $ef, $03, $00, $00, $00, $00, $00, $00, $00, $00, $03, $c1, $c2, $c5, $c6, $03, $03
+    ; BG map $9ce0
+    db $03, $03, $03, $03, $03, $00, $00, $00, $00, $00, $00, $00, $00, $03, $03, $03, $03, $03, $03, $03
+    ; BG map $9d00
+    db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03
+    ; BG map $9d20
+    db $03, $03, $f2, $ef, $03, $00, $00, $03, $ec, $e7, $03, $af, $b0, $03, $e2, $eb, $03, $b3, $b4, $03
+    ; BG map $9d40
+    db $03, $03, $03, $03, $03, $00, $00, $03, $03, $03, $03, $b1, $b2, $03, $03, $03, $03, $b5, $b6, $03
+    ; BG map $9d60
+    db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03
+    ; BG map $9d80
+    db $03, $03, $e4, $e1, $03, $a5, $a6, $a7, $ef, $e6, $03, $ab, $ac, $03, $03, $03, $03, $03, $03, $03
+    ; BG map $9da0
+    db $03, $03, $03, $03, $03, $a8, $a9, $aa, $03, $03, $03, $ad, $ae, $03, $03, $03, $03, $03, $03, $03
+    ; BG map $9dc0
+    db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03
+    ; BG map $9de0
+    db $03, $03, $ef, $e2, $03, $9a, $03, $9b, $9b, $9b, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03
+    ; BG map $9e00
+    db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $ed, $e4, $f7, $f3, $03, $03, $03
+    ; BG map $9e20
+    db $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03, $03
+
+PauseMenuBaseGfx:
+    ; 58 tiles loaded to VRAM $88d0-$8c6f (tile IDs $8d-$c6)
+    ; tile $8d / VRAM $88d0
+    db $00, $00, $0b, $7f, $80, $80, $97, $bf, $90, $b0, $90, $b0, $93, $b3, $90, $b0
+    ; tile $8e / VRAM $88e0
+    db $00, $00, $d0, $fe, $01, $01, $e9, $fd, $09, $0d, $09, $0d, $e9, $fd, $09, $1d
+    ; tile $8f / VRAM $88f0
+    db $90, $b0, $93, $b3, $90, $b0, $90, $b0, $97, $bf, $80, $80, $0b, $7f, $00, $00
+    ; tile $90 / VRAM $8900
+    db $09, $1d, $e9, $fd, $09, $0d, $09, $0d, $e9, $fd, $01, $01, $d0, $fe, $00, $00
+    ; tile $91 / VRAM $8910
+    db $00, $00, $00, $44, $00, $5c, $00, $44, $00, $5c, $00, $44, $00, $7c, $00, $00
+    ; tile $92 / VRAM $8920
+    db $00, $00, $0b, $7f, $80, $80, $97, $bf, $87, $a7, $87, $a7, $86, $a6, $84, $a4
+    ; tile $93 / VRAM $8930
+    db $00, $00, $d0, $fe, $01, $01, $e9, $fd, $e1, $e5, $e1, $e5, $61, $65, $21, $25
+    ; tile $94 / VRAM $8940
+    db $80, $a0, $81, $a1, $83, $a3, $87, $a7, $97, $bf, $80, $80, $0b, $7f, $00, $00
+    ; tile $95 / VRAM $8950
+    db $01, $05, $81, $85, $c1, $c5, $e1, $e5, $e9, $fd, $01, $01, $d0, $fe, $00, $00
+    ; tile $96 / VRAM $8960
+    db $00, $00, $0b, $7f, $80, $80, $97, $bf, $90, $b8, $91, $b1, $91, $b1, $90, $b8
+    ; tile $97 / VRAM $8970
+    db $00, $00, $d0, $fe, $01, $01, $e9, $fd, $09, $1d, $89, $8d, $c9, $cd, $69, $7d
+    ; tile $98 / VRAM $8980
+    db $96, $be, $93, $b3, $91, $b1, $90, $b8, $97, $bf, $80, $80, $0b, $7f, $00, $00
+    ; tile $99 / VRAM $8990
+    db $09, $1d, $89, $8d, $89, $8d, $09, $1d, $e9, $fd, $01, $01, $d0, $fe, $00, $00
+    ; tile $9a / VRAM $89a0
+    db $ff, $ff, $ff, $ff, $ff, $ff, $ff, $c1, $ff, $ff, $ff, $c1, $ff, $ff, $ff, $ff
+    ; tile $9b / VRAM $89b0
+    db $ff, $c3, $ff, $99, $ff, $99, $ff, $99, $ff, $99, $ff, $99, $ff, $99, $ff, $c3
+    ; tile $9c / VRAM $89c0
+    db $ff, $e7, $ff, $c7, $ff, $e7, $ff, $e7, $ff, $e7, $ff, $e7, $ff, $e7, $ff, $c3
+    ; tile $9d / VRAM $89d0
+    db $ff, $e3, $ff, $c9, $ff, $c9, $ff, $f9, $ff, $f3, $ff, $e7, $ff, $cf, $ff, $c1
+    ; tile $9e / VRAM $89e0
+    db $ff, $e3, $ff, $d9, $ff, $f9, $ff, $e3, $ff, $f9, $ff, $f9, $ff, $d9, $ff, $e3
+    ; tile $9f / VRAM $89f0
+    db $ff, $f3, $ff, $e3, $ff, $d3, $ff, $b3, $ff, $b3, $ff, $81, $ff, $f3, $ff, $f3
+    ; tile $a0 / VRAM $8a00
+    db $ff, $c1, $ff, $cf, $ff, $cf, $ff, $c3, $ff, $f9, $ff, $f9, $ff, $d9, $ff, $e3
+    ; tile $a1 / VRAM $8a10
+    db $ff, $e3, $ff, $cd, $ff, $cf, $ff, $c3, $ff, $c9, $ff, $c9, $ff, $c9, $ff, $e3
+    ; tile $a2 / VRAM $8a20
+    db $ff, $c1, $ff, $c9, $ff, $c9, $ff, $f9, $ff, $f3, $ff, $f3, $ff, $f3, $ff, $f3
+    ; tile $a3 / VRAM $8a30
+    db $ff, $e3, $ff, $c9, $ff, $c9, $ff, $e3, $ff, $c9, $ff, $c9, $ff, $c9, $ff, $e3
+    ; tile $a4 / VRAM $8a40
+    db $ff, $e3, $ff, $c9, $ff, $c9, $ff, $c9, $ff, $e1, $ff, $f9, $ff, $d9, $ff, $e3
+    ; tile $a5 / VRAM $8a50
+    db $e0, $e0, $cf, $df, $80, $a0, $10, $4f, $06, $5f, $08, $5f, $00, $5f, $00, $5f
+    ; tile $a6 / VRAM $8a60
+    db $08, $08, $c1, $f3, $08, $70, $19, $23, $39, $83, $30, $80, $25, $8e, $20, $80
+    ; tile $a7 / VRAM $8a70
+    db $3f, $3f, $bf, $3f, $3f, $3f, $9f, $1f, $8f, $0f, $2f, $0f, $43, $03, $a9, $3d
+    ; tile $a8 / VRAM $8a80
+    db $10, $4f, $80, $a0, $8f, $9f, $c0, $c0, $cf, $da, $ca, $df, $e7, $ed, $f0, $f0
+    ; tile $a9 / VRAM $8a90
+    db $26, $0f, $29, $4f, $0f, $c9, $29, $09, $a6, $cf, $b7, $c0, $d8, $60, $00, $00
+    ; tile $aa / VRAM $8aa0
+    db $c3, $03, $ef, $0f, $c3, $03, $95, $29, $c3, $03, $4f, $0f, $0f, $0f, $1f, $1f
+    ; tile $ab / VRAM $8ab0
+    db $f8, $f8, $f3, $f7, $e0, $e0, $c4, $d6, $88, $ac, $00, $00, $17, $7f, $17, $7f
+    ; tile $ac / VRAM $8ac0
+    db $3f, $3f, $9f, $df, $0f, $0f, $47, $d7, $23, $6b, $01, $01, $d1, $fd, $d1, $fd
+    ; tile $ad / VRAM $8ad0
+    db $04, $24, $00, $00, $8b, $bf, $00, $00, $17, $7f, $17, $7f, $17, $3f, $80, $80
+    ; tile $ae / VRAM $8ae0
+    db $41, $49, $01, $01, $a3, $fb, $01, $01, $d1, $fd, $d1, $fd, $d1, $f9, $03, $03
+    ; tile $af / VRAM $8af0
+    db $f8, $f8, $e3, $e7, $c8, $c8, $91, $91, $9b, $9b, $15, $55, $51, $51, $51, $55
+    ; tile $b0 / VRAM $8b00
+    db $1f, $1f, $c7, $e7, $13, $1b, $01, $05, $05, $65, $00, $72, $02, $72, $02, $02
+    ; tile $b1 / VRAM $8b10
+    db $40, $44, $40, $4f, $00, $4f, $a0, $a7, $80, $a0, $c8, $d8, $e3, $e7, $f8, $f8
+    ; tile $b2 / VRAM $8b20
+    db $4a, $4a, $4a, $4a, $78, $7a, $49, $49, $49, $49, $03, $03, $c7, $e7, $1f, $1f
+    ; tile $b3 / VRAM $8b30
+    db $f8, $f8, $e1, $e1, $ce, $ce, $91, $91, $90, $96, $10, $56, $51, $51, $4e, $4e
+    ; tile $b4 / VRAM $8b40
+    db $1f, $1f, $c7, $e7, $13, $1b, $01, $05, $05, $65, $00, $72, $02, $72, $02, $12
+    ; tile $b5 / VRAM $8b50
+    db $40, $41, $40, $4f, $00, $4f, $a0, $a7, $80, $a0, $c8, $d8, $e3, $e7, $f8, $f8
+    ; tile $b6 / VRAM $8b60
+    db $42, $52, $42, $52, $40, $52, $41, $41, $79, $79, $03, $03, $c7, $e7, $1f, $1f
+    ; tile $b7 / VRAM $8b70
+    db $ff, $ff, $f8, $f8, $f7, $f7, $ef, $ef, $cf, $df, $df, $df, $9f, $bf, $9e, $bf
+    ; tile $b8 / VRAM $8b80
+    db $ff, $ff, $3f, $3f, $9f, $df, $cf, $ef, $c7, $f7, $e7, $f7, $63, $fb, $23, $fb
+    ; tile $b9 / VRAM $8b90
+    db $9e, $bf, $9e, $bf, $8e, $bf, $cf, $df, $c7, $df, $e3, $ef, $f0, $f7, $f8, $f8
+    ; tile $ba / VRAM $8ba0
+    db $23, $fb, $03, $fb, $23, $fb, $67, $f7, $c7, $f7, $8f, $ef, $1f, $df, $3f, $3f
+    ; tile $bb / VRAM $8bb0
+    db $ff, $ff, $f8, $f8, $f7, $f7, $e3, $ef, $c1, $df, $9f, $bf, $85, $bf, $8b, $bf
+    ; tile $bc / VRAM $8bc0
+    db $ff, $ff, $3f, $3f, $5f, $df, $af, $ef, $d7, $f7, $fb, $fb, $bb, $fb, $73, $fb
+    ; tile $bd / VRAM $8bd0
+    db $86, $bf, $8d, $bf, $9f, $bf, $ce, $df, $e7, $ef, $f0, $f7, $f8, $f8, $ff, $ff
+    ; tile $be / VRAM $8be0
+    db $e3, $fb, $c3, $fb, $f3, $f3, $c7, $f7, $6f, $ef, $1f, $df, $3f, $3f, $ff, $ff
+    ; tile $bf / VRAM $8bf0
+    db $ff, $ff, $ff, $ff, $ff, $ff, $f0, $f0, $e2, $ef, $c7, $df, $8f, $bf, $3c, $7f
+    ; tile $c0 / VRAM $8c00
+    db $ff, $ff, $ff, $ff, $ff, $ff, $1f, $1f, $2f, $ef, $97, $f7, $cb, $fb, $05, $fd
+    ; tile $c1 / VRAM $8c10
+    db $87, $bf, $c7, $df, $e3, $ef, $f3, $f7, $f9, $fb, $fc, $fd, $fe, $fe, $ff, $ff
+    ; tile $c2 / VRAM $8c20
+    db $1b, $fb, $17, $f7, $2f, $ef, $5f, $df, $3f, $bf, $7f, $7f, $ff, $ff, $ff, $ff
+    ; tile $c3 / VRAM $8c30
+    db $fe, $fe, $fc, $fd, $f9, $fb, $f3, $f7, $e7, $ef, $e7, $ef, $e7, $ef, $e7, $ef
+    ; tile $c4 / VRAM $8c40
+    db $ff, $ff, $7f, $7f, $3f, $bf, $1f, $df, $4f, $ef, $4f, $ef, $4f, $ef, $4f, $ef
+    ; tile $c5 / VRAM $8c50
+    db $e7, $ef, $e7, $ef, $e7, $ef, $e2, $ef, $f1, $f7, $f9, $fb, $fc, $fd, $fe, $fe
+    ; tile $c6 / VRAM $8c60
+    db $4f, $ef, $4f, $ef, $4f, $ef, $cf, $ef, $9f, $df, $3f, $bf, $7f, $7f, $ff, $ff
 
 Jump_010_7357:
     ld a, $00

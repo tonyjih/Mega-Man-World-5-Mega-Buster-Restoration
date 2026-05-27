@@ -11548,66 +11548,8 @@ ToggleMegaBusterModeOnPauseSelect:
 
 
 DrawPauseMegaBusterMkIIIconAndPChips:
-    call MovePauseUtilityItemsLeft
     call DrawPauseMegaBusterMkIIIcon
     jp Call_001_5e37
-
-
-MovePauseUtilityItemsLeft:
-    ld hl, $9d84
-    ld de, $9d82
-    ld c, $06
-    call CopyPauseVramBytes
-    ld hl, $9da4
-    ld de, $9da2
-    ld c, $06
-    call CopyPauseVramBytes
-    ld bc, $0202
-    ld de, $9d88
-    call Jump_001_5c7d
-    ld hl, $9d8b
-    ld de, $9d88
-    ld c, $05
-    call CopyPauseVramBytes
-    ld hl, $9dab
-    ld de, $9da8
-    ld c, $05
-    call CopyPauseVramBytes
-    ld bc, $0202
-    ld de, $9d8e
-    jp Jump_001_5c7d
-
-
-CopyPauseVramBytes:
-    call CopyPauseVramByte
-    dec c
-    jr nz, CopyPauseVramBytes
-
-    ret
-
-
-CopyPauseVramByte:
-    ldh a, [rLY]
-    cp $8e
-    jr nc, CopyPauseVramByte
-
-    di
-
-.waitMode:
-    ldh a, [rSTAT]
-    and $03
-    jr z, .waitMode
-
-.waitHBlank:
-    ldh a, [rSTAT]
-    and $03
-    jr nz, .waitHBlank
-
-    ld a, [hl+]
-    ld [de], a
-    ei
-    inc de
-    ret
 
 
 DrawPauseMegaBusterMkIIIcon:
