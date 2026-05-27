@@ -5955,7 +5955,7 @@ Call_001_5da1:
     call Call_001_5e0d
     call Call_001_5e1b
     call Call_001_5e29
-    call Call_001_5e37
+    call DrawPauseMegaBusterMkIIIconAndPChips
     call Call_001_5dc8
     call Call_001_5d5b
     rst $28
@@ -11545,3 +11545,129 @@ ToggleMegaBusterModeOnPauseSelect:
 .done:
     ld a, [wMenuInputPressedRepeat]
     ret
+
+
+DrawPauseMegaBusterMkIIIconAndPChips:
+    call MovePauseUtilityItemsLeft
+    call DrawPauseMegaBusterMkIIIcon
+    jp Call_001_5e37
+
+
+MovePauseUtilityItemsLeft:
+    ld hl, $9d84
+    ld de, $9d82
+    ld c, $06
+    call CopyPauseVramBytes
+    ld hl, $9da4
+    ld de, $9da2
+    ld c, $06
+    call CopyPauseVramBytes
+    ld bc, $0202
+    ld de, $9d88
+    call Jump_001_5c7d
+    ld hl, $9d8b
+    ld de, $9d88
+    ld c, $05
+    call CopyPauseVramBytes
+    ld hl, $9dab
+    ld de, $9da8
+    ld c, $05
+    call CopyPauseVramBytes
+    ld bc, $0202
+    ld de, $9d8e
+    jp Jump_001_5c7d
+
+
+CopyPauseVramBytes:
+    call CopyPauseVramByte
+    dec c
+    jr nz, CopyPauseVramBytes
+
+    ret
+
+
+CopyPauseVramByte:
+    ldh a, [rLY]
+    cp $8e
+    jr nc, CopyPauseVramByte
+
+    di
+
+.waitMode:
+    ldh a, [rSTAT]
+    and $03
+    jr z, .waitMode
+
+.waitHBlank:
+    ldh a, [rSTAT]
+    and $03
+    jr nz, .waitHBlank
+
+    ld a, [hl+]
+    ld [de], a
+    ei
+    inc de
+    ret
+
+
+DrawPauseMegaBusterMkIIIcon:
+    ld hl, PauseMegaBusterMkIIIconGfx
+    ld bc, $0040
+    ld de, $8c70
+    call Call_000_1c39
+    ld a, [wMegaBusterMkIIUnlocked]
+    or a
+    jr z, .hide
+
+    ld hl, PauseMegaBusterMkIIIconTilemapTop
+    ld bc, $0002
+    ld de, $9d91
+    call Call_000_1c39
+    ld hl, PauseMegaBusterMkIIIconTilemapBottom
+    ld bc, $0002
+    ld de, $9db1
+    call Call_000_1c39
+    ld hl, PauseMegaBusterMkIILabelGfx
+    ld bc, $0020
+    ld de, $8cb0
+    call Call_000_1c39
+    ld hl, PauseMegaBusterMkIILabelTilemap
+    ld bc, $0002
+    ld de, $9d8e
+    jp Jump_000_1c39
+
+.hide:
+    ld bc, $0202
+    ld de, $9d91
+    jp Jump_001_5c7d
+
+PauseMegaBusterMkIIIconTilemapTop:
+    db $c7, $c8
+
+PauseMegaBusterMkIIIconTilemapBottom:
+    db $c9, $ca
+
+PauseMegaBusterMkIILabelTilemap:
+    db $cb, $cc
+
+PauseMegaBusterMkIIIconGfx:
+    INCBIN "gfx/mkii_icon.2bpp"
+
+PauseMegaBusterMkIILabelGfx:
+    db %01111110, %01111110
+    db %00111100, %00111100
+    db %01011010, %01011010
+    db %01100110, %01100110
+    db %01111110, %01111110
+    db %01111110, %01111110
+    db %01111110, %01111110
+    db %11111111, %11111111
+
+    db %10000011, %10000011
+    db %01111101, %01111101
+    db %11111101, %11111101
+    db %11110011, %11110011
+    db %11001111, %11001111
+    db %10111111, %10111111
+    db %00000001, %00000001
+    db %11111111, %11111111
