@@ -8271,7 +8271,7 @@ Jump_004_63d6:
     push de
     ld a, [$de9b]
     ld b, $01
-    call Call_000_0300
+    call DrawHudWeaponModeLabel
     pop hl
     ld a, [hl+]
     push hl
@@ -8279,7 +8279,7 @@ Jump_004_63d6:
     call Call_004_63f0
     pop hl
     ld a, [hl+]
-    ld de, $9710
+    jp DrawHudSecondWeaponModeTile
 
 Call_004_63f0:
     cp $03
@@ -14828,67 +14828,46 @@ Jump_004_7eff:
     rst $38
     rst $38
     rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
-    rst $38
+DrawHudWeaponModeLabel:
+    call Call_000_0300
+    ld a, [$de9b]
+    or a
+    ret nz
+
+    ld a, [wPrimaryWeaponModeFlags]
+    bit PRIMARY_WEAPON_MEGA_BUSTER_F, a
+    ret z
+
+    ld hl, $d080
+    ld [hl], $ec
+    inc hl
+    ld [hl], $cc
+    ret
+
+
+DrawHudSecondWeaponModeTile:
+    cp $cc
+    jr z, .megaBusterDigit2
+
+    ld de, $9710
+    jp Call_004_63f0
+
+.megaBusterDigit2:
+    ld hl, HudMegaBusterDigit2Gfx
+    ld de, $9710
+    ld bc, $0010
+    jp Jump_000_0183
+
+
+HudMegaBusterDigit2Gfx:
+    db %11111111, %11111111
+    db %11111111, %11000001
+    db %11111111, %10011100
+    db %11111111, %11111100
+    db %11111111, %11100001
+    db %11111111, %10011111
+    db %11111111, %10011111
+    db %11111111, %10000000
 
 Jump_004_7fff:
     rst $38

@@ -3518,7 +3518,7 @@ jr_001_5155:
     inc l
 
 jr_001_51a8:
-    call Call_001_53d8
+    call DrawPauseWeaponMenuWithModeLabel
     ld a, $00
     ldh [rWY], a
     ld c, $1b
@@ -3527,7 +3527,7 @@ jr_001_51a8:
 
 jr_001_51b6:
     call Call_000_19ae
-    call Call_001_53d8
+    call DrawPauseWeaponMenuWithModeLabel
     call Call_000_19ae
     ld b, $80
 
@@ -3582,7 +3582,7 @@ jr_001_51f2:
 jr_001_5206:
     call Call_000_19ae
     call Call_001_7873
-    call ToggleMegaBusterModeOnPauseSelect
+    call ToggleMegaBusterModeAndRedrawPauseLabel
     and $09
     jr nz, jr_001_521f
 
@@ -3857,7 +3857,7 @@ Call_001_538b:
     push af
     ld de, $d080
     push de
-    call $54be
+    call DrawPauseWeaponLabel
     ld hl, $5522
     call Call_000_1cff
     ld e, l
@@ -3978,7 +3978,7 @@ Call_001_5427:
 jr_001_5432:
     pop af
     push af
-    call $54be
+    call DrawPauseWeaponLabel
     pop af
     cp $0d
     ret z
@@ -5938,7 +5938,7 @@ jr_001_5d7b:
 Call_001_5d92:
     call Call_001_5d4d
     call Call_001_553e
-    call Call_001_53d8
+    call DrawPauseWeaponMenuWithModeLabel
     call Call_001_5d5b
     rst $28
     inc hl
@@ -11614,3 +11614,71 @@ PauseMegaBusterMkIILabelGfx:
     db %11111111, %10011111
     db %11111111, %10011111
     db %11111111, %10000000
+
+
+ToggleMegaBusterModeAndRedrawPauseLabel:
+    call ToggleMegaBusterModeOnPauseSelect
+    push af
+    call DrawPauseDefaultWeaponModeTilemap
+    pop af
+    ret
+
+
+DrawPauseWeaponMenuWithModeLabel:
+    call LoadPauseMegaBusterMkIILabelGfx
+    jp Call_001_53d8
+
+
+DrawPauseWeaponLabel:
+    call $54be
+    jp DrawPauseDefaultWeaponModeLabel
+
+
+DrawPauseDefaultWeaponModeLabel:
+    push af
+    or a
+    jr nz, .done
+
+    ld a, b
+    or a
+    jr z, .done
+
+    call WritePauseDefaultWeaponModeLabelBuffer
+
+.done:
+    pop af
+    ret
+
+
+DrawPauseDefaultWeaponModeTilemap:
+    call WritePauseDefaultWeaponModeLabelBuffer
+    ld hl, $d080
+    ld bc, $0002
+    ld de, $9c62
+    jp Jump_000_1c39
+
+
+WritePauseDefaultWeaponModeLabelBuffer:
+    ld hl, $d080
+    ld a, [wPrimaryWeaponModeFlags]
+    bit PRIMARY_WEAPON_MEGA_BUSTER_F, a
+    jr nz, .megaBuster
+
+    ld [hl], $ef
+    inc hl
+    ld [hl], $03
+    ret
+
+.megaBuster:
+    ld [hl], $cb
+    inc hl
+    ld [hl], $cc
+    ret
+
+
+LoadPauseMegaBusterMkIILabelGfx:
+    ld hl, PauseMegaBusterMkIILabelGfx
+    ld bc, $0020
+    ld de, $8cb0
+    call Call_000_1c39
+    ret
