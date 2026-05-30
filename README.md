@@ -1,6 +1,6 @@
 # TL;DR
 
-Restores the hidden Mega Buster system in Mega Man World 5 and lets players switch between the Mega Arm and Mega Buster from the pause menu.
+Restores the hidden Mega Buster system in Mega Man World 5 as the shop-unlocked Mega Buster Mk II, then lets players switch between the Mega Arm and Mega Buster from the pause menu.
 
 # Full Description
 
@@ -8,13 +8,15 @@ This hack restores a hidden, mostly complete Mega Buster system left inside Mega
 
 In the final game, Mega Man normally uses the Mega Arm as his default weapon. However, the ROM still contains unused code, projectile behavior, graphics loading routines, and sound effects for a more traditional Mega Buster. This hack reconnects that hidden functionality and makes it usable during normal gameplay.
 
-Players can switch between the Mega Arm and Mega Buster from the pause menu by pressing SELECT.
+After buying the Mega Buster Mk II from the shop, players can switch between the Mega Arm and Mega Buster from the pause menu by pressing SELECT.
 
 # Features
 
 - Restores the unused Mega Buster as a playable main weapon
 - Keeps the original Mega Arm fully usable
-- Press SELECT on the pause screen to toggle between Mega Arm and Mega Buster
+- Adds the Mega Buster Mk II as a shop item instead of enabling it by default
+- Press SELECT on the pause screen to toggle between Mega Arm and Mega Buster after unlocking Mega Buster Mk II
+- Shows P for Mega Arm mode and M2 for Mega Buster mode in the pause menu and gameplay HUD
 - Loads the correct Mega Buster projectile graphics
 - Uses separate switching sound effects for each mode
 - Gives the Mega Buster its own behavior, including recoil and very fast charging
@@ -24,7 +26,7 @@ Players can switch between the Mega Arm and Mega Buster from the pause menu by p
 # Controls
 
 - Open the pause menu
-- Press SELECT to switch the main weapon mode
+- Press SELECT to switch the main weapon mode after buying Mega Buster Mk II
 - Resume gameplay
 
 # Weapon Modes
@@ -33,6 +35,18 @@ Players can switch between the Mega Arm and Mega Buster from the pause menu by p
 - Mega Buster: restored hidden buster mode
 
 # Version History
+
+## v2.01
+
+- Added mode-specific UI labels for the default weapon
+- Mega Arm mode now displays P in the pause menu and gameplay HUD
+- Mega Buster mode now displays M2 in the pause menu and gameplay HUD
+
+## v2.0
+
+- Added Mega Buster Mk II as a proper shop item
+- Mega Buster mode must now be purchased before it can be used
+- Reworked the restored buster into a full game-style unlock instead of a cheat-style always-on feature
 
 ## v1.2
 
