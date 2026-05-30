@@ -7941,7 +7941,7 @@ ShopItemMegaBusterMkIIIconOAM:
     db $80
 
 ShopItemMegaBusterMkIIIconGfx:
-    INCBIN "gfx/mkii_icon.2bpp"
+    INCBIN "gfx/mkii_icon_shop.2bpp"
 
 Bank16TextPointersExpanded:
     dw $c937, Bank16Text_01, Bank16Text_02, Bank16Text_03, Bank16Text_04, Bank16Text_05, Bank16Text_06, Bank16Text_07

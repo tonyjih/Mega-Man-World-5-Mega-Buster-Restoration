@@ -5,7 +5,7 @@ RGBGFX ?= ../rgbgfx.exe
 
 all: game.gb
 
-GFX_DEPS := gfx/mkii_icon.2bpp
+GFX_DEPS := gfx/mkii_icon.2bpp gfx/mkii_icon_shop.2bpp
 
 %.2bpp: %.png
 	$(RGBGFX) --colors embedded -o $@ $<
